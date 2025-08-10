@@ -5,8 +5,6 @@ WORKDIR /app
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
          build-essential \
-         gcc \
-         libatlas-base-dev \
          redis-tools \
     && rm -rf /var/lib/apt/lists/*
 
@@ -19,10 +17,7 @@ COPY . /app
 
 COPY patch/PyQStationConnectWin.py \
      /usr/local/lib/python3.12/site-packages/ginsapy/giutility/connect/PyQStationConnectWin.py
-COPY patch/libGInsUtility_x64.so \
-     /usr/local/lib/python3.12/site-packages/ginsapy/giutility/libGInsUtility_x64.so
 
-# Create volume mount
 RUN mkdir -p files/input \
          files/failed \
          files/stats \
@@ -34,7 +29,6 @@ RUN mkdir -p files/input \
          files/alarmed \
          logs
 
-# Mark external volumes
 VOLUME ["/app/files/input", \
         "/app/files/failed", \
         "/app/files/stats", \

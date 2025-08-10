@@ -34,7 +34,7 @@ redis_client = redis.Redis(
     db=  REDIS_DB
 )
 
-def udbf_file_analysis(file_path: str, failed_dir: str, stats_dir: str, finished_dir: str) -> None:
+def udbf_file_analysis(file_path: str, failed_dir: str, stats_dir: str, finished_dir: str, redis_db: redis.Redis) -> None:
     """
     Main work loop for recognized .dat files.
     """
