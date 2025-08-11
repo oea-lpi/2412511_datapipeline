@@ -3,6 +3,7 @@ from typing import Callable
 
 from watchdog.events import FileSystemEventHandler, FileMovedEvent, FileCreatedEvent, FileSystemEvent
 
+
 logger = logging.getLogger(__name__)
 
 class Watcher(FileSystemEventHandler):

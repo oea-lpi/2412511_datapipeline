@@ -1,0 +1,64 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "simple": {
+            "format": "%(levelname)s: %(message)s"
+        },
+        "detailed": {
+            "format": "[%(levelname)s|%(module)s|L%(lineon)d] %(asctime)s: %(message)s",
+            "datefmt": "%Y-%m-%dT%H:%M:%S%z"
+        },
+        "json": {
+            "()": "logger.MyJSONFormatter.MyJSONFormatter",
+            "fmt_keys": {
+                "level": "levelname",
+                "timestamp": "timestamp",
+                "message": "message",
+                "logger": "name",
+                "module": "module",
+                "function": "funcName",
+                "line": "lineno",
+                "thread_name": "threadName"
+            }
+        }
+    },
+    "handlers": {
+        "stderr": {
+            "class": "logging.StreamHandler",
+            "level": "WARNING",
+            "formatter": "simple",
+            "stream": "ext://sys.stdout"
+        },
+        "file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "DEBUG",
+            "formatter": "json",
+            "filename": "logs/app.log.jsonl",
+            "maxBytes": 50000000,
+            "backupCount": 3
+        }
+    },
+    "loggers": {
+        "root": {
+            "level": "DEBUG",
+            "handlers": [
+                "stderr", 
+                "file"
+            ]
+        },
+        "websockets.client": {
+            "level": "WARNING"
+        },
+        "paramiko": {
+            "level": "WARNING",
+            "handlers": [],         
+            "propagate": true
+        },
+        "paramiko.transport.sftp": {
+            "level": "WARNING",
+            "handlers": [],
+            "propagate": true
+        }
+    }
+}
