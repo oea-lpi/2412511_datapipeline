@@ -10,33 +10,25 @@ from zoneinfo import ZoneInfo
 
 import redis
 
-from data_operations.DataConverterUDBF import DataConverterUDBF
+from gantner_operations.DataConverterUDBF import DataConverterUDBF
+
 
 logger = logging.getLogger(__name__)
 
-# Config
-ALARM_DIR = Path(os.getenv("ALARMED_DIR", "/app/files/alarmed"))
-TIMEZONE = os.getenv("TIMEZONE", "Europe/Berlin")
-INTERNAL_ALLSAT_FINISHED = Path(os.getenv("INTERNAL_ALLSAT_FINISHED", "/app/files/allsat/finished"))
+BASIC_REDIS_TTL = int(os.getenv("BASIC_REDIS_TTL", "60"))
+BASIC_ROUNDING = int(os.getenv("BASIC_ROUNDING", "3"))
 
-# Redis setup
-REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
-REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
-REDIS_DB   = int(os.getenv("REDIS_DB", 0))
-REDIS_STATS_TTL = int(os.getenv("REDIS_STATS_TTL", 60))
-
-# Patterns
-ALLSAT_PATTERN = re.compile(r'FHEB_(\d{4}_\d{2}_\d{2}_\d{2}_\d{2}_\d{2})')
-
-redis_client = redis.Redis(
-    host=REDIS_HOST,
-    port=REDIS_PORT,
-    db=  REDIS_DB
-)
-
-def udbf_file_analysis(file_path: str, failed_dir: str, stats_dir: str, finished_dir: str, redis_db: redis.Redis) -> None:
+def udbf_file_analysis(file_path: Path, stats_dir: Path, finished_dir: Path, redis_db: redis.Redis) -> None:
     """
-    Main work loop for recognized .dat files.
+    Main processing flow for recognized DAT files.
+    Current: Read files, create a CSV with statistical values, move the file to finished dir. Failed files are moved on Pipeline level.
+
+    Args:
+        file_path: Path object to the currently to be processed file.
+        failed_dir: General path to the directory for failed files.
+        stats_dir: General path to the directory statistics files.
+        finished_dir: General path to the directory processed files.    
+        redis_db: Redis databank to save values to.    
     """
 
     # Sanity checks
@@ -48,26 +40,53 @@ def udbf_file_analysis(file_path: str, failed_dir: str, stats_dir: str, finished
         logger.error(f"Called on non-.dat file: {file_path}")
         return
     
-    round_factor = 3
-    raw_file = os.path.basename(file_path)
-    path_dir = os.path.dirname(file_path)
+    round_factor = BASIC_ROUNDING
+    raw_file = file_path.name
+    path_dir = file_path.parent
 
     conv = DataConverterUDBF(
-        raw_file,              # original filename
-        path_dir,              # input directory
-        file_path,             # full path
-        round_factor
+        str(raw_file),              # original filename
+        str(path_dir),              # input directory
+        str(file_path),             # full path
+        str(round_factor)
     )
 
     conv.check_readability_of_data_file()
     conv.read_udbf_file()
     conv.date_converter()
-    conv.save_statistics_csv(stats_dir)
+    conv.save_statistics_csv(str(stats_dir))
+
+    # Publish stats to redis hash
+    key = f"stats:{raw_file.replace('.dat','')}"
+    mapping: dict[str,str] = {}
+    try:
+        for _, row in conv.df_stats.iterrows():
+            sensor = row["Sensor"]
+            mapping.update({
+                f"{sensor}:mean"   : row["Mean"],
+                f"{sensor}:median" : row["Median"],
+                f"{sensor}:min"    : row["Minimum"],
+                f"{sensor}:max"    : row["Maximum"]
+            })
+        if mapping:
+            pipe = redis_db.pipeline()
+            pipe.hset(key, mapping=mapping)
+            pipe.expire(key, BASIC_REDIS_TTL)
+            pipe.execute()
+        else:
+            logger.warning(f"No stats to publish for {raw_file!r}, skipping.")
+
+        logger.debug(f"Published {len(mapping)} fields to {key!r}, TTL={BASIC_REDIS_TTL}s")
+    except Exception:
+        logger.exception(f"Failed to push stats to Redis for {raw_file}")
+
+    conv.move_to_finished(str(finished_dir))
 
 
+    """ OLD CODE SNIPPET FOR ALARMED LOGIC, TO SPECIFIC TO BE FACOTRIZED, ADJUST AS NEEDED    
     # Alarmed logic
-    if Path(stats_dir).stem.endswith("stats"):
-        base = Path(file_path).stem 
+    if stats_dir.stem.endswith("stats"):
+        base = file_path.stem 
 
         for idx, name in enumerate(conv.channel_names):
             if (name.endswith("_GAL") or name.endswith("_RAL")) and conv.data[:, idx].max() == 1:
@@ -83,9 +102,9 @@ def udbf_file_analysis(file_path: str, failed_dir: str, stats_dir: str, finished
 
                 # Locate the matching 100 Hz paths
                 finished_100hz = Path(os.getenv("FINISHED_DIR_100HZ", "/app/files/finished_100hz"))
-                stats100hz     = Path(os.getenv("STATS_DIR_100HZ",    "/app/files/stats_100hz"))
+                stats100hz = Path(os.getenv("STATS_DIR_100HZ", "/app/files/stats_100hz"))
                 dat100 = finished_100hz / f"{base}.dat"
-                csv100 = stats100hz    / f"{base}_stats.csv"
+                csv100 = stats100hz / f"{base}_stats.csv"
 
                 # Wait up to 30 s for the .dat to arrive
                 waited = 0
@@ -109,7 +128,7 @@ def udbf_file_analysis(file_path: str, failed_dir: str, stats_dir: str, finished
                 if m:
                     ts_utc = datetime.strptime(m.group(1), "%Y-%m-%d_%H-%M-%S").replace(tzinfo=timezone.utc)
                 else:
-                    # Fallback to mtime if name isn’t in the expected format
+                    # Fallback to mtime if name isn't in the expected format
                     ts_utc = datetime.fromtimestamp(Path(file_path).stat().st_mtime, tz=timezone.utc)
                 ts_end_utc = ts_utc + timedelta(minutes=10)
                 ts_berlin = ts_end_utc.astimezone(ZoneInfo(TIMEZONE))
@@ -124,88 +143,6 @@ def udbf_file_analysis(file_path: str, failed_dir: str, stats_dir: str, finished
                 if allsat_path.exists():
                     shutil.copy(allsat_path, target / allsat_path.name)
 
-                break
-
-    """
-    # Alarmed logic
-    if os.path.basename(stats_dir).endswith("stats"):
-        base = os.path.splitext(os.path.basename(file_path))[0]
-
-        for idx, name in enumerate(conv.channel_names):
-            if (name.endswith("_GAL") or name.endswith("_RAL")) and conv.data[:,idx].max() == 1:
-                target = os.path.join(ALARM_DIR, base)
-                os.makedirs(target, exist_ok=True)
-
-                # Copy 1Hz .dat file and .csv
-                shutil.copy(file_path, os.path.join(target, os.path.basename(file_path)))
-                stats1 = os.path.join(stats_dir, base + "_stats.csv")
-                if os.path.exists(stats1):
-                    shutil.copy(stats1, os.path.join(target, os.path.basename(stats1)))
-
-                # Copy 100Hz .dat file and .csv
-                finished_100hz = os.getenv("FINISHED_DIR_100HZ", "/app/files/finished_100hz")
-                stats100hz = os.getenv("STATS_DIR_100HZ", "/app/files/stats_100hz")
-                dat100 = os.path.join(finished_100hz, base + ".dat")
-                csv100 = os.path.join(stats100hz, base + "_stats.csv")
-
-                # Give the 100Hz pipeline up to 30 s to finish
-                wait = 0
-                while wait < 30 and not os.path.exists(dat100):
-                    time.sleep(1); wait += 1
-                if os.path.exists(dat100):
-                    shutil.copy(dat100, os.path.join(target, os.path.basename(dat100)))
-
-                # and wait a bit more for the 100 Hz stats.csv
-                while wait < 180 and not os.path.exists(csv100):
-                    time.sleep(2); wait += 2
-                if os.path.exists(csv100):
-                    shutil.copy(csv100, os.path.join(target, os.path.basename(csv100)))
-                break
-
-    # "Alarm" logic for 100hz files.
-    # If any channel endswith _GAL or _RAL and its max==1,
-    # copy .dat + stats.csv into alarm folder.
-    alarm_dir = os.getenv("ALARMED_100HZ_DIR", "/app/files/alarmed_100hz")
-    for idx, name in enumerate(conv.channel_names):
-        if (name.endswith("_GAL") or name.endswith("_RAL")) and conv.data[:, idx].max() == 1:
-            # build a subfolder named like the dat file (sans “.dat”)
-            base = os.path.splitext(os.path.basename(file_path))[0]
-            target = os.path.join(alarm_dir, base)
-            os.makedirs(target, exist_ok=True)
-            # copy raw .dat
-            shutil.copy(file_path, os.path.join(target, os.path.basename(file_path)))
-            # copy its stats CSV
-            stats_csv = os.path.join(stats_dir, base + "_stats.csv")
-            if os.path.exists(stats_csv):
-                shutil.copy(stats_csv, os.path.join(target, os.path.basename(stats_csv)))
-            break"""
-
-    # Publish stats to redis hash
-    key = f"stats:{raw_file.replace('.dat','')}"
-    mapping: dict[str,str] = {}
-    try:
-        for _, row in conv.df_stats.iterrows():
-            sensor = row["Sensor"]
-            mapping.update({
-                f"{sensor}:last"   : row["Last Value"],
-                f"{sensor}:mean"   : row["Mean"],
-                f"{sensor}:median" : row["Median"],
-                f"{sensor}:min"    : row["Minimum"],
-                f"{sensor}:max"    : row["Maximum"]
-            })
-
-        if mapping:
-            pipe = redis_client.pipeline()
-            pipe.hset(key, mapping=mapping)
-            pipe.expire(key, REDIS_STATS_TTL)
-            pipe.execute()
-        else:
-            logger.warning(f"No stats to publish for {raw_file!r}, skipping.")
-
-        logger.info(f"Published {len(mapping)} fields to {key!r}, TTL={REDIS_STATS_TTL}s")
-    except Exception:
-        logger.exception(f"Failed to push stats to Redis for {raw_file}")
-
-    conv.move_to_finished(finished_dir)
+                break"""
 
 

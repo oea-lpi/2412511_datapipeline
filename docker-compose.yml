@@ -21,15 +21,14 @@ services:
     env_file:
       - ./.env
     volumes:
-      - ./config:/app/config
+      - ./helper:/app/helper
+      - ./logger:/app/logger
+      - "/home/omarea/Programs/VSCode/2412511_data/100hz/input:/app/files/input_100hz"
+      - "/home/omarea/Programs/VSCode/2412511_data/100hz/finished:/app/files/finished_100hz"
+      - "/home/omarea/Programs/VSCode/2412511_data/100hz/stats:/app/files/stats_100hz"
+      - "/home/omarea/Programs/VSCode/2412511_data/100hz/failed:/app/files/failed_100hz"
+      - "/home/omarea/Programs/VSCode/2412511_data/logs:/app/logs"
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD-SHELL",
-        "redis-cli -h ${REDIS_HOST:-redis} -p ${REDIS_PORT:-6379} \
-        GET ${HEARTBEAT_KEY_CONVERTER:-heartbeat:converter} | grep -q '^0$'"]
-      interval: 30s
-      timeout: 5s
-      retries: 3
 
 volumes:
   redis_data:

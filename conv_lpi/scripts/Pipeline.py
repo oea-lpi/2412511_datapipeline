@@ -11,6 +11,7 @@ from helper.utility import extract_ts
 from udbf_file_analysis import udbf_file_analysis
 from watcher import Watcher
 
+
 logger = logging.getLogger(__name__)
 
 class Pipeline:
@@ -22,7 +23,7 @@ class Pipeline:
         finished_dir: str, 
         timestamp_re: re.Pattern[str], 
         datetime_fmt: str, 
-        redis_db: redis.Redis,
+        redis_db: redis.Redis
     ):
         self.name = name
         self.input = Path(input_dir)
@@ -52,8 +53,12 @@ class Pipeline:
         for p in sorted(all_dat, key=self._ts)[:-1]: 
             self.enqueue(p)
 
-    def _ts(self, path: Path) -> datetime:
-        return extract_ts(path, self.timestamp_re, self.datetime_fmt)
+    def _ts(self, path: Path) -> datetime | None:
+        try:
+            return extract_ts(path, self.timestamp_re, self.datetime_fmt)
+        except:
+            logger.warning("Skipping file with unparsable timestamp: %s", path)
+            return None
 
     def enqueue(self, path: Path | str) -> None:
         p = Path(path)
@@ -63,37 +68,43 @@ class Pipeline:
                 self.queue.put(p)
 
     def schedule_next(self, _) -> None:
-        # If >=2 files remain, pick the oldest
-        dats = [p for p in self.input.iterdir() if p.suffix.lower() == ".dat"]
-        if len(dats) > 1:
-            self.enqueue(min(dats, key=self._ts))
+        dats = [p for p in self.input.iterdir() if p.is_file() and p.suffix.lower()==".dat"]
+        candidates: list[tuple[datetime, Path]] = []
+        for p in dats:
+            if p in self.processed:
+                continue
+            ts = self._ts(p)       
+            if ts is not None:
+                candidates.append((ts, p)) 
+        if len(candidates) > 1:
+            _, oldest = min(candidates) 
+            self.enqueue(oldest)
 
     def worker(self) -> None:
         while True:
-            p: Path = self.queue.get()
+            file_path: Path = self.queue.get()
             remove_from_processed = False #Flag so that faulty files that could not be moved do not get infinitely requeued
             try:
-                logger.info(f"[{self.name}] processing {p}")
+                logger.info(f"[{self.name}] processing {file_path}")
                 udbf_file_analysis(
-                    str(p),
-                    failed_dir=str(self.failed),
-                    stats_dir=str(self.stats),
-                    finished_dir=str(self.finished),
-                    redis_db=self.redis_db
+                    file_path,
+                    stats_dir = self.stats,
+                    finished_dir = self.finished,
+                    redis_db = self.redis_db
                 )
                 remove_from_processed = True 
             except Exception:
-                logger.exception(f"[{self.name}] failed on {p}, moving to failed dir.")
-                dest = self.failed / p.name
+                logger.exception(f"[{self.name}] failed on {file_path}, moving to failed dir.")
+                dest = self.failed / file_path.name
                 try:
-                    shutil.move(str(p), str(dest))
+                    shutil.move(str(file_path), str(dest))
                     logger.info(f"Moved bad file to {dest}.")
                 except Exception:
-                    logger.exception(f"Could not move {p} to failed dir.")
+                    logger.exception(f"Could not move {file_path} to failed dir.")
             finally:
                 with self.lock:
                     if remove_from_processed:
-                        self.processed.discard(p)
+                        self.processed.discard(file_path)
 
                 self.queue.task_done()
                 self.schedule_next(None)
