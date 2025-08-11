@@ -13,7 +13,6 @@ from scipy.io import savemat
 from gantner_operations.GInsConnection import GInsConnection
 
 
-
 logger = logging.getLogger(__name__)
 
 class DataConverterUDBF:
