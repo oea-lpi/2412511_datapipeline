@@ -1,5 +1,6 @@
 from ginsapy.giutility.connect.PyQStationConnectWin import ConnectGIns
 
+
 class GInsConnection(ConnectGIns):
     """
     Serves to create a context manager to create and close a connection to Gantner Controller.
