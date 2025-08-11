@@ -1,7 +1,6 @@
 services:
   redis:
     image: redis:latest
-    container_name: redis
     ports:
       - "6379:6379"
     volumes:
@@ -13,11 +12,10 @@ services:
       timeout: 5s
       retries: 3
 
-  converter:
+  conv_lpi:
     build:
       context: ./conv_lpi
       dockerfile: Dockerfile.conv_lpi
-    container_name: 2412511_conv_lpi
     env_file:
       - ./.env
     volumes:

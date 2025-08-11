@@ -1,3 +1,4 @@
+import logging
 import os
 import re
 import threading
@@ -13,7 +14,7 @@ logger = logging.getLogger("conv_lpi")
 LPI_RE = re.compile(r'(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2}-\d{2})')
 
 def main():
-    setup_logging()
+    setup_logging(process_name="conv_lpi")
 
     redis_db = redis.Redis(
         host=os.getenv("REDIS_HOST","redis"),

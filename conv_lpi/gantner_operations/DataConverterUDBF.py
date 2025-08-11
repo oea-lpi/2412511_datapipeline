@@ -1,6 +1,7 @@
 import datetime
 import logging
 import os
+from pathlib import Path
 import shutil
 
 import ginsapy.giutility.connect.PyQStationConnectWin as Qstation
@@ -9,7 +10,7 @@ import numpy as np
 import pandas as pd
 from scipy.io import savemat
 
-from data_operations.GInsConnection import GInsConnection
+from gantner_operations.GInsConnection import GInsConnection
 
 
 logger = logging.getLogger(__name__)
@@ -35,12 +36,28 @@ class DataConverterUDBF:
         self.time_relativ_vector = None
         self.round_factor = round_factor
 
-    def check_readability_of_data_file(self) -> dict[str, str]:
-        """ 
-        Check feasibilty of input data before analysis.
+    def check_readability_of_data_file(self) -> int:
         """
-        #TODO Add checks.
-        logger.debug(f"File {self.raw_file} will be processed.")
+        Check feasibility of input data before analysis:
+        If the file is larger than FILESIZE_THRESHOLD bytes, treat as healthy (0),
+        otherwise unhealthy (1).
+
+        Returns:
+            Integer: 0 if healthy, 1 if unhealthy
+        """
+        file_path = Path(self.path_dir) / self.raw_file
+
+        reference_100hz = 35 * 1024**2
+
+        threshhold_lower = reference_100hz * 0.9
+        threshhold_upper = reference_100hz * 1.1
+
+        try:
+            size = file_path.stat().st_size
+        except Exception:
+            size = 0
+
+        return 0 if threshhold_lower <= size <= threshhold_upper else 1
 
         
     def read_udbf_file(self) -> bool:
@@ -122,7 +139,7 @@ class DataConverterUDBF:
         self.df_time = df_time
         return True
 
-    def save_as_mat(self, output_dir: str = None) -> bool:
+    def save_as_mat(self, output_dir: str) -> bool:
         """ 
         Converts info from .dat file into a .mat file.
         Contains relative_time, absolute_time, date, time, millisecond, values.
@@ -150,13 +167,14 @@ class DataConverterUDBF:
             logger.warning(f"Could not create a .mat file for {self.raw_file}: {e}")
         return True
     
-    def save_statistics_csv(self, output_dir: str = None) -> bool:
+    def save_statistics_csv(self, finished_dir: str) -> bool:
         """ 
         Compute basic stats for each sensor channel and save them as a CSV.
         Uses the channel_names and data to calculate the folling stats:
-        last value, mean, median, min, max — all rounded by self.round_factor
+        mean, median, min, max — all rounded by self.round_factor
 
-        Output: True, Creates a stat.csv file 
+        Returns:
+            True: If CSV file was created
         """
         import re
         from datetime import datetime
@@ -173,8 +191,7 @@ class DataConverterUDBF:
             else:
                 aligned = False
 
-            # Skip the first 10 seconds of the values to avoid including 0's,
-            # which may occur on restart of the system and distort the CSV.
+            # Skip the first 10 seconds of the values to avoid including 0's, which may occur on restart of the system and distort the CSV.
             skip = 0
             if not aligned:
                 skip = int(self.sample_rate * 10)
@@ -186,11 +203,10 @@ class DataConverterUDBF:
             
                 values = self.data[:, idx]
                 if skip > 0 and len(values) <= skip:
-                    logger.warning(f"Not enough samples in {name} to skip first 10 s, dropping channel.")
+                    logger.warning(f"Not enough samples in {name} to skip first 10s, dropping channel.")
                     continue
                 trimmed = values[skip:] if skip > 0 else values
 
-                vlast = round(trimmed[-1], self.round_factor)
                 mean = round(np.mean(trimmed), self.round_factor)
                 median = round(np.median(trimmed), self.round_factor)
                 vmin = round(np.min(trimmed), self.round_factor)
@@ -198,7 +214,6 @@ class DataConverterUDBF:
 
                 stats_rows.append({
                     'Sensor':     name,
-                    'Last Value': vlast,
                     'Mean':       mean,
                     'Median':     median,
                     'Minimum':    vmin,
@@ -209,8 +224,8 @@ class DataConverterUDBF:
 
             # Determine output path
             stats_filename = self.raw_file.replace('.dat', '_stats.csv')
-            if output_dir:
-                stats_path = os.path.join(output_dir, stats_filename)
+            if finished_dir:
+                stats_path = os.path.join(finished_dir, stats_filename)
             else:
                 stats_path = stats_filename
 
@@ -219,14 +234,15 @@ class DataConverterUDBF:
             logger.debug(f"Statistics CSV created: {stats_path}")
             return True
         except Exception as e:
-            logger.warning(f"Couldn’t write stats CSV for {self.raw_file}: {e}")  
+            logger.warning(f"Couldn't write stats CSV for {self.raw_file}: {e}")  
             raise  
     
-    def move_to_finished(self, output_dir: str) -> bool:
+    def move_to_finished(self, finished_dir: str) -> bool:
         """ 
-        Move the original .dat file into a 'finished' directory.
+        Move the original DAT file into a 'finished' directory.
 
-        Output: True on success
+        Returns:
+            True: If CSV file was created
         """
         # Ensure the source file exists
         full_path = os.path.join(self.path_dir, self.raw_file)
@@ -235,12 +251,12 @@ class DataConverterUDBF:
             raise FileNotFoundError(self.raw_file)
 
         basename = os.path.basename(self.raw_file)
-        dest_path = os.path.join(output_dir, basename)
+        dest_path = os.path.join(finished_dir, basename)
         try:
             shutil.move(full_path, dest_path)
             logger.debug(f"Moved {self.raw_file} to {dest_path}")
             # Update internal reference so future calls know the new path
-            self.path_dir = output_dir
+            self.path_dir = finished_dir
             return True
         except Exception as e:
             logger.warning(f"Failed to move {self.raw_file} to {dest_path}: {e}")

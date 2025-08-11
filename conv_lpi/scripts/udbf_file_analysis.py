@@ -32,15 +32,14 @@ def udbf_file_analysis(file_path: Path, stats_dir: Path, finished_dir: Path, red
     """
 
     # Sanity checks
-    if not os.path.isfile(file_path):
+    if not os.path.isfile(str(file_path)):
         logger.error(f"File not found: {file_path}")
         return
     
-    if not file_path.lower().endswith('.dat'):
+    if not str(file_path).lower().endswith('.dat'):
         logger.error(f"Called on non-.dat file: {file_path}")
         return
     
-    round_factor = BASIC_ROUNDING
     raw_file = file_path.name
     path_dir = file_path.parent
 
@@ -48,7 +47,7 @@ def udbf_file_analysis(file_path: Path, stats_dir: Path, finished_dir: Path, red
         str(raw_file),              # original filename
         str(path_dir),              # input directory
         str(file_path),             # full path
-        str(round_factor)
+        BASIC_ROUNDING
     )
 
     conv.check_readability_of_data_file()

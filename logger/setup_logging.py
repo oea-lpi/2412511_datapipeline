@@ -9,7 +9,7 @@ def setup_logging(process_name: str) -> None:
     Args:
         process_name (str): A name representing the current process (e.g. 'importer', 'worker').
     """
-    with open("config/logger_config.json") as f:
+    with open("logger/logger_config.json") as f:
         config = json.load(f)
         
     log_path = Path(config["handlers"]["file"].get("filename", "logs/app.log.jsonl"))
