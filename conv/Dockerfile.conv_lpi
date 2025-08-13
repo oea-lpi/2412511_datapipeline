@@ -1,0 +1,30 @@
+FROM python:3.12.9-slim
+
+WORKDIR /app
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+         build-essential \
+         redis-tools \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt ./
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . /app
+
+RUN mkdir -p files/input_sens \
+         files/failed_sens \
+         files/stats_sens \
+         files/finished_sens \
+         logs
+
+VOLUME ["/app/files/input_sens", \
+        "/app/files/failed_sens", \
+        "/app/files/stats_sens", \
+        "/app/files/finished_sens", \
+        "/app/logs"]
+
+
+CMD ["python", "main.py"]

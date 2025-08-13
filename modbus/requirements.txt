@@ -1,4 +1,3 @@
-pymodbus
 redis
 docker
 modbus_server
