@@ -45,19 +45,33 @@ class DataConverterUDBF:
         Returns:
             Integer: 0 if healthy, 1 if unhealthy
         """
+        import re
+        from helper.utility import extract_ts
+
+        REF_FILE_SIZE_100HZ = int(os.getenv("REF_FILE_SIZE_100HZ", "35"))
+        pattern = os.getenv("LPI_PATTERN", "(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2}-\d{2})")
+        LPI_RE = re.compile(pattern)
+
         file_path = Path(self.path_dir) / self.raw_file
+        
+        # On restarting the machine the files are cut into fractions, we dont want to alarm on those files
+        timestamp = extract_ts(file_path, LPI_RE, "%Y-%m-%d %H-%M-%S")
+        if timestamp:
+            file_not_cut = (timestamp.minute % 10 == 0 and timestamp.second == 0)
+            if not file_not_cut:
+                return 0
+            
+        reference_100hz = REF_FILE_SIZE_100HZ * 1024**2
 
-        reference_100hz = 35 * 1024**2
-
-        threshhold_lower = reference_100hz * 0.9
-        threshhold_upper = reference_100hz * 1.1
+        threshold_lower = reference_100hz * 0.9
+        threshold_upper = reference_100hz * 1.1
 
         try:
             size = file_path.stat().st_size
         except Exception:
             size = 0
 
-        return 0 if threshhold_lower <= size <= threshhold_upper else 1
+        return 0 if threshold_lower <= size <= threshold_upper else 1
 
         
     def read_udbf_file(self) -> bool:

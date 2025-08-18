@@ -5,6 +5,7 @@ import threading
 
 import redis
 
+from helper.redis_utility import start_heartbeat
 from logger.setup_logging import setup_logging
 from scripts.Pipeline import Pipeline
 
@@ -12,6 +13,7 @@ from scripts.Pipeline import Pipeline
 logger = logging.getLogger("conv_lpi")
 
 LPI_RE = re.compile(r'(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2}-\d{2})')
+HEALTH_CONTAINER_CONV_LPI = os.getenv("HEALTH_CONTAINER_CONV_LPI", "health:container_conv_lpi")
 
 def main():
     setup_logging(process_name="conv_lpi")
@@ -23,9 +25,11 @@ def main():
         decode_responses=True
     )
 
+    start_heartbeat(redis_client=redis_db, key=HEALTH_CONTAINER_CONV_LPI)
+
     pipelines = [
         Pipeline(
-            name        = "100Hz",
+            name        = "lpi_100hz",
             input_dir   = os.getenv("INPUT_DIR_100HZ",  "/app/files/input_100hz"),
             failed_dir  = os.getenv("FAILED_DIR_100HZ", "/app/files/failed_100hz"),
             stats_dir   = os.getenv("STATS_DIR_100HZ",  "/app/files/stats_100hz"),

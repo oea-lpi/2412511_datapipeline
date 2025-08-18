@@ -18,6 +18,8 @@ logger = logging.getLogger(__name__)
 BASIC_REDIS_TTL = int(os.getenv("BASIC_REDIS_TTL", "60"))
 BASIC_ROUNDING = int(os.getenv("BASIC_ROUNDING", "3"))
 
+HEALTH_LPI_100HZ_FILE_SIZE = os.getenv("HEALTH_LPI_100HZ_FILE_SIZE", "health:lpi_100hz_file_size")
+
 def udbf_file_analysis(file_path: Path, stats_dir: Path, finished_dir: Path, redis_db: redis.Redis) -> None:
     """
     Main processing flow for recognized DAT files.
@@ -50,11 +52,13 @@ def udbf_file_analysis(file_path: Path, stats_dir: Path, finished_dir: Path, red
         BASIC_ROUNDING
     )
 
-    conv.check_readability_of_data_file()
+    health_file_size = conv.check_readability_of_data_file()
+    redis_db.set(HEALTH_LPI_100HZ_FILE_SIZE, health_file_size, ex=BASIC_REDIS_TTL)
+
     conv.read_udbf_file()
     conv.date_converter()
     conv.save_statistics_csv(str(stats_dir))
-
+    
     # Publish stats to redis hash
     key = f"stats:{raw_file.replace('.dat','')}"
     mapping: dict[str,str] = {}

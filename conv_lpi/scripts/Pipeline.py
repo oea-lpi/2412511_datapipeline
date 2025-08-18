@@ -1,5 +1,6 @@
 from datetime import datetime
 import logging
+import os
 from pathlib import Path
 from queue import Queue
 import re
@@ -15,6 +16,8 @@ from .watcher import Watcher
 
 
 logger = logging.getLogger(__name__)
+
+BASIC_REDIS_TTL = int(os.getenv("BASIC_REDIS_TTL", "60"))
 
 class Pipeline:
     def __init__(self, 
@@ -101,6 +104,7 @@ class Pipeline:
                 try:
                     shutil.move(str(file_path), str(dest))
                     logger.info(f"Moved bad file to {dest}.")
+                    self.redis_db.set(f"health:{self.name}_file_processing", 1, ex=BASIC_REDIS_TTL)
                 except Exception:
                     logger.exception(f"Could not move {file_path} to failed dir.")
             finally:

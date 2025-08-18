@@ -23,5 +23,5 @@ def extract_ts(path: Path, timestamp_re: re.Pattern[str], fmt: str) -> datetime:
         time_part = match.group(2)
         
         datetime_str = f"{date_part} {time_part}"
-        return datetime.strptime(datetime_str, fmt).isoformat()
+        return datetime.strptime(datetime_str, fmt)
     return datetime.fromtimestamp(path.stat().st_mtime)
