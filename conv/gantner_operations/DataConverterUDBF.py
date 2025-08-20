@@ -36,7 +36,7 @@ class DataConverterUDBF:
         self.time_relativ_vector = None
         self.round_factor = round_factor
 
-    def check_readability_of_data_file(self) -> int:
+    def check_filesize(self) -> int:
         """
         Check feasibility of input data before analysis:
         If the file is larger than FILESIZE_THRESHOLD bytes, treat as healthy (0),

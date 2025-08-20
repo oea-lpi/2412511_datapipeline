@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 class Watcher(FileSystemEventHandler):
     """
-    Watchdog to react when a .dat file appears in the input folder.
+    Watchdog to react when a file appears in the input folder.
     'schedule_next' looks at *all* files and enqueue only the oldest if >1 exist.
     """
     def __init__(self, enqueue_fn: Callable[[str], None], schedule_next_fn: Callable[[str], None], input_dir: str) -> None:

@@ -52,7 +52,7 @@ def udbf_file_analysis(file_path: Path, stats_dir: Path, finished_dir: Path, red
         BASIC_ROUNDING
     )
 
-    health_file_size = conv.check_readability_of_data_file()
+    health_file_size = conv.check_filesize()
     redis_db.set(HEALTH_LPI_100HZ_FILE_SIZE, health_file_size, ex=BASIC_REDIS_TTL)
 
     conv.read_udbf_file()

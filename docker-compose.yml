@@ -14,18 +14,45 @@ services:
 
   conv_lpi:
     build:
-      context: ./conv_lpi
+      context: ./conv
       dockerfile: Dockerfile.conv_lpi
+    environment:
+      - CONV_CONTEXT=LPI
     env_file:
       - ./.env
     volumes:
       - ./helper:/app/helper
       - ./logger:/app/logger
-      - "/home/omarea/Programs/VSCode/2412511_data/100hz/input:/app/files/input_100hz"
-      - "/home/omarea/Programs/VSCode/2412511_data/100hz/finished:/app/files/finished_100hz"
-      - "/home/omarea/Programs/VSCode/2412511_data/100hz/stats:/app/files/stats_100hz"
-      - "/home/omarea/Programs/VSCode/2412511_data/100hz/failed:/app/files/failed_100hz"
-      - "/home/omarea/Programs/VSCode/2412511_data/logs:/app/logs"
+      - "C:/Users/oelawad/Desktop/Software/2412511_data/lpi/data:/app/files/input_100hz"
+      - "C:/Users/oelawad/Desktop/Software/2412511_data/lpi/data_completed:/app/files/finished_100hz"
+      - "C:/Users/oelawad/Desktop/Software/2412511_data/lpi/stats:/app/files/stats_100hz"
+      - "C:/Users/oelawad/Desktop/Software/2412511_data/lpi/failed:/app/files/failed_100hz"
+      - "C:/Users/oelawad/Desktop/Software/2412511_data/logs:/app/logs"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL",
+        "redis-cli -h ${REDIS_HOST:-redis} -p ${REDIS_PORT:-6379} \
+        GET ${HEALTH_CONTAINER_CONV_LPI:-health:container_conv_lpi} | grep -q '^1$'"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  conv_sens:
+    build:
+      context: ./conv
+      dockerfile: Dockerfile.conv_sens
+    environment:
+      - CONV_CONTEXT=SENS
+    env_file:
+      - ./.env
+    volumes:
+      - ./helper:/app/helper
+      - ./logger:/app/logger
+      - "C:/Users/oelawad/Desktop/Software/2412511_data/sensical/data:/app/files/input"
+      - "C:/Users/oelawad/Desktop/Software/2412511_data/sensical/data_completed:/app/files/finished"
+      - "C:/Users/oelawad/Desktop/Software/2412511_data/sensical/stats:/app/files/stats"
+      - "C:/Users/oelawad/Desktop/Software/2412511_data/sensical/failed:/app/files/failed"
+      - "C:/Users/oelawad/Desktop/Software/2412511_data/logs:/app/logs"
     restart: unless-stopped
 
 volumes:

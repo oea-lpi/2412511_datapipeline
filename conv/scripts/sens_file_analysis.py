@@ -1,10 +1,38 @@
+from datetime import datetime
+from io import StringIO
+import logging
 from pathlib import Path
 import re
-import pandas as pd
-from io import StringIO
-from datetime import datetime
 
-def sensical_file_analysis(path: Path | str):
+import pandas as pd
+import redis
+
+
+logger = logging.getLogger(__name__)
+
+def sensical_file_analysis(file_path: Path | str):
+    """
+    Main processing flow for recognized DAT files.
+    Current: Read files, create a CSV with statistical values, move the file to finished dir. Failed files are moved on Pipeline level.
+
+    Args:
+        file_path: Path object to the currently to be processed file.
+        failed_dir: General path to the directory for failed files.
+        stats_dir: General path to the directory statistics files.
+        finished_dir: General path to the directory processed files.    
+        redis_db: Redis databank to save values to.    
+    """
+
+    # Sanity checks
+
+    if not os.path.isfile(str(file_path)):
+        logger.error(f"File not found: {file_path}")
+        return
+    
+    if not str(file_path).lower().endswith('.dat'):
+        logger.error(f"Called on non-.dat file: {file_path}")
+        return
+
     path = Path(path)
     lines = path.read_text(encoding="utf-8").splitlines()
     
