@@ -49,7 +49,7 @@ class DataConverterUDBF:
         from helper.utility import extract_ts
 
         REF_FILE_SIZE_100HZ = int(os.getenv("REF_FILE_SIZE_100HZ", "35"))
-        pattern = os.getenv("LPI_PATTERN", "(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2}-\d{2})")
+        pattern = os.getenv("LPI_PATTERN", r"(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2}-\d{2})")
         LPI_RE = re.compile(pattern)
 
         file_path = Path(self.path_dir) / self.raw_file

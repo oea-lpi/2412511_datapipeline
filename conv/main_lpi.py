@@ -12,7 +12,7 @@ from scripts.Pipeline import Pipeline
 
 logger = logging.getLogger("conv_lpi")
 
-pattern = os.getenv("LPI_PATTERN", "(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2}-\d{2})")
+pattern = os.getenv("LPI_PATTERN", r"(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2}-\d{2})")
 LPI_RE = re.compile(pattern)
 HEALTH_CONTAINER_CONV_LPI = os.getenv("HEALTH_CONTAINER_CONV_LPI", "health:container_conv_lpi")
 

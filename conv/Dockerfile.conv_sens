@@ -8,9 +8,9 @@ RUN apt-get update \
          redis-tools \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt ./
+COPY requirements_sens.txt ./
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements_sens.txt
 
 COPY . /app
 

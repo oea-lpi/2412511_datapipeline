@@ -23,7 +23,7 @@ HEALTH_LPI_100HZ_FILE_SIZE = os.getenv("HEALTH_LPI_100HZ_FILE_SIZE", "health:lpi
 def udbf_file_analysis(file_path: Path, stats_dir: Path, finished_dir: Path, redis_db: redis.Redis) -> None:
     """
     Main processing flow for recognized DAT files.
-    Current: Read files, create a CSV with statistical values, move the file to finished dir. Failed files are moved on Pipeline level.
+    Current: Read files, create a CSV with statistical values, write data to redis, move the file to finished dir. Failed files are moved on Pipeline level.
 
     Args:
         file_path: Path object to the currently to be processed file.
@@ -34,11 +34,11 @@ def udbf_file_analysis(file_path: Path, stats_dir: Path, finished_dir: Path, red
     """
 
     # Sanity checks
-    if not os.path.isfile(str(file_path)):
+    if not file_path.is_file():
         logger.error(f"File not found: {file_path}")
         return
     
-    if not str(file_path).lower().endswith('.dat'):
+    if file_path.suffix.lower() != ".dat":
         logger.error(f"Called on non-.dat file: {file_path}")
         return
     
@@ -86,7 +86,7 @@ def udbf_file_analysis(file_path: Path, stats_dir: Path, finished_dir: Path, red
     conv.move_to_finished(str(finished_dir))
 
 
-    """ OLD CODE SNIPPET FOR ALARMED LOGIC, TO SPECIFIC TO BE FACOTRIZED, ADJUST AS NEEDED    
+    """ OLD CODE SNIPPET FOR ALARMED LOGIC, TO SPECIFIC TO BE FACOTORIZED, ADJUST AS NEEDED    
     # Alarmed logic
     if stats_dir.stem.endswith("stats"):
         base = file_path.stem 

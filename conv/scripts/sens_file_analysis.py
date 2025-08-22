@@ -7,34 +7,29 @@ import re
 import pandas as pd
 import redis
 
+from helper.processing import move_to_finished
 
 logger = logging.getLogger(__name__)
 
-def sensical_file_analysis(file_path: Path | str):
-    """
-    Main processing flow for recognized DAT files.
-    Current: Read files, create a CSV with statistical values, move the file to finished dir. Failed files are moved on Pipeline level.
-
-    Args:
-        file_path: Path object to the currently to be processed file.
-        failed_dir: General path to the directory for failed files.
-        stats_dir: General path to the directory statistics files.
-        finished_dir: General path to the directory processed files.    
-        redis_db: Redis databank to save values to.    
-    """
-
-    # Sanity checks
-
-    if not os.path.isfile(str(file_path)):
-        logger.error(f"File not found: {file_path}")
+def check_readability(file_path: Path):
+    if not file_path.is_file():
+        logger.error(f"File not found: {file_path}.")
         return
     
-    if not str(file_path).lower().endswith('.dat'):
-        logger.error(f"Called on non-.dat file: {file_path}")
+    if file_path.suffix.lower() != ".csv":
+        logger.error(f"Called on non-.csv file: {file_path}.")
         return
 
-    path = Path(path)
-    lines = path.read_text(encoding="utf-8").splitlines()
+def file_analysis(file_path: Path, finished_dir: Path):
+    """
+    Main processing flow for recognized CSV's from Sensical
+    Current: Read files, write data to redis, move the file to finished dir. Failed files are moved on Pipeline level.
+
+    Args:
+        file_path: Path object to the currently to be processed file. 
+    """
+
+    lines = file_path.read_text(encoding="utf-8").splitlines()
     
     # --- Helper ---
     def find_idx(pattern):
@@ -111,3 +106,14 @@ def sensical_file_analysis(file_path: Path | str):
     
     df.attrs["units"] = {"X": "m", "Y": "m", "Z": "m", "wCr": "mm"}
     return meta, df
+
+def redis_push():
+    pass
+
+def main(file_path: Path, finished_dir: Path):
+    check_readability(file_path)
+    file_analysis(file_path)
+    redis_push()
+    move_to_finished(file_path, finished_dir)
+
+

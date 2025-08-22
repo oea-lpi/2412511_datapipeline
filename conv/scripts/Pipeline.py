@@ -12,6 +12,7 @@ from watchdog.observers.polling import PollingObserver
 
 from helper.utility import extract_ts
 from .udbf_file_analysis import udbf_file_analysis
+from .sens_file_analysis import main as sens_file_analysis
 from .watcher import Watcher
 
 
@@ -54,8 +55,8 @@ class Pipeline:
         observer.schedule(handler, self.input, recursive=False)
         observer.start()
 
-        # Enqueue all-but-newest .dat files at startup
-        all_dat = [p for p in self.input.iterdir() if p.suffix == ".dat"]
+        # Enqueue all-but-newest files at startup
+        all_dat = [p for p in self.input.iterdir()]
         for p in sorted(all_dat, key=self._ts)[:-1]: 
             self.enqueue(p)
 
@@ -74,7 +75,7 @@ class Pipeline:
                 self.queue.put(p)
 
     def schedule_next(self, _) -> None:
-        dats = [p for p in self.input.iterdir() if p.is_file() and p.suffix.lower()==".dat"]
+        dats = [p for p in self.input.iterdir() if p.is_file()]
         candidates: list[tuple[datetime, Path]] = []
         for p in dats:
             if p in self.processed:
@@ -94,13 +95,23 @@ class Pipeline:
                 logger.info(f"[{self.name}] processing {file_path}")
                 if CONV_CONTEXT == "LPI":
                     udbf_file_analysis(
-                        file_path,
+                        file_path = file_path,
                         stats_dir = self.stats,
                         finished_dir = self.finished,
                         redis_db = self.redis_db
                     )
                 elif CONV_CONTEXT == "SENS":
-                    pass
+                    sens_file_analysis(
+                        file_path = file_path,
+                        finished_dir = self.finished,
+                        redis_db = self.redis_db
+                    )
+                elif CONV_CONTEXT == "MIST":
+                    sens_file_analysis(
+                        file_path = file_path,
+                        finished_dir = self.finished,
+                        redis_db = self.redis_db
+                    )
                 remove_from_processed = True 
             except Exception:
                 logger.exception(f"[{self.name}] failed on {file_path}, moving to failed dir.")

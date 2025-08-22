@@ -54,6 +54,24 @@ services:
       - "C:/Users/oelawad/Desktop/Software/2412511_data/sensical/failed:/app/files/failed"
       - "C:/Users/oelawad/Desktop/Software/2412511_data/logs:/app/logs"
     restart: unless-stopped
+    
+  conv_mist:
+    build:
+      context: ./conv
+      dockerfile: Dockerfile.conv_mist
+    environment:
+      - CONV_CONTEXT=MIST
+    env_file:
+      - ./.env
+    volumes:
+      - ./helper:/app/helper
+      - ./logger:/app/logger
+      - "C:/Users/oelawad/Desktop/Software/2412511_data/mistras/data:/app/files/input"
+      - "C:/Users/oelawad/Desktop/Software/2412511_data/mistras/data_completed:/app/files/finished"
+      - "C:/Users/oelawad/Desktop/Software/2412511_data/mistras/stats:/app/files/stats"
+      - "C:/Users/oelawad/Desktop/Software/2412511_data/mistras/failed:/app/files/failed"
+      - "C:/Users/oelawad/Desktop/Software/2412511_data/logs:/app/logs"
+    restart: unless-stopped
 
 volumes:
   redis_data:

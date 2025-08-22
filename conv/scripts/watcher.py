@@ -18,17 +18,17 @@ class Watcher(FileSystemEventHandler):
         self.input_dir = input_dir
 
     def on_created(self, event: FileSystemEvent) -> None:
-        if isinstance(event, FileCreatedEvent) and not event.is_directory and event.src_path.lower().endswith('.dat'):
+        if isinstance(event, FileCreatedEvent) and not event.is_directory:
             logger.debug(f"Detected created: {event.src_path}")
             self.schedule_next(self.input_dir)
 
     def on_moved(self, event: FileSystemEvent) -> None:
-        if isinstance(event, FileMovedEvent) and not event.is_directory and event.dest_path.lower().endswith('.dat'):
+        if isinstance(event, FileMovedEvent) and not event.is_directory:
             logger.debug(f"Detected moved: {event.dest_path}")
             self.schedule_next(self.input_dir)
 
     def on_modified(self, event: FileSystemEvent) -> None:
-        if not event.is_directory and event.src_path.lower().endswith('.dat'):
+        if not event.is_directory:
             # Commenting it out for spam reasons -> .dat files get constantly modified in the folder.
             # logger.debug(f"Detected modified: {event.src_path}")
             self.schedule_next(self.input_dir)
