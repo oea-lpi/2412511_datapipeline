@@ -12,6 +12,7 @@ from watchdog.observers.polling import PollingObserver
 
 from helper.utility import extract_ts
 from .udbf_file_analysis import udbf_file_analysis
+from .mist_file_analysis import main as mist_file_analysis
 from .sens_file_analysis import main as sens_file_analysis
 from .watcher import Watcher
 
@@ -22,6 +23,9 @@ BASIC_REDIS_TTL = int(os.getenv("BASIC_REDIS_TTL", "60"))
 CONV_CONTEXT = os.getenv("CONV_CONTEXT")
 
 class Pipeline:
+    """
+    Monitors a specified folder and starts the processing pipeline.
+    """
     def __init__(self, 
         name: str, 
         input_dir: str, 
@@ -45,11 +49,9 @@ class Pipeline:
         self.lock  = threading.Lock()
         self.processed = set()
 
-        # Start worker
         t = threading.Thread(target=self.worker, daemon=True, name=f"worker:{self.name}")
         t.start()
 
-        # Start watcher
         observer = PollingObserver()
         handler = Watcher(self.enqueue, self.schedule_next, str(self.input))
         observer.schedule(handler, self.input, recursive=False)
@@ -90,7 +92,7 @@ class Pipeline:
     def worker(self) -> None:
         while True:
             file_path: Path = self.queue.get()
-            remove_from_processed = False #Flag so that faulty files that could not be moved do not get infinitely requeued
+            remove_from_processed = False # Flag so that faulty files that could not be moved do not get infinitely requeued.
             try:
                 logger.info(f"[{self.name}] processing {file_path}")
                 if CONV_CONTEXT == "LPI":
@@ -107,7 +109,7 @@ class Pipeline:
                         redis_db = self.redis_db
                     )
                 elif CONV_CONTEXT == "MIST":
-                    sens_file_analysis(
+                    mist_file_analysis(
                         file_path = file_path,
                         finished_dir = self.finished,
                         redis_db = self.redis_db
@@ -130,6 +132,10 @@ class Pipeline:
                 self.queue.task_done()
                 self.schedule_next(None)
     
+    def archiver():
+        #TODO Placeholder for function to move files from finished into finished_archive, maybe relevant if file number in folder gets to big 
+        pass
+
     def stop(self) -> None:
         #Graceful shutdown for testing purpose.
         try:

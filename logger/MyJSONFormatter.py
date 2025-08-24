@@ -3,6 +3,9 @@ import json
 import logging
 
 class MyJSONFormatter(logging.Formatter):
+    """
+    Own JSON formatter used on log files.
+    """
     def __init__(
         self,
         *,

@@ -2,6 +2,7 @@ import logging
 from pathlib import Path
 import shutil
 
+
 logger = logging.getLogger(__name__)
 
 def move_to_finished(file_path: Path, dest_path: Path) -> bool:

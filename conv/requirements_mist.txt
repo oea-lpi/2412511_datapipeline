@@ -1,0 +1,5 @@
+MistrasDTA
+numpy
+pandas
+redis
+watchdog

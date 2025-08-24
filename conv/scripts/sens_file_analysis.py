@@ -11,7 +11,13 @@ from helper.processing import move_to_finished
 
 logger = logging.getLogger(__name__)
 
-def check_readability(file_path: Path):
+def check_readability(file_path: Path) -> None:
+    """
+    Simple check for file existence and filetype being .csv.
+
+    Args:
+        file_path: Path object to the currently to be processed file. 
+    """
     if not file_path.is_file():
         logger.error(f"File not found: {file_path}.")
         return
@@ -20,7 +26,7 @@ def check_readability(file_path: Path):
         logger.error(f"Called on non-.csv file: {file_path}.")
         return
 
-def file_analysis(file_path: Path, finished_dir: Path):
+def file_analysis(file_path: Path, finished_dir: Path) -> None:
     """
     Main processing flow for recognized CSV's from Sensical
     Current: Read files, write data to redis, move the file to finished dir. Failed files are moved on Pipeline level.
@@ -107,13 +113,12 @@ def file_analysis(file_path: Path, finished_dir: Path):
     df.attrs["units"] = {"X": "m", "Y": "m", "Z": "m", "wCr": "mm"}
     return meta, df
 
-def redis_push():
-    pass
+def redis_push() -> None: ...
 
-def main(file_path: Path, finished_dir: Path):
+def main(file_path: Path, finished_dir: Path, redis_db: redis.Redis):
     check_readability(file_path)
     file_analysis(file_path)
-    redis_push()
+    redis_push(redis_db)
     move_to_finished(file_path, finished_dir)
 
 

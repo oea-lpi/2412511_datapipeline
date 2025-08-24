@@ -38,7 +38,7 @@ class DataConverterUDBF:
 
     def check_filesize(self) -> int:
         """
-        Check feasibility of input data before analysis:
+        Check filesize.
         If the file is larger than FILESIZE_THRESHOLD bytes, treat as healthy (0),
         otherwise unhealthy (1).
 
@@ -54,7 +54,7 @@ class DataConverterUDBF:
 
         file_path = Path(self.path_dir) / self.raw_file
         
-        # On restarting the machine the files are cut into fractions, we dont want to alarm on those files
+        # On restart of the machine the files are cut into fractions, we do not want to alarm on those files.
         timestamp = extract_ts(file_path, LPI_RE, "%Y-%m-%d %H-%M-%S")
         if timestamp:
             file_not_cut = (timestamp.minute % 10 == 0 and timestamp.second == 0)
@@ -78,7 +78,13 @@ class DataConverterUDBF:
         """
         Connect and extract info from .dat file.
 
-        Output: True, Fills .data parameter of classobject and creates a .time_relativ_vector
+        Returns:
+            Bool: True, Fills .data parameter of classobject and creates a .time_relativ_vector.
+
+        Raises:
+            ValueError: Invalid channel count.
+            IOError: File could not be imported.
+            Exception: File could not be imported.
         """
         with GInsConnection() as conn:
             # Connect and extract file info.
@@ -117,6 +123,12 @@ class DataConverterUDBF:
     def ole2datetime(self, oledt: int) -> datetime.datetime:
         """ 
         Helper method to convert OLE to datetime.
+
+        Args:
+            oledt: Time in ole.
+
+        Returns:
+            datetime: Converted OLE time.
         """
         OLE_TIME_ZERO = datetime.datetime(1899, 12, 30, 0, 0, 0) # (Object Linking and Embedding) 
         return OLE_TIME_ZERO + datetime.timedelta(days=float(oledt))
@@ -124,6 +136,12 @@ class DataConverterUDBF:
     def normalize_datetime(self, dt: datetime.datetime) -> datetime.datetime:
         """ 
         Helper method to normalize the datetime.
+
+        Args:
+            dt: Unnormalized datetime.
+
+        Returns:
+            datetime: Normalized datetime.
         """
         if dt.second is None:
             dt = dt.replace(second=0)
@@ -134,9 +152,10 @@ class DataConverterUDBF:
     def date_converter(self) -> bool:
         """ 
         Creates a nomalized and converted time columns from the .dat file.
-        Columns are date in %Y-%m-%d, time in %H:%M:%S, milliseconds
+        Columns are date in %Y-%m-%d, time in %H:%M:%S, milliseconds.
 
-        Output: True, Fills .df_time parameter
+        Returns: 
+            Bool: True, Fills .df_time parameter
         """
         dat_file = self.data 
         index_timestamp = 0
@@ -158,7 +177,11 @@ class DataConverterUDBF:
         Converts info from .dat file into a .mat file.
         Contains relative_time, absolute_time, date, time, millisecond, values.
 
-        Output: True, Creates a .mat file
+        Args:
+            output_dir: Directory to save created file to.
+        
+        Returns:
+            Bool: True, created a .mat file.
         """
         mat_dict = {}
         name_of_mat = os.path.join(output_dir, self.raw_file.replace('.dat', '.mat'))
@@ -186,6 +209,9 @@ class DataConverterUDBF:
         Compute basic stats for each sensor channel and save them as a CSV.
         Uses the channel_names and data to calculate the folling stats:
         mean, median, min, max — all rounded by self.round_factor
+
+        Args:
+            finished_dir: Directory to save created file to.
 
         Returns:
             True: If CSV file was created
@@ -254,6 +280,9 @@ class DataConverterUDBF:
     def move_to_finished(self, finished_dir: str) -> bool:
         """ 
         Move the original DAT file into a 'finished' directory.
+
+        Args:
+            finished_dir: Directory to save created file to.
 
         Returns:
             True: If CSV file was created
