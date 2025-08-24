@@ -62,7 +62,7 @@ def file_analysis(file_path: Path, finished_dir: Path) -> None:
         qvals = re.split(r"\s+", lines[i_qhdr + 1].strip())
         qvals = [v.replace(",", ".") for v in qvals if v]
         q50, q90, wcr_max = map(float, qvals[:3])
-        meta["q50_mm"] = q50
+        meta["q50_m^^^m"] = q50
         meta["q90_mm"] = q90
         meta["wCr_max_mm"] = wcr_max
 
@@ -112,13 +112,3 @@ def file_analysis(file_path: Path, finished_dir: Path) -> None:
     
     df.attrs["units"] = {"X": "m", "Y": "m", "Z": "m", "wCr": "mm"}
     return meta, df
-
-def redis_push() -> None: ...
-
-def main(file_path: Path, finished_dir: Path, redis_db: redis.Redis):
-    check_readability(file_path)
-    file_analysis(file_path)
-    redis_push(redis_db)
-    move_to_finished(file_path, finished_dir)
-
-

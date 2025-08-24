@@ -12,6 +12,15 @@ services:
       timeout: 5s
       retries: 3
 
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    # Free, temporary trycloudflare.com URL (no Cloudflare account needed)
+    command: tunnel --metrics localhost:0 --no-autoupdate --url http://app:${PORT}
+    depends_on:
+      app:
+        condition: service_healthy
+    restart: unless-stopped
+
   conv_lpi:
     build:
       context: ./conv
@@ -71,6 +80,20 @@ services:
       - "C:/Users/oelawad/Desktop/Software/2412511_data/mistras/stats:/app/files/stats"
       - "C:/Users/oelawad/Desktop/Software/2412511_data/mistras/failed:/app/files/failed"
       - "C:/Users/oelawad/Desktop/Software/2412511_data/logs:/app/logs"
+    restart: unless-stopped
+
+  app:
+    build:
+      context: ./sevenio
+      dockerfile: Dockerfile.sevenio
+    env_file:
+      - ./.env
+    # Healthcheck hits the "/" health endpoint
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:${PORT}/"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
     restart: unless-stopped
 
 volumes:
