@@ -114,14 +114,15 @@ class Pipeline:
                         finished_dir = self.finished,
                         redis_db = self.redis_db
                     )
-                remove_from_processed = True 
+                remove_from_processed = True
+                self.redis_db.set(f"health:{self.name}_file_processing", 0, ex=BASIC_REDIS_TTL) 
             except Exception:
                 logger.exception(f"[{self.name}] failed on {file_path}, moving to failed dir.")
                 dest = self.failed / file_path.name
                 try:
                     shutil.move(str(file_path), str(dest))
                     logger.info(f"Moved bad file to {dest}.")
-                    self.redis_db.set(f"health:{self.name}_file_processing", 1, ex=BASIC_REDIS_TTL)
+                    self.redis_db.set(f"health:{self.name}_file_processing", 1, ex=BASIC_REDIS_TTL) 
                 except Exception:
                     logger.exception(f"Could not move {file_path} to failed dir.")
             finally:
@@ -134,7 +135,7 @@ class Pipeline:
     
     def archiver():
         #TODO Placeholder for function to move files from finished into finished_archive, maybe relevant if file number in folder gets to big 
-        pass
+        ...
 
     def stop(self) -> None:
         #Graceful shutdown for testing purpose.

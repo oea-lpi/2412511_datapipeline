@@ -80,6 +80,7 @@ def sensical_file_analysis(path: Path | str):
     
     for col in ["X", "Y", "Z", "wCr"]:
         df[col] = pd.to_numeric(df[col], errors="coerce")
+
     
     df.attrs["units"] = {"X": "m", "Y": "m", "Z": "m", "wCr": "mm"}
     return meta, df
