@@ -132,5 +132,24 @@ services:
       - "4040:4040"
     restart: unless-stopped
 
+  modbus:
+    build:
+      context: ./modbus
+      dockerfile: Dockerfile.modbus
+    env_file:
+      - ./.env
+    ports:
+      - "502:502"
+    volumes:
+      - ./logger:/app/logger
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - "C:/Users/oelawad/Desktop/Software/2412511_data/logs:/app/logs"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z localhost 502"]
+      interval: 30s
+      timeout: 5s
+      
+
 volumes:
   redis_data:

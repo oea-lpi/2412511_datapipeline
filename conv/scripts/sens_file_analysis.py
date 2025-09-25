@@ -112,3 +112,6 @@ def file_analysis(file_path: Path, finished_dir: Path) -> None:
     
     df.attrs["units"] = {"X": "m", "Y": "m", "Z": "m", "wCr": "mm"}
     return meta, df
+
+def main():
+    pass

@@ -22,12 +22,20 @@ RUN mkdir -p files/input_100hz \
          files/failed_100hz \
          files/stats_100hz \
          files/finished_100hz \
+         files/input_1hz \
+         files/failed_1hz \
+         files/stats_1hz \
+         files/finished_1hz \
          logs
 
 VOLUME ["/app/files/input_100hz", \
         "/app/files/failed_100hz", \
         "/app/files/stats_100hz", \
         "/app/files/finished_100hz", \
+        "/app/files/input_1hz", \
+        "/app/files/failed_1hz", \
+        "/app/files/stats_1hz", \
+        "/app/files/finished_1hz", \
         "/app/logs"]
 
 

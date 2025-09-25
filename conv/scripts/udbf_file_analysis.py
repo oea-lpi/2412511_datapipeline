@@ -67,7 +67,6 @@ def udbf_file_analysis(file_path: Path, stats_dir: Path, finished_dir: Path, red
             sensor = row["Sensor"]
             mapping.update({
                 f"{sensor}:mean"   : row["Mean"],
-                f"{sensor}:median" : row["Median"],
                 f"{sensor}:min"    : row["Minimum"],
                 f"{sensor}:max"    : row["Maximum"]
             })

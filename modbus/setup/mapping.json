@@ -1,8938 +1,1910 @@
 [
   {
-    "field": "health:converter",
-    "register": 100
-  },
-  {
-    "field": "health:redis",
-    "register": 102
-  },
-  {
-    "field": "health:modbus",
-    "register": 104
-  },
-  {
-    "field": "health:uploader",
-    "register": 106
-  },
-  {
-    "field": "health:combiner",
-    "register": 108
-  },
-  {
-    "field": "health:allsat_fetch",
-    "register": 110
-  }, 
-  {
-    "field": "health:allsat_process",
-    "register": 112
-  },
-  {
-    "field": "converter:num_finished_10hz",
-    "register": 114
-  },
-  {
-    "field": "converter:num_finished_100hz",
-    "register": 116
-  },
-  {
-    "field": "health:allsat_connect",
-    "register": 118
-  },
-  {
-    "field": "health:modbus_toggle",
-    "register": 120
-  },
-  {
-    "field": "health:udbf_file_size",
-    "register": 124
-  },
-  {
-    "field": "health:allsat_data",
-    "register": 128
-  },
-  {
-    "field": "AT_WLS_O:Easting",
-    "register": 150
-  },
-  {
-    "field": "AT_WLS_O:Northing",
-    "register": 152
-  },
-  {
-    "field": "AT_WLS_O:Height",
-    "register": 154
-  },
-  {
-    "field": "AT_WLS_O:EastingDiff",
-    "register": 156
-  },
-  {
-    "field": "AT_WLS_O:NorthingDiff",
-    "register": 158
-  },     
-  {
-    "field": "AT_WLS_O:HeightDiff",
-    "register": 160
-  },      
-  {
-    "field": "AP01_01:Easting",
-    "register": 200
-  },
-  {
-    "field": "AP01_01:Northing",
-    "register": 202
-  },
-  {
-    "field": "AP01_01:Height",
-    "register": 204
-  },
-  {
-    "field": "AP01_01:EastingDiff",
-    "register": 206
-  },
-  {
-    "field": "AP01_01:NorthingDiff",
-    "register": 208
-  },
-  {
-    "field": "AP01_01:HeightDiff",
-    "register": 210
-  },
-  {
-    "field": "AP01_02:Easting",
-    "register": 212
-  },
-  {
-    "field": "AP01_02:Northing",
-    "register": 214
-  },
-  {
-    "field": "AP01_02:Height",
-    "register": 216
-  },
-  {
-    "field": "AP01_02:EastingDiff",
-    "register": 218
-  },
-  {
-    "field": "AP01_02:NorthingDiff",
-    "register": 220
-  },
-  {
-    "field": "AP01_02:HeightDiff",
-    "register": 222
-  },
-  {
-    "field": "AP02:Easting",
-    "register": 224
-  },
-  {
-    "field": "AP02:Northing",
-    "register": 226
-  },
-  {
-    "field": "AP02:Height",
-    "register": 228
-  },
-  {
-    "field": "AP02:EastingDiff",
-    "register": 230
-  },
-  {
-    "field": "AP02:NorthingDiff",
-    "register": 232
-  },
-  {
-    "field": "AP02:HeightDiff",
-    "register": 234
-  },
-  {
-    "field": "AP03_01:Easting",
-    "register": 236
-  },
-  {
-    "field": "AP03_01:Northing",
-    "register": 238
-  },
-  {
-    "field": "AP03_01:Height",
-    "register": 240
-  },
-  {
-    "field": "AP03_01:EastingDiff",
-    "register": 242
-  },
-  {
-    "field": "AP03_01:NorthingDiff",
-    "register": 244
-  },
-  {
-    "field": "AP03_01:HeightDiff",
-    "register": 246
-  },
-  {
-    "field": "AP03_02:Easting",
-    "register": 248
-  },
-  {
-    "field": "AP03_02:Northing",
-    "register": 250
-  },
-  {
-    "field": "AP03_02:Height",
-    "register": 252
-  },
-  {
-    "field": "AP03_02:EastingDiff",
-    "register": 254
-  },
-  {
-    "field": "AP03_02:NorthingDiff",
-    "register": 256
-  },
-  {
-    "field": "AP03_02:HeightDiff",
-    "register": 258
-  },
-  {
-    "field": "AP04_01:Easting",
-    "register": 260
-  },
-  {
-    "field": "AP04_01:Northing",
-    "register": 262
-  },
-  {
-    "field": "AP04_01:Height",
-    "register": 264
-  },
-  {
-    "field": "AP04_01:EastingDiff",
-    "register": 266
-  },
-  {
-    "field": "AP04_01:NorthingDiff",
-    "register": 268
-  },
-  {
-    "field": "AP04_01:HeightDiff",
-    "register": 270
-  },
-  {
-    "field": "AP04_02:Easting",
-    "register": 272
-  },
-  {
-    "field": "AP04_02:Northing",
-    "register": 274
-  },
-  {
-    "field": "AP04_02:Height",
-    "register": 276
-  },
-  {
-    "field": "AP04_02:EastingDiff",
-    "register": 278
-  },
-  {
-    "field": "AP04_02:NorthingDiff",
-    "register": 280
-  },
-  {
-    "field": "AP04_02:HeightDiff",
-    "register": 282
-  },
-  {
-    "field": "AP05_01:Easting",
-    "register": 284
-  },
-  {
-    "field": "AP05_01:Northing",
-    "register": 286
-  },
-  {
-    "field": "AP05_01:Height",
-    "register": 288
-  },
-  {
-    "field": "AP05_01:EastingDiff",
-    "register": 290
-  },
-  {
-    "field": "AP05_01:NorthingDiff",
-    "register": 292
-  },
-  {
-    "field": "AP05_01:HeightDiff",
-    "register": 294
-  },
-  {
-    "field": "AP05_02:Easting",
-    "register": 296
-  },
-  {
-    "field": "AP05_02:Northing",
-    "register": 298
-  },
-  {
-    "field": "AP05_02:Height",
-    "register": 300
-  },
-  {
-    "field": "AP05_02:EastingDiff",
-    "register": 302
-  },
-  {
-    "field": "AP05_02:NorthingDiff",
-    "register": 304
-  },
-  {
-    "field": "AP05_02:HeightDiff",
-    "register": 306
-  },
-  {
-    "field": "AP06_01:Easting",
-    "register": 308
-  },
-  {
-    "field": "AP06_01:Northing",
-    "register": 310
-  },
-  {
-    "field": "AP06_01:Height",
-    "register": 312
-  },
-  {
-    "field": "AP06_01:EastingDiff",
-    "register": 314
-  },
-  {
-    "field": "AP06_01:NorthingDiff",
-    "register": 316
-  },
-  {
-    "field": "AP06_01:HeightDiff",
-    "register": 318
-  },
-  {
-    "field": "AP06_02:Easting",
-    "register": 320
-  },
-  {
-    "field": "AP06_02:Northing",
-    "register": 322
-  },
-  {
-    "field": "AP06_02:Height",
-    "register": 324
-  },
-  {
-    "field": "AP06_02:EastingDiff",
-    "register": 326
-  },
-  {
-    "field": "AP06_02:NorthingDiff",
-    "register": 328
-  },
-  {
-    "field": "AP06_02:HeightDiff",
-    "register": 330
-  },
-  {
-    "field": "AP07_01:Easting",
-    "register": 332
-  },
-  {
-    "field": "AP07_01:Northing",
-    "register": 334
-  },
-  {
-    "field": "AP07_01:Height",
-    "register": 336
-  },
-  {
-    "field": "AP07_01:EastingDiff",
-    "register": 338
-  },
-  {
-    "field": "AP07_01:NorthingDiff",
-    "register": 340
-  },
-  {
-    "field": "AP07_01:HeightDiff",
-    "register": 342
-  },
-  {
-    "field": "AP07_02:Easting",
-    "register": 344
-  },
-  {
-    "field": "AP07_02:Northing",
-    "register": 346
-  },
-  {
-    "field": "AP07_02:Height",
-    "register": 348
-  },
-  {
-    "field": "AP07_02:EastingDiff",
-    "register": 350
-  },
-  {
-    "field": "AP07_02:NorthingDiff",
-    "register": 352
-  },
-  {
-    "field": "AP07_02:HeightDiff",
-    "register": 354
-  },
-  {
-    "field": "AP08_01:Easting",
-    "register": 356
-  },
-  {
-    "field": "AP08_01:Northing",
-    "register": 358
-  },
-  {
-    "field": "AP08_01:Height",
-    "register": 360
-  },
-  {
-    "field": "AP08_01:EastingDiff",
-    "register": 362
-  },
-  {
-    "field": "AP08_01:NorthingDiff",
-    "register": 364
-  },
-  {
-    "field": "AP08_01:HeightDiff",
-    "register": 366
-  },
-  {
-    "field": "AP08_02:Easting",
-    "register": 368
-  },
-  {
-    "field": "AP08_02:Northing",
-    "register": 370
-  },
-  {
-    "field": "AP08_02:Height",
-    "register": 372
-  },
-  {
-    "field": "AP08_02:EastingDiff",
-    "register": 374
-  },
-  {
-    "field": "AP08_02:NorthingDiff",
-    "register": 376
-  },
-  {
-    "field": "AP08_02:HeightDiff",
-    "register": 378
-  },
-  {
-    "field": "AT_NP_T:Easting",
-    "register": 380
-  },
-  {
-    "field": "AT_NP_T:Northing",
-    "register": 382
-  },
-  {
-    "field": "AT_NP_T:Height",
-    "register": 384
-  },
-  {
-    "field": "AT_NP_T:EastingDiff",
-    "register": 386
-  },
-  {
-    "field": "AT_NP_T:NorthingDiff",
-    "register": 388
-  },
-  {
-    "field": "AT_NP_T:HeightDiff",
-    "register": 390
-  },
-  {
-    "field": "AT_NPO_L_OB:Easting",
-    "register": 392
-  },
-  {
-    "field": "AT_NPO_L_OB:Northing",
-    "register": 394
-  },
-  {
-    "field": "AT_NPO_L_OB:Height",
-    "register": 396
-  },
-  {
-    "field": "AT_NPO_L_OB:EastingDiff",
-    "register": 398
-  },
-  {
-    "field": "AT_NPO_L_OB:NorthingDiff",
-    "register": 400
-  },
-  {
-    "field": "AT_NPO_L_OB:HeightDiff",
-    "register": 402
-  },
-  {
-    "field": "AT_NPO_L_UN:Easting",
-    "register": 404
-  },
-  {
-    "field": "AT_NPO_L_UN:Northing",
-    "register": 406
-  },
-  {
-    "field": "AT_NPO_L_UN:Height",
-    "register": 408
-  },
-  {
-    "field": "AT_NPO_L_UN:EastingDiff",
-    "register": 410
-  },
-  {
-    "field": "AT_NPO_L_UN:NorthingDiff",
-    "register": 412
-  },
-  {
-    "field": "AT_NPO_L_UN:HeightDiff",
-    "register": 414
-  },
-  {
-    "field": "AT_NPW_L_OB:Easting",
-    "register": 416
-  },
-  {
-    "field": "AT_NPW_L_OB:Northing",
-    "register": 418
-  },
-  {
-    "field": "AT_NPW_L_OB:Height",
-    "register": 420
-  },
-  {
-    "field": "AT_NPW_L_OB:EastingDiff",
-    "register": 422
-  },
-  {
-    "field": "AT_NPW_L_OB:NorthingDiff",
-    "register": 424
-  },
-  {
-    "field": "AT_NPW_L_OB:HeightDiff",
-    "register": 426
-  },
-  {
-    "field": "AT_NPW_L_UN:Easting",
-    "register": 428
-  },
-  {
-    "field": "AT_NPW_L_UN:Northing",
-    "register": 430
-  },
-  {
-    "field": "AT_NPW_L_UN:Height",
-    "register": 432
-  },
-  {
-    "field": "AT_NPW_L_UN:EastingDiff",
-    "register": 434
-  },
-  {
-    "field": "AT_NPW_L_UN:NorthingDiff",
-    "register": 436
-  },
-  {
-    "field": "AT_NPW_L_UN:HeightDiff",
-    "register": 438
-  },
-  {
-    "field": "AT_SP_T:Easting",
-    "register": 440
-  },
-  {
-    "field": "AT_SP_T:Northing",
-    "register": 442
-  },
-  {
-    "field": "AT_SP_T:Height",
-    "register": 444
-  },
-  {
-    "field": "AT_SP_T:EastingDiff",
-    "register": 446
-  },
-  {
-    "field": "AT_SP_T:NorthingDiff",
-    "register": 448
-  },
-  {
-    "field": "AT_SP_T:HeightDiff",
-    "register": 450
-  },
-  {
-    "field": "AT_SPO_L_OB:Easting",
-    "register": 452
-  },
-  {
-    "field": "AT_SPO_L_OB:Northing",
-    "register": 454
-  },
-  {
-    "field": "AT_SPO_L_OB:Height",
-    "register": 456
-  },
-  {
-    "field": "AT_SPO_L_OB:EastingDiff",
-    "register": 458
-  },
-  {
-    "field": "AT_SPO_L_OB:NorthingDiff",
-    "register": 460
-  },
-  {
-    "field": "AT_SPO_L_OB:HeightDiff",
-    "register": 462
-  },
-  {
-    "field": "AT_SPO_L_UN:Easting",
-    "register": 464
-  },
-  {
-    "field": "AT_SPO_L_UN:Northing",
-    "register": 466
-  },
-  {
-    "field": "AT_SPO_L_UN:Height",
-    "register": 468
-  },
-  {
-    "field": "AT_SPO_L_UN:EastingDiff",
-    "register": 470
-  },
-  {
-    "field": "AT_SPO_L_UN:NorthingDiff",
-    "register": 472
-  },
-  {
-    "field": "AT_SPO_L_UN:HeightDiff",
-    "register": 474
-  },
-  {
-    "field": "AT_SPW_L_OB:Easting",
-    "register": 476
-  },
-  {
-    "field": "AT_SPW_L_OB:Northing",
-    "register": 478
-  },
-  {
-    "field": "AT_SPW_L_OB:Height",
-    "register": 480
-  },
-  {
-    "field": "AT_SPW_L_OB:EastingDiff",
-    "register": 482
-  },
-  {
-    "field": "AT_SPW_L_OB:NorthingDiff",
-    "register": 484
-  },
-  {
-    "field": "AT_SPW_L_OB:HeightDiff",
-    "register": 486
-  },
-  {
-    "field": "AT_SPW_L_UN:Easting",
-    "register": 488
-  },
-  {
-    "field": "AT_SPW_L_UN:Northing",
-    "register": 490
-  },
-  {
-    "field": "AT_SPW_L_UN:Height",
-    "register": 492
-  },
-  {
-    "field": "AT_SPW_L_UN:EastingDiff",
-    "register": 494
-  },
-  {
-    "field": "AT_SPW_L_UN:NorthingDiff",
-    "register": 496
-  },
-  {
-    "field": "AT_SPW_L_UN:HeightDiff",
-    "register": 498
-  },
-  {
-    "field": "AT_WLN_O:Easting",
-    "register": 500
-  },
-  {
-    "field": "AT_WLN_O:Northing",
-    "register": 502
-  },
-  {
-    "field": "AT_WLN_O:Height",
-    "register": 504
-  },
-  {
-    "field": "AT_WLN_O:EastingDiff",
-    "register": 506
-  },
-  {
-    "field": "AT_WLN_O:NorthingDiff",
-    "register": 508
-  },
-  {
-    "field": "AT_WLN_O:HeightDiff",
-    "register": 510
-  },
-  {
-    "field": "AT_WLN_W:Easting",
-    "register": 512
-  },
-  {
-    "field": "AT_WLN_W:Northing",
-    "register": 514
-  },
-  {
-    "field": "AT_WLN_W:Height",
-    "register": 516
-  },
-  {
-    "field": "AT_WLN_W:EastingDiff",
-    "register": 518
-  },
-  {
-    "field": "AT_WLN_W:NorthingDiff",
-    "register": 520
-  },
-  {
-    "field": "AT_WLN_W:HeightDiff",
-    "register": 522
-  },
-  {
-    "field": "AT_WLS_W:Easting",
-    "register": 524
-  },
-  {
-    "field": "AT_WLS_W:Northing",
-    "register": 526
-  },
-  {
-    "field": "AT_WLS_W:Height",
-    "register": 528
-  },
-  {
-    "field": "AT_WLS_W:EastingDiff",
-    "register": 530
-  },
-  {
-    "field": "AT_WLS_W:NorthingDiff",
-    "register": 532
-  },
-  {
-    "field": "AT_WLS_W:HeightDiff",
-    "register": 534
-  },
-  {
-    "field": "AT_ZBO_N_N1:Easting",
-    "register": 536
-  },
-  {
-    "field": "AT_ZBO_N_N1:Northing",
-    "register": 538
-  },
-  {
-    "field": "AT_ZBO_N_N1:Height",
-    "register": 540
-  },
-  {
-    "field": "AT_ZBO_N_N1:EastingDiff",
-    "register": 542
-  },
-  {
-    "field": "AT_ZBO_N_N1:NorthingDiff",
-    "register": 544
-  },
-  {
-    "field": "AT_ZBO_N_N1:HeightDiff",
-    "register": 546
-  },
-  {
-    "field": "AT_ZBO_N_N2:Easting",
-    "register": 548
-  },
-  {
-    "field": "AT_ZBO_N_N2:Northing",
-    "register": 550
-  },
-  {
-    "field": "AT_ZBO_N_N2:Height",
-    "register": 552
-  },
-  {
-    "field": "AT_ZBO_N_N2:EastingDiff",
-    "register": 554
-  },
-  {
-    "field": "AT_ZBO_N_N2:NorthingDiff",
-    "register": 556
-  },
-  {
-    "field": "AT_ZBO_N_N2:HeightDiff",
-    "register": 558
-  },
-  {
-    "field": "AT_ZBO_N_S1:Easting",
-    "register": 560
-  },
-  {
-    "field": "AT_ZBO_N_S1:Northing",
-    "register": 562
-  },
-  {
-    "field": "AT_ZBO_N_S1:Height",
-    "register": 564
-  },
-  {
-    "field": "AT_ZBO_N_S1:EastingDiff",
-    "register": 566
-  },
-  {
-    "field": "AT_ZBO_N_S1:NorthingDiff",
-    "register": 568
-  },
-  {
-    "field": "AT_ZBO_N_S1:HeightDiff",
-    "register": 570
-  },
-  {
-    "field": "AT_ZBO_N_S2:Easting",
-    "register": 572
-  },
-  {
-    "field": "AT_ZBO_N_S2:Northing",
-    "register": 574
-  },
-  {
-    "field": "AT_ZBO_N_S2:Height",
-    "register": 576
-  },
-  {
-    "field": "AT_ZBO_N_S2:EastingDiff",
-    "register": 578
-  },
-  {
-    "field": "AT_ZBO_N_S2:NorthingDiff",
-    "register": 580
-  },
-  {
-    "field": "AT_ZBO_N_S2:HeightDiff",
-    "register": 582
-  },
-  {
-    "field": "AT_ZBO_S_N1:Easting",
-    "register": 584
-  },
-  {
-    "field": "AT_ZBO_S_N1:Northing",
-    "register": 586
-  },
-  {
-    "field": "AT_ZBO_S_N1:Height",
-    "register": 588
-  },
-  {
-    "field": "AT_ZBO_S_N1:EastingDiff",
-    "register": 590
-  },
-  {
-    "field": "AT_ZBO_S_N1:NorthingDiff",
-    "register": 592
-  },
-  {
-    "field": "AT_ZBO_S_N1:HeightDiff",
-    "register": 594
-  },
-  {
-    "field": "AT_ZBO_S_N2:Easting",
-    "register": 596
-  },
-  {
-    "field": "AT_ZBO_S_N2:Northing",
-    "register": 598
-  },
-  {
-    "field": "AT_ZBO_S_N2:Height",
-    "register": 600
-  },
-  {
-    "field": "AT_ZBO_S_N2:EastingDiff",
-    "register": 602
-  },
-  {
-    "field": "AT_ZBO_S_N2:NorthingDiff",
-    "register": 604
-  },
-  {
-    "field": "AT_ZBO_S_N2:HeightDiff",
-    "register": 606
-  },
-  {
-    "field": "AT_ZBO_S_S2:Easting",
-    "register": 608
-  },
-  {
-    "field": "AT_ZBO_S_S2:Northing",
-    "register": 610
-  },
-  {
-    "field": "AT_ZBO_S_S2:Height",
-    "register": 612
-  },
-  {
-    "field": "AT_ZBO_S_S2:EastingDiff",
-    "register": 614
-  },
-  {
-    "field": "AT_ZBO_S_S2:NorthingDiff",
-    "register": 616
-  },
-  {
-    "field": "AT_ZBO_S_S2:HeightDiff",
-    "register": 618
-  },
-  {
-    "field": "AT_ZBW_N_N1:Easting",
-    "register": 620
-  },
-  {
-    "field": "AT_ZBW_N_N1:Northing",
-    "register": 622
-  },
-  {
-    "field": "AT_ZBW_N_N1:Height",
-    "register": 624
-  },
-  {
-    "field": "AT_ZBW_N_N1:EastingDiff",
-    "register": 626
-  },
-  {
-    "field": "AT_ZBW_N_N1:NorthingDiff",
-    "register": 628
-  },
-  {
-    "field": "AT_ZBW_N_N1:HeightDiff",
-    "register": 630
-  },
-  {
-    "field": "AT_ZBW_N_N2:Easting",
-    "register": 632
-  },
-  {
-    "field": "AT_ZBW_N_N2:Northing",
-    "register": 634
-  },
-  {
-    "field": "AT_ZBW_N_N2:Height",
-    "register": 636
-  },
-  {
-    "field": "AT_ZBW_N_N2:EastingDiff",
-    "register": 638
-  },
-  {
-    "field": "AT_ZBW_N_N2:NorthingDiff",
-    "register": 640
-  },
-  {
-    "field": "AT_ZBW_N_N2:HeightDiff",
-    "register": 642
-  },
-  {
-    "field": "AT_ZBW_N_S1:Easting",
-    "register": 644
-  },
-  {
-    "field": "AT_ZBW_N_S1:Northing",
-    "register": 646
-  },
-  {
-    "field": "AT_ZBW_N_S1:Height",
-    "register": 648
-  },
-  {
-    "field": "AT_ZBW_N_S1:EastingDiff",
-    "register": 650
-  },
-  {
-    "field": "AT_ZBW_N_S1:NorthingDiff",
-    "register": 652
-  },
-  {
-    "field": "AT_ZBW_N_S1:HeightDiff",
-    "register": 654
-  },
-  {
-    "field": "AT_ZBW_N_S2:Easting",
-    "register": 656
-  },
-  {
-    "field": "AT_ZBW_N_S2:Northing",
-    "register": 658
-  },
-  {
-    "field": "AT_ZBW_N_S2:Height",
-    "register": 660
-  },
-  {
-    "field": "AT_ZBW_N_S2:EastingDiff",
-    "register": 662
-  },
-  {
-    "field": "AT_ZBW_N_S2:NorthingDiff",
-    "register": 664
-  },
-  {
-    "field": "AT_ZBW_N_S2:HeightDiff",
-    "register": 666
-  },
-  {
-    "field": "AT_ZBW_S_N1:Easting",
-    "register": 668
-  },
-  {
-    "field": "AT_ZBW_S_N1:Northing",
-    "register": 670
-  },
-  {
-    "field": "AT_ZBW_S_N1:Height",
-    "register": 672
-  },
-  {
-    "field": "AT_ZBW_S_N1:EastingDiff",
-    "register": 674
-  },
-  {
-    "field": "AT_ZBW_S_N1:NorthingDiff",
-    "register": 676
-  },
-  {
-    "field": "AT_ZBW_S_N1:HeightDiff",
-    "register": 678
-  },
-  {
-    "field": "AT_ZBW_S_N2:Easting",
-    "register": 680
-  },
-  {
-    "field": "AT_ZBW_S_N2:Northing",
-    "register": 682
-  },
-  {
-    "field": "AT_ZBW_S_N2:Height",
-    "register": 684
-  },
-  {
-    "field": "AT_ZBW_S_N2:EastingDiff",
-    "register": 686
-  },
-  {
-    "field": "AT_ZBW_S_N2:NorthingDiff",
-    "register": 688
-  },
-  {
-    "field": "AT_ZBW_S_N2:HeightDiff",
-    "register": 690
-  },
-  {
-    "field": "AT_ZBW_S_S1:Easting",
-    "register": 692
-  },
-  {
-    "field": "AT_ZBW_S_S1:Northing",
-    "register": 694
-  },
-  {
-    "field": "AT_ZBW_S_S1:Height",
-    "register": 696
-  },
-  {
-    "field": "AT_ZBW_S_S1:EastingDiff",
-    "register": 698
-  },
-  {
-    "field": "AT_ZBW_S_S1:NorthingDiff",
-    "register": 700
-  },
-  {
-    "field": "AT_ZBW_S_S1:HeightDiff",
-    "register": 702
-  },
-  {
-    "field": "AT_ZBW_S_S2:Easting",
-    "register": 704
-  },
-  {
-    "field": "AT_ZBW_S_S2:Northing",
-    "register": 706
-  },
-  {
-    "field": "AT_ZBW_S_S2:Height",
-    "register": 708
-  },
-  {
-    "field": "AT_ZBW_S_S2:EastingDiff",
-    "register": 710
-  },
-  {
-    "field": "AT_ZBW_S_S2:NorthingDiff",
-    "register": 712
-  },
-  {
-    "field": "AT_ZBW_S_S2:HeightDiff",
-    "register": 714
-  },
-  {
-    "field": "AT_ZBW_S_S3:Easting",
-    "register": 716
-  },
-  {
-    "field": "AT_ZBW_S_S3:Northing",
-    "register": 718
-  },
-  {
-    "field": "AT_ZBW_S_S3:Height",
-    "register": 720
-  },
-  {
-    "field": "AT_ZBW_S_S3:EastingDiff",
-    "register": 722
-  },
-  {
-    "field": "AT_ZBW_S_S3:NorthingDiff",
-    "register": 724
-  },
-  {
-    "field": "AT_ZBW_S_S3:HeightDiff",
-    "register": 726
-  },
-  {
-    "field": "T_NP_01:Easting",
-    "register": 728
-  },
-  {
-    "field": "T_NP_01:Northing",
-    "register": 730
-  },
-  {
-    "field": "T_NP_01:Height",
-    "register": 732
-  },
-  {
-    "field": "T_NP_01:EastingDiff",
-    "register": 734
-  },
-  {
-    "field": "T_NP_01:NorthingDiff",
-    "register": 736
-  },
-  {
-    "field": "T_NP_01:HeightDiff",
-    "register": 738
-  },
-  {
-    "field": "T_NP_02:Easting",
-    "register": 740
-  },
-  {
-    "field": "T_NP_02:Northing",
-    "register": 742
-  },
-  {
-    "field": "T_NP_02:Height",
-    "register": 744
-  },
-  {
-    "field": "T_NP_02:EastingDiff",
-    "register": 746
-  },
-  {
-    "field": "T_NP_02:NorthingDiff",
-    "register": 748
-  },
-  {
-    "field": "T_NP_02:HeightDiff",
-    "register": 750
-  },
-  {
-    "field": "T_NP_03:Easting",
-    "register": 752
-  },
-  {
-    "field": "T_NP_03:Northing",
-    "register": 754
-  },
-  {
-    "field": "T_NP_03:Height",
-    "register": 756
-  },
-  {
-    "field": "T_NP_03:EastingDiff",
-    "register": 758
-  },
-  {
-    "field": "T_NP_03:NorthingDiff",
-    "register": 760
-  },
-  {
-    "field": "T_NP_03:HeightDiff",
-    "register": 762
-  },
-  {
-    "field": "T_SP_01:Easting",
-    "register": 764
-  },
-  {
-    "field": "T_SP_01:Northing",
-    "register": 766
-  },
-  {
-    "field": "T_SP_01:Height",
-    "register": 768
-  },
-  {
-    "field": "T_SP_01:EastingDiff",
-    "register": 770
-  },
-  {
-    "field": "T_SP_01:NorthingDiff",
-    "register": 772
-  },
-  {
-    "field": "T_SP_01:HeightDiff",
-    "register": 774
-  },
-  {
-    "field": "T_SP_02:Easting",
-    "register": 776
-  },
-  {
-    "field": "T_SP_02:Northing",
-    "register": 778
-  },
-  {
-    "field": "T_SP_02:Height",
-    "register": 780
-  },
-  {
-    "field": "T_SP_02:EastingDiff",
-    "register": 782
-  },
-  {
-    "field": "T_SP_02:NorthingDiff",
-    "register": 784
-  },
-  {
-    "field": "T_SP_02:HeightDiff",
-    "register": 786
-  },
-  {
-    "field": "T_SP_03:Easting",
-    "register": 788
-  },
-  {
-    "field": "T_SP_03:Northing",
-    "register": 790
-  },
-  {
-    "field": "T_SP_03:Height",
-    "register": 792
-  },
-  {
-    "field": "T_SP_03:EastingDiff",
-    "register": 794
-  },
-  {
-    "field": "T_SP_03:NorthingDiff",
-    "register": 796
-  },
-  {
-    "field": "T_SP_03:HeightDiff",
-    "register": 798
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_STR:last",
+    "field": "Tuerschalter:mean",
     "register": 1000
   },
   {
-    "field": "DZ_HTRO_N_I_1_STR:mean",
+    "field": "Tuerschalter:min",
     "register": 1002
   },
   {
-    "field": "DZ_HTRO_N_I_1_STR:median",
+    "field": "Tuerschalter:max",
     "register": 1004
   },
   {
-    "field": "DZ_HTRO_N_I_1_STR:min",
+    "field": "Netz_Ausfall:mean",
     "register": 1006
   },
   {
-    "field": "DZ_HTRO_N_I_1_STR:max",
+    "field": "Netz_Ausfall:min",
     "register": 1008
   },
   {
-    "field": "DZ_HTRO_N_A_1_STR:last",
+    "field": "Netz_Ausfall:max",
     "register": 1010
   },
   {
-    "field": "DZ_HTRO_N_A_1_STR:mean",
+    "field": "USV_Betrieb:mean",
     "register": 1012
   },
   {
-    "field": "DZ_HTRO_N_A_1_STR:median",
+    "field": "USV_Betrieb:min",
     "register": 1014
   },
   {
-    "field": "DZ_HTRO_N_A_1_STR:min",
+    "field": "USV_Betrieb:max",
     "register": 1016
   },
   {
-    "field": "DZ_HTRO_N_A_1_STR:max",
+    "field": "Blitzüberwachung:mean",
     "register": 1018
   },
   {
-    "field": "DZ_HTRO_N_I_2_STR:last",
+    "field": "Blitzüberwachung:min",
     "register": 1020
   },
   {
-    "field": "DZ_HTRO_N_I_2_STR:mean",
+    "field": "Blitzüberwachung:max",
     "register": 1022
   },
   {
-    "field": "DZ_HTRO_N_I_2_STR:median",
+    "field": "Batterieüberwachung:mean",
     "register": 1024
   },
   {
-    "field": "DZ_HTRO_N_I_2_STR:min",
+    "field": "Batterieüberwachung:min",
     "register": 1026
   },
   {
-    "field": "DZ_HTRO_N_I_2_STR:max",
+    "field": "Batterieüberwachung:max",
     "register": 1028
   },
   {
-    "field": "DZ_HTRO_N_A_2_STR:last",
+    "field": "T_T1_L2_WN_O_WTK:mean",
     "register": 1030
   },
   {
-    "field": "DZ_HTRO_N_A_2_STR:mean",
+    "field": "T_T1_L2_WN_O_WTK:min",
     "register": 1032
   },
   {
-    "field": "DZ_HTRO_N_A_2_STR:median",
+    "field": "T_T1_L2_WN_O_WTK:max",
     "register": 1034
   },
   {
-    "field": "DZ_HTRO_N_A_2_STR:min",
+    "field": "T_T1_L2_WN_U_WTK:mean",
     "register": 1036
   },
   {
-    "field": "DZ_HTRO_N_A_2_STR:max",
+    "field": "T_T1_L2_WN_U_WTK:min",
     "register": 1038
   },
   {
-    "field": "DZ_HTRW_N_I_1_STR:last",
+    "field": "T_T1_L2_WN_U_WTK:max",
     "register": 1040
   },
   {
-    "field": "DZ_HTRW_N_I_1_STR:mean",
+    "field": "T_T1_L2_WS_O_WTK:mean",
     "register": 1042
   },
   {
-    "field": "DZ_HTRW_N_I_1_STR:median",
+    "field": "T_T1_L2_WS_O_WTK:min",
     "register": 1044
   },
   {
-    "field": "DZ_HTRW_N_I_1_STR:min",
+    "field": "T_T1_L2_WS_O_WTK:max",
     "register": 1046
   },
   {
-    "field": "DZ_HTRW_N_I_1_STR:max",
+    "field": "T_T1_L2_WS_U_WTK:mean",
     "register": 1048
   },
   {
-    "field": "DZ_HTRW_N_A_1_STR:last",
+    "field": "T_T1_L2_WS_U_WTK:min",
     "register": 1050
   },
   {
-    "field": "DZ_HTRW_N_A_1_STR:mean",
+    "field": "T_T1_L2_WS_U_WTK:max",
     "register": 1052
   },
   {
-    "field": "DZ_HTRW_N_A_1_STR:median",
+    "field": "T_T1_L2_OS_O_WTK:mean",
     "register": 1054
   },
   {
-    "field": "DZ_HTRW_N_A_1_STR:min",
+    "field": "T_T1_L2_OS_O_WTK:min",
     "register": 1056
   },
   {
-    "field": "DZ_HTRW_N_A_1_STR:max",
+    "field": "T_T1_L2_OS_O_WTK:max",
     "register": 1058
   },
   {
-    "field": "DZ_HTRW_N_I_2_STR:last",
+    "field": "T_T1_L2_OS_U_WTK:mean",
     "register": 1060
   },
   {
-    "field": "DZ_HTRW_N_I_2_STR:mean",
+    "field": "T_T1_L2_OS_U_WTK:min",
     "register": 1062
   },
   {
-    "field": "DZ_HTRW_N_I_2_STR:median",
+    "field": "T_T1_L2_OS_U_WTK:max",
     "register": 1064
   },
   {
-    "field": "DZ_HTRW_N_I_2_STR:min",
+    "field": "T_T1_L2_ON_O_WTK:mean",
     "register": 1066
   },
   {
-    "field": "DZ_HTRW_N_I_2_STR:max",
+    "field": "T_T1_L2_ON_O_WTK:min",
     "register": 1068
   },
   {
-    "field": "DZ_HTRW_N_A_2_STR:last",
+    "field": "T_T1_L2_ON_O_WTK:max",
     "register": 1070
   },
   {
-    "field": "DZ_HTRW_N_A_2_STR:mean",
+    "field": "T_T1_L2_ON_U_WTK:mean",
     "register": 1072
   },
   {
-    "field": "DZ_HTRW_N_A_2_STR:median",
+    "field": "T_T1_L2_ON_U_WTK:min",
     "register": 1074
   },
   {
-    "field": "DZ_HTRW_N_A_2_STR:min",
+    "field": "T_T1_L2_ON_U_WTK:max",
     "register": 1076
   },
   {
-    "field": "DZ_HTRW_N_A_2_STR:max",
+    "field": "T_T1_L4_WN_O_WTK:mean",
     "register": 1078
   },
   {
-    "field": "DO_HTRO_N_I_1_STR:last",
+    "field": "T_T1_L4_WN_O_WTK:min",
     "register": 1080
   },
   {
-    "field": "DO_HTRO_N_I_1_STR:mean",
+    "field": "T_T1_L4_WN_O_WTK:max",
     "register": 1082
   },
   {
-    "field": "DO_HTRO_N_I_1_STR:median",
+    "field": "T_T1_L4_WN_U_WTK:mean",
     "register": 1084
   },
   {
-    "field": "DO_HTRO_N_I_1_STR:min",
+    "field": "T_T1_L4_WN_U_WTK:min",
     "register": 1086
   },
   {
-    "field": "DO_HTRO_N_I_1_STR:max",
+    "field": "T_T1_L4_WN_U_WTK:max",
     "register": 1088
   },
   {
-    "field": "DO_HTRO_N_A_1_STR:last",
+    "field": "T_T1_L4_WS_O_WTK:mean",
     "register": 1090
   },
   {
-    "field": "DO_HTRO_N_A_1_STR:mean",
+    "field": "T_T1_L4_WS_O_WTK:min",
     "register": 1092
   },
   {
-    "field": "DO_HTRO_N_A_1_STR:median",
+    "field": "T_T1_L4_WS_O_WTK:max",
     "register": 1094
   },
   {
-    "field": "DO_HTRO_N_A_1_STR:min",
+    "field": "T_T1_L4_WS_U_WTK:mean",
     "register": 1096
   },
   {
-    "field": "DO_HTRO_N_A_1_STR:max",
+    "field": "T_T1_L4_WS_U_WTK:min",
     "register": 1098
   },
   {
-    "field": "DO_HTRO_N_I_2_STR:last",
+    "field": "T_T1_L4_WS_U_WTK:max",
     "register": 1100
   },
   {
-    "field": "DO_HTRO_N_I_2_STR:mean",
+    "field": "T_T1_L4_OS_O_WTK:mean",
     "register": 1102
   },
   {
-    "field": "DO_HTRO_N_I_2_STR:median",
+    "field": "T_T1_L4_OS_O_WTK:min",
     "register": 1104
   },
   {
-    "field": "DO_HTRO_N_I_2_STR:min",
+    "field": "T_T1_L4_OS_O_WTK:max",
     "register": 1106
   },
   {
-    "field": "DO_HTRO_N_I_2_STR:max",
+    "field": "T_T1_L4_OS_U_WTK:mean",
     "register": 1108
   },
   {
-    "field": "DO_HTRO_N_WV_1_STR:last",
+    "field": "T_T1_L4_OS_U_WTK:min",
     "register": 1110
   },
   {
-    "field": "DO_HTRO_N_WV_1_STR:mean",
+    "field": "T_T1_L4_OS_U_WTK:max",
     "register": 1112
   },
   {
-    "field": "DO_HTRO_N_WV_1_STR:median",
+    "field": "T_T1_L4_ON_O_WTK:mean",
     "register": 1114
   },
   {
-    "field": "DO_HTRO_N_WV_1_STR:min",
+    "field": "T_T1_L4_ON_O_WTK:min",
     "register": 1116
   },
   {
-    "field": "DO_HTRO_N_WV_1_STR:max",
+    "field": "T_T1_L4_ON_O_WTK:max",
     "register": 1118
   },
   {
-    "field": "DU_HTRO_N_I_2_STR:last",
+    "field": "T_T1_L4_ON_U_WTK:mean",
     "register": 1120
   },
   {
-    "field": "DU_HTRO_N_I_2_STR:mean",
+    "field": "T_T1_L4_ON_U_WTK:min",
     "register": 1122
   },
   {
-    "field": "DU_HTRO_N_I_2_STR:median",
+    "field": "T_T1_L4_ON_U_WTK:max",
     "register": 1124
   },
   {
-    "field": "DU_HTRO_N_I_2_STR:min",
+    "field": "T_T2_L5_WN_O_WTK:mean",
     "register": 1126
   },
   {
-    "field": "DU_HTRO_N_I_2_STR:max",
+    "field": "T_T2_L5_WN_O_WTK:min",
     "register": 1128
   },
   {
-    "field": "DU_HTRO_N_A_2_STR:last",
+    "field": "T_T2_L5_WN_O_WTK:max",
     "register": 1130
   },
   {
-    "field": "DU_HTRO_N_A_2_STR:mean",
+    "field": "T_T2_L5_WN_U_WTK:mean",
     "register": 1132
   },
   {
-    "field": "DU_HTRO_N_A_2_STR:median",
+    "field": "T_T2_L5_WN_U_WTK:min",
     "register": 1134
   },
   {
-    "field": "DU_HTRO_N_A_2_STR:min",
+    "field": "T_T2_L5_WN_U_WTK:max",
     "register": 1136
   },
   {
-    "field": "DU_HTRO_N_A_2_STR:max",
+    "field": "T_T2_L5_WS_O_WTK:mean",
     "register": 1138
   },
   {
-    "field": "DU_HTRO_N_I_3_STR:last",
+    "field": "T_T2_L5_WS_O_WTK:min",
     "register": 1140
   },
   {
-    "field": "DU_HTRO_N_I_3_STR:mean",
+    "field": "T_T2_L5_WS_O_WTK:max",
     "register": 1142
   },
   {
-    "field": "DU_HTRO_N_I_3_STR:median",
+    "field": "T_T2_L5_WS_U_WTK:mean",
     "register": 1144
   },
   {
-    "field": "DU_HTRO_N_I_3_STR:min",
+    "field": "T_T2_L5_WS_U_WTK:min",
     "register": 1146
   },
   {
-    "field": "DU_HTRO_N_I_3_STR:max",
+    "field": "T_T2_L5_WS_U_WTK:max",
     "register": 1148
   },
   {
-    "field": "DU_HTRO_N_A_3_STR:last",
+    "field": "T_T2_L5_OS_O_WTK:mean",
     "register": 1150
   },
   {
-    "field": "DU_HTRO_N_A_3_STR:mean",
+    "field": "T_T2_L5_OS_O_WTK:min",
     "register": 1152
   },
   {
-    "field": "DU_HTRO_N_A_3_STR:median",
+    "field": "T_T2_L5_OS_O_WTK:max",
     "register": 1154
   },
   {
-    "field": "DU_HTRO_N_A_3_STR:min",
+    "field": "T_T2_L5_OS_U_WTK:mean",
     "register": 1156
   },
   {
-    "field": "DU_HTRO_N_A_3_STR:max",
+    "field": "T_T2_L5_OS_U_WTK:min",
     "register": 1158
   },
   {
-    "field": "DO_HTRW_N_I_1_STR:last",
+    "field": "T_T2_L5_OS_U_WTK:max",
     "register": 1160
   },
   {
-    "field": "DO_HTRW_N_I_1_STR:mean",
+    "field": "T_T2_L5_ON_O_WTK:mean",
     "register": 1162
   },
   {
-    "field": "DO_HTRW_N_I_1_STR:median",
+    "field": "T_T2_L5_ON_O_WTK:min",
     "register": 1164
   },
   {
-    "field": "DO_HTRW_N_I_1_STR:min",
+    "field": "T_T2_L5_ON_O_WTK:max",
     "register": 1166
   },
   {
-    "field": "DO_HTRW_N_I_1_STR:max",
+    "field": "T_T2_L5_ON_U_WTK:mean",
     "register": 1168
   },
   {
-    "field": "DO_HTRW_N_A_1_STR:last",
+    "field": "T_T2_L5_ON_U_WTK:min",
     "register": 1170
   },
   {
-    "field": "DO_HTRW_N_A_1_STR:mean",
+    "field": "T_T2_L5_ON_U_WTK:max",
     "register": 1172
   },
   {
-    "field": "DO_HTRW_N_A_1_STR:median",
+    "field": "T_T2_L3_WN_O_WTK:mean",
     "register": 1174
   },
   {
-    "field": "DO_HTRW_N_A_1_STR:min",
+    "field": "T_T2_L3_WN_O_WTK:min",
     "register": 1176
   },
   {
-    "field": "DO_HTRW_N_A_1_STR:max",
+    "field": "T_T2_L3_WN_O_WTK:max",
     "register": 1178
   },
   {
-    "field": "DO_HTRW_N_I_2_STR:last",
+    "field": "T_T2_L3_WN_U_WTK:mean",
     "register": 1180
   },
   {
-    "field": "DO_HTRW_N_I_2_STR:mean",
+    "field": "T_T2_L3_WN_U_WTK:min",
     "register": 1182
   },
   {
-    "field": "DO_HTRW_N_I_2_STR:median",
+    "field": "T_T2_L3_WN_U_WTK:max",
     "register": 1184
   },
   {
-    "field": "DO_HTRW_N_I_2_STR:min",
+    "field": "T_T2_L3_WS_O_WTK:mean",
     "register": 1186
   },
   {
-    "field": "DO_HTRW_N_I_2_STR:max",
+    "field": "T_T2_L3_WS_O_WTK:min",
     "register": 1188
   },
   {
-    "field": "DO_HTRW_N_A_2_STR:last",
+    "field": "T_T2_L3_WS_O_WTK:max",
     "register": 1190
   },
   {
-    "field": "DO_HTRW_N_A_2_STR:mean",
+    "field": "T_T2_L3_WS_U_WTK:mean",
     "register": 1192
   },
   {
-    "field": "DO_HTRW_N_A_2_STR:median",
+    "field": "T_T2_L3_WS_U_WTK:min",
     "register": 1194
   },
   {
-    "field": "DO_HTRW_N_A_2_STR:min",
+    "field": "T_T2_L3_WS_U_WTK:max",
     "register": 1196
   },
   {
-    "field": "DO_HTRW_N_A_2_STR:max",
+    "field": "T_T2_L3_OS_O_WTK:mean",
     "register": 1198
   },
   {
-    "field": "DU_HTRW_N_I_2_STR:last",
+    "field": "T_T2_L3_OS_O_WTK:min",
     "register": 1200
   },
   {
-    "field": "DU_HTRW_N_I_2_STR:mean",
+    "field": "T_T2_L3_OS_O_WTK:max",
     "register": 1202
   },
   {
-    "field": "DU_HTRW_N_I_2_STR:median",
+    "field": "T_T2_L3_OS_U_WTK:mean",
     "register": 1204
   },
   {
-    "field": "DU_HTRW_N_I_2_STR:min",
+    "field": "T_T2_L3_OS_U_WTK:min",
     "register": 1206
   },
   {
-    "field": "DU_HTRW_N_I_2_STR:max",
+    "field": "T_T2_L3_OS_U_WTK:max",
     "register": 1208
   },
   {
-    "field": "DU_HTRW_N_A_2_STR:last",
+    "field": "T_T2_L3_ON_O_WTK:mean",
     "register": 1210
   },
   {
-    "field": "DU_HTRW_N_A_2_STR:mean",
+    "field": "T_T2_L3_ON_O_WTK:min",
     "register": 1212
   },
   {
-    "field": "DU_HTRW_N_A_2_STR:median",
+    "field": "T_T2_L3_ON_O_WTK:max",
     "register": 1214
   },
   {
-    "field": "DU_HTRW_N_A_2_STR:min",
+    "field": "T_T2_L3_ON_U_WTK:mean",
     "register": 1216
   },
   {
-    "field": "DU_HTRW_N_A_2_STR:max",
+    "field": "T_T2_L3_ON_U_WTK:min",
     "register": 1218
   },
   {
-    "field": "DU_HTRW_N_I_3_STR:last",
+    "field": "T_T2_L3_ON_U_WTK:max",
     "register": 1220
   },
   {
-    "field": "DU_HTRW_N_I_3_STR:mean",
+    "field": "T_T1_L2_WN_O_SIG:mean",
     "register": 1222
   },
   {
-    "field": "DU_HTRW_N_I_3_STR:median",
+    "field": "T_T1_L2_WN_O_SIG:min",
     "register": 1224
   },
   {
-    "field": "DU_HTRW_N_I_3_STR:min",
+    "field": "T_T1_L2_WN_O_SIG:max",
     "register": 1226
   },
   {
-    "field": "DU_HTRW_N_I_3_STR:max",
+    "field": "T_T1_L2_WN_U_SIG:mean",
     "register": 1228
   },
   {
-    "field": "DU_HTRW_N_A_3_STR:last",
+    "field": "T_T1_L2_WN_U_SIG:min",
     "register": 1230
   },
   {
-    "field": "DU_HTRW_N_A_3_STR:mean",
+    "field": "T_T1_L2_WN_U_SIG:max",
     "register": 1232
   },
   {
-    "field": "DU_HTRW_N_A_3_STR:median",
+    "field": "T_T1_L2_WS_O_SIG:mean",
     "register": 1234
   },
   {
-    "field": "DU_HTRW_N_A_3_STR:min",
+    "field": "T_T1_L2_WS_O_SIG:min",
     "register": 1236
   },
   {
-    "field": "DU_HTRW_N_A_3_STR:max",
+    "field": "T_T1_L2_WS_O_SIG:max",
     "register": 1238
   },
   {
-    "field": "DZ_HTRO_S_I_1_STR:last",
+    "field": "T_T1_L2_WS_U_SIG:mean",
     "register": 1240
   },
   {
-    "field": "DZ_HTRO_S_I_1_STR:mean",
+    "field": "T_T1_L2_WS_U_SIG:min",
     "register": 1242
   },
   {
-    "field": "DZ_HTRO_S_I_1_STR:median",
+    "field": "T_T1_L2_WS_U_SIG:max",
     "register": 1244
   },
   {
-    "field": "DZ_HTRO_S_I_1_STR:min",
+    "field": "T_T1_L2_OS_O_SIG:mean",
     "register": 1246
   },
   {
-    "field": "DZ_HTRO_S_I_1_STR:max",
+    "field": "T_T1_L2_OS_O_SIG:min",
     "register": 1248
   },
   {
-    "field": "DZ_HTRO_S_A_1_STR:last",
+    "field": "T_T1_L2_OS_O_SIG:max",
     "register": 1250
   },
   {
-    "field": "DZ_HTRO_S_A_1_STR:mean",
+    "field": "T_T1_L2_OS_U_SIG:mean",
     "register": 1252
   },
   {
-    "field": "DZ_HTRO_S_A_1_STR:median",
+    "field": "T_T1_L2_OS_U_SIG:min",
     "register": 1254
   },
   {
-    "field": "DZ_HTRO_S_A_1_STR:min",
+    "field": "T_T1_L2_OS_U_SIG:max",
     "register": 1256
   },
   {
-    "field": "DZ_HTRO_S_A_1_STR:max",
+    "field": "T_T1_L2_ON_O_SIG:mean",
     "register": 1258
   },
   {
-    "field": "DZ_HTRO_S_I_2_STR:last",
+    "field": "T_T1_L2_ON_O_SIG:min",
     "register": 1260
   },
   {
-    "field": "DZ_HTRO_S_I_2_STR:mean",
+    "field": "T_T1_L2_ON_O_SIG:max",
     "register": 1262
   },
   {
-    "field": "DZ_HTRO_S_I_2_STR:median",
+    "field": "T_T1_L2_ON_U_SIG:mean",
     "register": 1264
   },
   {
-    "field": "DZ_HTRO_S_I_2_STR:min",
+    "field": "T_T1_L2_ON_U_SIG:min",
     "register": 1266
   },
   {
-    "field": "DZ_HTRO_S_I_2_STR:max",
+    "field": "T_T1_L2_ON_U_SIG:max",
     "register": 1268
   },
   {
-    "field": "DZ_HTRO_S_A_2_STR:last",
+    "field": "T_T1_L4_WN_O_SIG:mean",
     "register": 1270
   },
   {
-    "field": "DZ_HTRO_S_A_2_STR:mean",
+    "field": "T_T1_L4_WN_O_SIG:min",
     "register": 1272
   },
   {
-    "field": "DZ_HTRO_S_A_2_STR:median",
+    "field": "T_T1_L4_WN_O_SIG:max",
     "register": 1274
   },
   {
-    "field": "DZ_HTRO_S_A_2_STR:min",
+    "field": "T_T1_L4_WN_U_SIG:mean",
     "register": 1276
   },
   {
-    "field": "DZ_HTRO_S_A_2_STR:max",
+    "field": "T_T1_L4_WN_U_SIG:min",
     "register": 1278
   },
   {
-    "field": "DZ_HTRW_S_I_1_STR:last",
+    "field": "T_T1_L4_WN_U_SIG:max",
     "register": 1280
   },
   {
-    "field": "DZ_HTRW_S_I_1_STR:mean",
+    "field": "T_T1_L4_WS_O_SIG:mean",
     "register": 1282
   },
   {
-    "field": "DZ_HTRW_S_I_1_STR:median",
+    "field": "T_T1_L4_WS_O_SIG:min",
     "register": 1284
   },
   {
-    "field": "DZ_HTRW_S_I_1_STR:min",
+    "field": "T_T1_L4_WS_O_SIG:max",
     "register": 1286
   },
   {
-    "field": "DZ_HTRW_S_I_1_STR:max",
+    "field": "T_T1_L4_WS_U_SIG:mean",
     "register": 1288
   },
   {
-    "field": "DZ_HTRW_S_A_1_STR:last",
+    "field": "T_T1_L4_WS_U_SIG:min",
     "register": 1290
   },
   {
-    "field": "DZ_HTRW_S_A_1_STR:mean",
+    "field": "T_T1_L4_WS_U_SIG:max",
     "register": 1292
   },
   {
-    "field": "DZ_HTRW_S_A_1_STR:median",
+    "field": "T_T1_L4_OS_O_SIG:mean",
     "register": 1294
   },
   {
-    "field": "DZ_HTRW_S_A_1_STR:min",
+    "field": "T_T1_L4_OS_O_SIG:min",
     "register": 1296
   },
   {
-    "field": "DZ_HTRW_S_A_1_STR:max",
+    "field": "T_T1_L4_OS_O_SIG:max",
     "register": 1298
   },
   {
-    "field": "DZ_HTRW_S_I_2_STR:last",
+    "field": "T_T1_L4_OS_U_SIG:mean",
     "register": 1300
   },
   {
-    "field": "DZ_HTRW_S_I_2_STR:mean",
+    "field": "T_T1_L4_OS_U_SIG:min",
     "register": 1302
   },
   {
-    "field": "DZ_HTRW_S_I_2_STR:median",
+    "field": "T_T1_L4_OS_U_SIG:max",
     "register": 1304
   },
   {
-    "field": "DZ_HTRW_S_I_2_STR:min",
+    "field": "T_T1_L4_ON_O_SIG:mean",
     "register": 1306
   },
   {
-    "field": "DZ_HTRW_S_I_2_STR:max",
+    "field": "T_T1_L4_ON_O_SIG:min",
     "register": 1308
   },
   {
-    "field": "DZ_HTRW_S_A_2_STR:last",
+    "field": "T_T1_L4_ON_O_SIG:max",
     "register": 1310
   },
   {
-    "field": "DZ_HTRW_S_A_2_STR:mean",
+    "field": "T_T1_L4_ON_U_SIG:mean",
     "register": 1312
   },
   {
-    "field": "DZ_HTRW_S_A_2_STR:median",
+    "field": "T_T1_L4_ON_U_SIG:min",
     "register": 1314
   },
   {
-    "field": "DZ_HTRW_S_A_2_STR:min",
+    "field": "T_T1_L4_ON_U_SIG:max",
     "register": 1316
   },
   {
-    "field": "DZ_HTRW_S_A_2_STR:max",
+    "field": "T_T2_L5_WN_O_SIG:mean",
     "register": 1318
   },
   {
-    "field": "DO_HTRW_S_I_2_STR:last",
+    "field": "T_T2_L5_WN_O_SIG:min",
     "register": 1320
   },
   {
-    "field": "DO_HTRW_S_I_2_STR:mean",
+    "field": "T_T2_L5_WN_O_SIG:max",
     "register": 1322
   },
   {
-    "field": "DO_HTRW_S_I_2_STR:median",
+    "field": "T_T2_L5_WN_U_SIG:mean",
     "register": 1324
   },
   {
-    "field": "DO_HTRW_S_I_2_STR:min",
+    "field": "T_T2_L5_WN_U_SIG:min",
     "register": 1326
   },
   {
-    "field": "DO_HTRW_S_I_2_STR:max",
+    "field": "T_T2_L5_WN_U_SIG:max",
     "register": 1328
   },
   {
-    "field": "DO_HTRW_S_A_2_STR:last",
+    "field": "T_T2_L5_WS_O_SIG:mean",
     "register": 1330
   },
   {
-    "field": "DO_HTRW_S_A_2_STR:mean",
+    "field": "T_T2_L5_WS_O_SIG:min",
     "register": 1332
   },
   {
-    "field": "DO_HTRW_S_A_2_STR:median",
+    "field": "T_T2_L5_WS_O_SIG:max",
     "register": 1334
   },
   {
-    "field": "DO_HTRW_S_A_2_STR:min",
+    "field": "T_T2_L5_WS_U_SIG:mean",
     "register": 1336
   },
   {
-    "field": "DO_HTRW_S_A_2_STR:max",
+    "field": "T_T2_L5_WS_U_SIG:min",
     "register": 1338
   },
   {
-    "field": "DO_HTRW_S_I_3_STR:last",
+    "field": "T_T2_L5_WS_U_SIG:max",
     "register": 1340
   },
   {
-    "field": "DO_HTRW_S_I_3_STR:mean",
+    "field": "T_T2_L5_OS_O_SIG:mean",
     "register": 1342
   },
   {
-    "field": "DO_HTRW_S_I_3_STR:median",
+    "field": "T_T2_L5_OS_O_SIG:min",
     "register": 1344
   },
   {
-    "field": "DO_HTRW_S_I_3_STR:min",
+    "field": "T_T2_L5_OS_O_SIG:max",
     "register": 1346
   },
   {
-    "field": "DO_HTRW_S_I_3_STR:max",
+    "field": "T_T2_L5_OS_U_SIG:mean",
     "register": 1348
   },
   {
-    "field": "DO_HTRW_S_A_3_STR:last",
+    "field": "T_T2_L5_OS_U_SIG:min",
     "register": 1350
   },
   {
-    "field": "DO_HTRW_S_A_3_STR:mean",
+    "field": "T_T2_L5_OS_U_SIG:max",
     "register": 1352
   },
   {
-    "field": "DO_HTRW_S_A_3_STR:median",
+    "field": "T_T2_L5_ON_O_SIG:mean",
     "register": 1354
   },
   {
-    "field": "DO_HTRW_S_A_3_STR:min",
+    "field": "T_T2_L5_ON_O_SIG:min",
     "register": 1356
   },
   {
-    "field": "DO_HTRW_S_A_3_STR:max",
+    "field": "T_T2_L5_ON_O_SIG:max",
     "register": 1358
   },
   {
-    "field": "DU_HTRW_S_I_1_STR:last",
+    "field": "T_T2_L5_ON_U_SIG:mean",
     "register": 1360
   },
   {
-    "field": "DU_HTRW_S_I_1_STR:mean",
+    "field": "T_T2_L5_ON_U_SIG:min",
     "register": 1362
   },
   {
-    "field": "DU_HTRW_S_I_1_STR:median",
+    "field": "T_T2_L5_ON_U_SIG:max",
     "register": 1364
   },
   {
-    "field": "DU_HTRW_S_I_1_STR:min",
+    "field": "T_T2_L3_WN_O_SIG:mean",
     "register": 1366
   },
   {
-    "field": "DU_HTRW_S_I_1_STR:max",
+    "field": "T_T2_L3_WN_O_SIG:min",
     "register": 1368
   },
   {
-    "field": "DU_HTRW_S_A_1_STR:last",
+    "field": "T_T2_L3_WN_O_SIG:max",
     "register": 1370
   },
   {
-    "field": "DU_HTRW_S_A_1_STR:mean",
+    "field": "T_T2_L3_WN_U_SIG:mean",
     "register": 1372
   },
   {
-    "field": "DU_HTRW_S_A_1_STR:median",
+    "field": "T_T2_L3_WN_U_SIG:min",
     "register": 1374
   },
   {
-    "field": "DU_HTRW_S_A_1_STR:min",
+    "field": "T_T2_L3_WN_U_SIG:max",
     "register": 1376
   },
   {
-    "field": "DU_HTRW_S_A_1_STR:max",
+    "field": "T_T2_L3_WS_O_SIG:mean",
     "register": 1378
   },
   {
-    "field": "DU_HTRW_S_I_2_STR:last",
+    "field": "T_T2_L3_WS_O_SIG:min",
     "register": 1380
   },
   {
-    "field": "DU_HTRW_S_I_2_STR:mean",
+    "field": "T_T2_L3_WS_O_SIG:max",
     "register": 1382
   },
   {
-    "field": "DU_HTRW_S_I_2_STR:median",
+    "field": "T_T2_L3_WS_U_SIG:mean",
     "register": 1384
   },
   {
-    "field": "DU_HTRW_S_I_2_STR:min",
+    "field": "T_T2_L3_WS_U_SIG:min",
     "register": 1386
   },
   {
-    "field": "DU_HTRW_S_I_2_STR:max",
+    "field": "T_T2_L3_WS_U_SIG:max",
     "register": 1388
   },
   {
-    "field": "DU_HTRW_S_A_2_STR:last",
+    "field": "T_T2_L3_OS_O_SIG:mean",
     "register": 1390
   },
   {
-    "field": "DU_HTRW_S_A_2_STR:mean",
+    "field": "T_T2_L3_OS_O_SIG:min",
     "register": 1392
   },
   {
-    "field": "DU_HTRW_S_A_2_STR:median",
+    "field": "T_T2_L3_OS_O_SIG:max",
     "register": 1394
   },
   {
-    "field": "DU_HTRW_S_A_2_STR:min",
+    "field": "T_T2_L3_OS_U_SIG:mean",
     "register": 1396
   },
   {
-    "field": "DU_HTRW_S_A_2_STR:max",
+    "field": "T_T2_L3_OS_U_SIG:min",
     "register": 1398
   },
   {
-    "field": "DO_HTRO_S_I_1_STR:last",
+    "field": "T_T2_L3_OS_U_SIG:max",
     "register": 1400
   },
   {
-    "field": "DO_HTRO_S_I_1_STR:mean",
+    "field": "T_T2_L3_ON_O_SIG:mean",
     "register": 1402
   },
   {
-    "field": "DO_HTRO_S_I_1_STR:median",
+    "field": "T_T2_L3_ON_O_SIG:min",
     "register": 1404
   },
   {
-    "field": "DO_HTRO_S_I_1_STR:min",
+    "field": "T_T2_L3_ON_O_SIG:max",
     "register": 1406
   },
   {
-    "field": "DO_HTRO_S_I_1_STR:max",
+    "field": "T_T2_L3_ON_U_SIG:mean",
     "register": 1408
   },
   {
-    "field": "DO_HTRO_S_A_1_STR:last",
+    "field": "T_T2_L3_ON_U_SIG:min",
     "register": 1410
   },
   {
-    "field": "DO_HTRO_S_A_1_STR:mean",
+    "field": "T_T2_L3_ON_U_SIG:max",
     "register": 1412
   },
   {
-    "field": "DO_HTRO_S_A_1_STR:median",
+    "field": "BS_T1_L3_W_INC_X:mean",
     "register": 1414
   },
   {
-    "field": "DO_HTRO_S_A_1_STR:min",
+    "field": "BS_T1_L3_W_INC_X:min",
     "register": 1416
   },
   {
-    "field": "DO_HTRO_S_A_1_STR:max",
+    "field": "BS_T1_L3_W_INC_X:max",
     "register": 1418
   },
   {
-    "field": "DU_HTRO_N_I_1_STR:last",
+    "field": "BS_T1_L3_W_INC_Y:mean",
     "register": 1420
   },
   {
-    "field": "DU_HTRO_N_I_1_STR:mean",
+    "field": "BS_T1_L3_W_INC_Y:min",
     "register": 1422
   },
   {
-    "field": "DU_HTRO_N_I_1_STR:median",
+    "field": "BS_T1_L3_W_INC_Y:max",
     "register": 1424
   },
   {
-    "field": "DU_HTRO_N_I_1_STR:min",
+    "field": "BS_T1_L3_W_INC_Z:mean",
     "register": 1426
   },
   {
-    "field": "DU_HTRO_N_I_1_STR:max",
+    "field": "BS_T1_L3_W_INC_Z:min",
     "register": 1428
   },
   {
-    "field": "DU_HTRO_N_A_1_STR:last",
+    "field": "BS_T1_L3_W_INC_Z:max",
     "register": 1430
   },
   {
-    "field": "DU_HTRO_N_A_1_STR:mean",
+    "field": "BS_T1_L3_O_INC_X:mean",
     "register": 1432
   },
   {
-    "field": "DU_HTRO_N_A_1_STR:median",
+    "field": "BS_T1_L3_O_INC_X:min",
     "register": 1434
   },
   {
-    "field": "DU_HTRO_N_A_1_STR:min",
+    "field": "BS_T1_L3_O_INC_X:max",
     "register": 1436
   },
   {
-    "field": "DU_HTRO_N_A_1_STR:max",
+    "field": "BS_T1_L3_O_INC_Y:mean",
     "register": 1438
   },
   {
-    "field": "DO_HTRW_S_I_1_STR:last",
+    "field": "BS_T1_L3_O_INC_Y:min",
     "register": 1440
   },
   {
-    "field": "DO_HTRW_S_I_1_STR:mean",
+    "field": "BS_T1_L3_O_INC_Y:max",
     "register": 1442
   },
   {
-    "field": "DO_HTRW_S_I_1_STR:median",
+    "field": "BS_T1_L3_O_INC_Z:mean",
     "register": 1444
   },
   {
-    "field": "DO_HTRW_S_I_1_STR:min",
+    "field": "BS_T1_L3_O_INC_Z:min",
     "register": 1446
   },
   {
-    "field": "DO_HTRW_S_I_1_STR:max",
+    "field": "BS_T1_L3_O_INC_Z:max",
     "register": 1448
   },
   {
-    "field": "DO_HTRW_S_A_1_STR:last",
+    "field": "BS_T2_L4_W_INC_X:mean",
     "register": 1450
   },
   {
-    "field": "DO_HTRW_S_A_1_STR:mean",
+    "field": "BS_T2_L4_W_INC_X:min",
     "register": 1452
   },
   {
-    "field": "DO_HTRW_S_A_1_STR:median",
+    "field": "BS_T2_L4_W_INC_X:max",
     "register": 1454
   },
   {
-    "field": "DO_HTRW_S_A_1_STR:min",
+    "field": "BS_T2_L4_W_INC_Y:mean",
     "register": 1456
   },
   {
-    "field": "DO_HTRW_S_A_1_STR:max",
+    "field": "BS_T2_L4_W_INC_Y:min",
     "register": 1458
   },
   {
-    "field": "DU_HTRW_N_I_1_STR:last",
+    "field": "BS_T2_L4_W_INC_Y:max",
     "register": 1460
   },
   {
-    "field": "DU_HTRW_N_I_1_STR:mean",
+    "field": "BS_T2_L4_W_INC_Z:mean",
     "register": 1462
   },
   {
-    "field": "DU_HTRW_N_I_1_STR:median",
+    "field": "BS_T2_L4_W_INC_Z:min",
     "register": 1464
   },
   {
-    "field": "DU_HTRW_N_I_1_STR:min",
+    "field": "BS_T2_L4_W_INC_Z:max",
     "register": 1466
   },
   {
-    "field": "DU_HTRW_N_I_1_STR:max",
+    "field": "BS_T2_L4_O_INC_X:mean",
     "register": 1468
   },
   {
-    "field": "DU_HTRW_N_A_1_STR:last",
+    "field": "BS_T2_L4_O_INC_X:min",
     "register": 1470
   },
   {
-    "field": "DU_HTRW_N_A_1_STR:mean",
+    "field": "BS_T2_L4_O_INC_X:max",
     "register": 1472
   },
   {
-    "field": "DU_HTRW_N_A_1_STR:median",
+    "field": "BS_T2_L4_O_INC_Y:mean",
     "register": 1474
   },
   {
-    "field": "DU_HTRW_N_A_1_STR:min",
+    "field": "BS_T2_L4_O_INC_Y:min",
     "register": 1476
   },
   {
-    "field": "DU_HTRW_N_A_1_STR:max",
+    "field": "BS_T2_L4_O_INC_Y:max",
     "register": 1478
   },
   {
-    "field": "DZ_HTRO_N_I_1_WTK:last",
+    "field": "BS_T2_L4_O_INC_Z:mean",
     "register": 1480
   },
   {
-    "field": "DZ_HTRO_N_I_1_WTK:mean",
+    "field": "BS_T2_L4_O_INC_Z:min",
     "register": 1482
   },
   {
-    "field": "DZ_HTRO_N_I_1_WTK:median",
+    "field": "BS_T2_L4_O_INC_Z:max",
     "register": 1484
   },
   {
-    "field": "DZ_HTRO_N_I_1_WTK:min",
+    "field": "BS_T1_L3_W_WTK_X:mean",
     "register": 1486
   },
   {
-    "field": "DZ_HTRO_N_I_1_WTK:max",
+    "field": "BS_T1_L3_W_WTK_X:min",
     "register": 1488
   },
   {
-    "field": "DZ_HTRO_N_A_1_WTK:last",
+    "field": "BS_T1_L3_W_WTK_X:max",
     "register": 1490
   },
   {
-    "field": "DZ_HTRO_N_A_1_WTK:mean",
+    "field": "BS_T1_L3_W_WTK_Y:mean",
     "register": 1492
   },
   {
-    "field": "DZ_HTRO_N_A_1_WTK:median",
+    "field": "BS_T1_L3_W_WTK_Y:min",
     "register": 1494
   },
   {
-    "field": "DZ_HTRO_N_A_1_WTK:min",
+    "field": "BS_T1_L3_W_WTK_Y:max",
     "register": 1496
   },
   {
-    "field": "DZ_HTRO_N_A_1_WTK:max",
+    "field": "BS_T1_L3_W_WTK_Z:mean",
     "register": 1498
   },
   {
-    "field": "DZ_HTRO_N_I_2_WTK:last",
+    "field": "BS_T1_L3_W_WTK_Z:min",
     "register": 1500
   },
   {
-    "field": "DZ_HTRO_N_I_2_WTK:mean",
+    "field": "BS_T1_L3_W_WTK_Z:max",
     "register": 1502
   },
   {
-    "field": "DZ_HTRO_N_I_2_WTK:median",
+    "field": "BS_T1_L3_O_WTK_X:mean",
     "register": 1504
   },
   {
-    "field": "DZ_HTRO_N_I_2_WTK:min",
+    "field": "BS_T1_L3_O_WTK_X:min",
     "register": 1506
   },
   {
-    "field": "DZ_HTRO_N_I_2_WTK:max",
+    "field": "BS_T1_L3_O_WTK_X:max",
     "register": 1508
   },
   {
-    "field": "DZ_HTRO_N_A_2_WTK:last",
+    "field": "BS_T1_L3_O_WTK_Y:mean",
     "register": 1510
   },
   {
-    "field": "DZ_HTRO_N_A_2_WTK:mean",
+    "field": "BS_T1_L3_O_WTK_Y:min",
     "register": 1512
   },
   {
-    "field": "DZ_HTRO_N_A_2_WTK:median",
+    "field": "BS_T1_L3_O_WTK_Y:max",
     "register": 1514
   },
   {
-    "field": "DZ_HTRO_N_A_2_WTK:min",
+    "field": "BS_T1_L3_O_WTK_Z:mean",
     "register": 1516
   },
   {
-    "field": "DZ_HTRO_N_A_2_WTK:max",
+    "field": "BS_T1_L3_O_WTK_Z:min",
     "register": 1518
   },
   {
-    "field": "DZ_HTRW_N_I_1_WTK:last",
+    "field": "BS_T1_L3_O_WTK_Z:max",
     "register": 1520
   },
   {
-    "field": "DZ_HTRW_N_I_1_WTK:mean",
+    "field": "BS_T2_L4_W_WTK_X:mean",
     "register": 1522
   },
   {
-    "field": "DZ_HTRW_N_I_1_WTK:median",
+    "field": "BS_T2_L4_W_WTK_X:min",
     "register": 1524
   },
   {
-    "field": "DZ_HTRW_N_I_1_WTK:min",
+    "field": "BS_T2_L4_W_WTK_X:max",
     "register": 1526
   },
   {
-    "field": "DZ_HTRW_N_I_1_WTK:max",
+    "field": "BS_T2_L4_W_WTK_Y:mean",
     "register": 1528
   },
   {
-    "field": "DZ_HTRW_N_A_1_WTK:last",
+    "field": "BS_T2_L4_W_WTK_Y:min",
     "register": 1530
   },
   {
-    "field": "DZ_HTRW_N_A_1_WTK:mean",
+    "field": "BS_T2_L4_W_WTK_Y:max",
     "register": 1532
   },
   {
-    "field": "DZ_HTRW_N_A_1_WTK:median",
+    "field": "BS_T2_L4_W_WTK_Z:mean",
     "register": 1534
   },
   {
-    "field": "DZ_HTRW_N_A_1_WTK:min",
+    "field": "BS_T2_L4_W_WTK_Z:min",
     "register": 1536
   },
   {
-    "field": "DZ_HTRW_N_A_1_WTK:max",
+    "field": "BS_T2_L4_W_WTK_Z:max",
     "register": 1538
   },
   {
-    "field": "DZ_HTRW_N_I_2_WTK:last",
+    "field": "BS_T2_L4_O_WTK_X:mean",
     "register": 1540
   },
   {
-    "field": "DZ_HTRW_N_I_2_WTK:mean",
+    "field": "BS_T2_L4_O_WTK_X:min",
     "register": 1542
   },
   {
-    "field": "DZ_HTRW_N_I_2_WTK:median",
+    "field": "BS_T2_L4_O_WTK_X:max",
     "register": 1544
   },
   {
-    "field": "DZ_HTRW_N_I_2_WTK:min",
+    "field": "BS_T2_L4_O_WTK_Y:mean",
     "register": 1546
   },
   {
-    "field": "DZ_HTRW_N_I_2_WTK:max",
+    "field": "BS_T2_L4_O_WTK_Y:min",
     "register": 1548
   },
   {
-    "field": "DZ_HTRW_N_A_2_WTK:last",
+    "field": "BS_T2_L4_O_WTK_Y:max",
     "register": 1550
   },
   {
-    "field": "DZ_HTRW_N_A_2_WTK:mean",
+    "field": "BS_T2_L4_O_WTK_Z:mean",
     "register": 1552
   },
   {
-    "field": "DZ_HTRW_N_A_2_WTK:median",
+    "field": "BS_T2_L4_O_WTK_Z:min",
     "register": 1554
   },
   {
-    "field": "DZ_HTRW_N_A_2_WTK:min",
+    "field": "BS_T2_L4_O_WTK_Z:max",
     "register": 1556
   },
   {
-    "field": "DZ_HTRW_N_A_2_WTK:max",
+    "field": "BS_T1_L3_W_SIG_X:mean",
     "register": 1558
   },
   {
-    "field": "DO_HTRO_N_I_1_WTK:last",
+    "field": "BS_T1_L3_W_SIG_X:min",
     "register": 1560
   },
   {
-    "field": "DO_HTRO_N_I_1_WTK:mean",
+    "field": "BS_T1_L3_W_SIG_X:max",
     "register": 1562
   },
   {
-    "field": "DO_HTRO_N_I_1_WTK:median",
+    "field": "BS_T1_L3_W_SIG_Y:mean",
     "register": 1564
   },
   {
-    "field": "DO_HTRO_N_I_1_WTK:min",
+    "field": "BS_T1_L3_W_SIG_Y:min",
     "register": 1566
   },
   {
-    "field": "DO_HTRO_N_I_1_WTK:max",
+    "field": "BS_T1_L3_W_SIG_Y:max",
     "register": 1568
   },
   {
-    "field": "DO_HTRO_N_A_1_WTK:last",
+    "field": "BS_T1_L3_W_SIG_Z:mean",
     "register": 1570
   },
   {
-    "field": "DO_HTRO_N_A_1_WTK:mean",
+    "field": "BS_T1_L3_W_SIG_Z:min",
     "register": 1572
   },
   {
-    "field": "DO_HTRO_N_A_1_WTK:median",
+    "field": "BS_T1_L3_W_SIG_Z:max",
     "register": 1574
   },
   {
-    "field": "DO_HTRO_N_A_1_WTK:min",
+    "field": "BS_T1_L3_O_SIG_X:mean",
     "register": 1576
   },
   {
-    "field": "DO_HTRO_N_A_1_WTK:max",
+    "field": "BS_T1_L3_O_SIG_X:min",
     "register": 1578
   },
   {
-    "field": "DO_HTRO_N_I_2_WTK:last",
+    "field": "BS_T1_L3_O_SIG_X:max",
     "register": 1580
   },
   {
-    "field": "DO_HTRO_N_I_2_WTK:mean",
+    "field": "BS_T1_L3_O_SIG_Y:mean",
     "register": 1582
   },
   {
-    "field": "DO_HTRO_N_I_2_WTK:median",
+    "field": "BS_T1_L3_O_SIG_Y:min",
     "register": 1584
   },
   {
-    "field": "DO_HTRO_N_I_2_WTK:min",
+    "field": "BS_T1_L3_O_SIG_Y:max",
     "register": 1586
   },
   {
-    "field": "DO_HTRO_N_I_2_WTK:max",
+    "field": "BS_T1_L3_O_SIG_Z:mean",
     "register": 1588
   },
   {
-    "field": "DO_HTRO_N_WV_1_WTK:last",
+    "field": "BS_T1_L3_O_SIG_Z:min",
     "register": 1590
   },
   {
-    "field": "DO_HTRO_N_WV_1_WTK:mean",
+    "field": "BS_T1_L3_O_SIG_Z:max",
     "register": 1592
   },
   {
-    "field": "DO_HTRO_N_WV_1_WTK:median",
+    "field": "BS_T2_L4_W_SIG_X:mean",
     "register": 1594
   },
   {
-    "field": "DO_HTRO_N_WV_1_WTK:min",
+    "field": "BS_T2_L4_W_SIG_X:min",
     "register": 1596
   },
   {
-    "field": "DO_HTRO_N_WV_1_WTK:max",
+    "field": "BS_T2_L4_W_SIG_X:max",
     "register": 1598
   },
   {
-    "field": "DU_HTRO_N_I_2_WTK:last",
+    "field": "BS_T2_L4_W_SIG_Y:mean",
     "register": 1600
   },
   {
-    "field": "DU_HTRO_N_I_2_WTK:mean",
+    "field": "BS_T2_L4_W_SIG_Y:min",
     "register": 1602
   },
   {
-    "field": "DU_HTRO_N_I_2_WTK:median",
+    "field": "BS_T2_L4_W_SIG_Y:max",
     "register": 1604
   },
   {
-    "field": "DU_HTRO_N_I_2_WTK:min",
+    "field": "BS_T2_L4_W_SIG_Z:mean",
     "register": 1606
   },
   {
-    "field": "DU_HTRO_N_I_2_WTK:max",
+    "field": "BS_T2_L4_W_SIG_Z:min",
     "register": 1608
   },
   {
-    "field": "DU_HTRO_N_A_2_WTK:last",
+    "field": "BS_T2_L4_W_SIG_Z:max",
     "register": 1610
   },
   {
-    "field": "DU_HTRO_N_A_2_WTK:mean",
+    "field": "BS_T2_L4_O_SIG_X:mean",
     "register": 1612
   },
   {
-    "field": "DU_HTRO_N_A_2_WTK:median",
+    "field": "BS_T2_L4_O_SIG_X:min",
     "register": 1614
   },
   {
-    "field": "DU_HTRO_N_A_2_WTK:min",
+    "field": "BS_T2_L4_O_SIG_X:max",
     "register": 1616
   },
   {
-    "field": "DU_HTRO_N_A_2_WTK:max",
+    "field": "BS_T2_L4_O_SIG_Y:mean",
     "register": 1618
   },
   {
-    "field": "DU_HTRO_N_I_3_WTK:last",
+    "field": "BS_T2_L4_O_SIG_Y:min",
     "register": 1620
   },
   {
-    "field": "DU_HTRO_N_I_3_WTK:mean",
+    "field": "BS_T2_L4_O_SIG_Y:max",
     "register": 1622
   },
   {
-    "field": "DU_HTRO_N_I_3_WTK:median",
+    "field": "BS_T2_L4_O_SIG_Z:mean",
     "register": 1624
   },
   {
-    "field": "DU_HTRO_N_I_3_WTK:min",
+    "field": "BS_T2_L4_O_SIG_Z:min",
     "register": 1626
   },
   {
-    "field": "DU_HTRO_N_I_3_WTK:max",
+    "field": "BS_T2_L4_O_SIG_Z:max",
     "register": 1628
   },
   {
-    "field": "DU_HTRO_N_A_3_WTK:last",
+    "field": "TUERSCHALTER:mean",
     "register": 1630
   },
   {
-    "field": "DU_HTRO_N_A_3_WTK:mean",
+    "field": "TUERSCHALTER:min",
     "register": 1632
   },
   {
-    "field": "DU_HTRO_N_A_3_WTK:median",
+    "field": "TUERSCHALTER:max",
     "register": 1634
   },
   {
-    "field": "DU_HTRO_N_A_3_WTK:min",
+    "field": "NETZAUSFALL:mean",
     "register": 1636
   },
   {
-    "field": "DU_HTRO_N_A_3_WTK:max",
+    "field": "NETZAUSFALL:min",
     "register": 1638
   },
   {
-    "field": "DO_HTRW_N_I_1_WTK:last",
+    "field": "NETZAUSFALL:max",
     "register": 1640
   },
   {
-    "field": "DO_HTRW_N_I_1_WTK:mean",
+    "field": "USV_BETRIEB:mean",
     "register": 1642
   },
   {
-    "field": "DO_HTRW_N_I_1_WTK:median",
+    "field": "USV_BETRIEB:min",
     "register": 1644
   },
   {
-    "field": "DO_HTRW_N_I_1_WTK:min",
+    "field": "USV_BETRIEB:max",
     "register": 1646
   },
   {
-    "field": "DO_HTRW_N_I_1_WTK:max",
+    "field": "BLITZUEBERWACHUNG:mean",
     "register": 1648
   },
   {
-    "field": "DO_HTRW_N_A_1_WTK:last",
+    "field": "BLITZUEBERWACHUNG:min",
     "register": 1650
   },
   {
-    "field": "DO_HTRW_N_A_1_WTK:mean",
+    "field": "BLITZUEBERWACHUNG:max",
     "register": 1652
   },
   {
-    "field": "DO_HTRW_N_A_1_WTK:median",
+    "field": "BATTRIEUEBERWACHUNG:mean",
     "register": 1654
   },
   {
-    "field": "DO_HTRW_N_A_1_WTK:min",
+    "field": "BATTRIEUEBERWACHUNG:min",
     "register": 1656
   },
   {
-    "field": "DO_HTRW_N_A_1_WTK:max",
+    "field": "BATTRIEUEBERWACHUNG:max",
     "register": 1658
   },
   {
-    "field": "DO_HTRW_N_I_2_WTK:last",
+    "field": "LIFECYCLE_QSTATION:mean",
     "register": 1660
   },
   {
-    "field": "DO_HTRW_N_I_2_WTK:mean",
+    "field": "LIFECYCLE_QSTATION:min",
     "register": 1662
   },
   {
-    "field": "DO_HTRW_N_I_2_WTK:median",
+    "field": "LIFECYCLE_QSTATION:max",
     "register": 1664
   },
   {
-    "field": "DO_HTRW_N_I_2_WTK:min",
+    "field": "DELTA_T_T1_L2_WN:mean",
     "register": 1666
   },
   {
-    "field": "DO_HTRW_N_I_2_WTK:max",
+    "field": "DELTA_T_T1_L2_WN:min",
     "register": 1668
   },
   {
-    "field": "DO_HTRW_N_A_2_WTK:last",
+    "field": "DELTA_T_T1_L2_WN:max",
     "register": 1670
   },
   {
-    "field": "DO_HTRW_N_A_2_WTK:mean",
+    "field": "DELTA_T_T1_L2_WS:mean",
     "register": 1672
   },
   {
-    "field": "DO_HTRW_N_A_2_WTK:median",
+    "field": "DELTA_T_T1_L2_WS:min",
     "register": 1674
   },
   {
-    "field": "DO_HTRW_N_A_2_WTK:min",
+    "field": "DELTA_T_T1_L2_WS:max",
     "register": 1676
   },
   {
-    "field": "DO_HTRW_N_A_2_WTK:max",
+    "field": "DELTA_T_T1_L2_OS:mean",
     "register": 1678
   },
   {
-    "field": "DU_HTRW_N_I_2_WTK:last",
+    "field": "DELTA_T_T1_L2_OS:min",
     "register": 1680
   },
   {
-    "field": "DU_HTRW_N_I_2_WTK:mean",
+    "field": "DELTA_T_T1_L2_OS:max",
     "register": 1682
   },
   {
-    "field": "DU_HTRW_N_I_2_WTK:median",
+    "field": "DELTA_T_T1_L2_ON:mean",
     "register": 1684
   },
   {
-    "field": "DU_HTRW_N_I_2_WTK:min",
+    "field": "DELTA_T_T1_L2_ON:min",
     "register": 1686
   },
   {
-    "field": "DU_HTRW_N_I_2_WTK:max",
+    "field": "DELTA_T_T1_L2_ON:max",
     "register": 1688
   },
   {
-    "field": "DU_HTRW_N_A_2_WTK:last",
+    "field": "DELTA_T_T1_L4_WN:mean",
     "register": 1690
   },
   {
-    "field": "DU_HTRW_N_A_2_WTK:mean",
+    "field": "DELTA_T_T1_L4_WN:min",
     "register": 1692
   },
   {
-    "field": "DU_HTRW_N_A_2_WTK:median",
+    "field": "DELTA_T_T1_L4_WN:max",
     "register": 1694
   },
   {
-    "field": "DU_HTRW_N_A_2_WTK:min",
+    "field": "DELTA_T_T1_L4_WS:mean",
     "register": 1696
   },
   {
-    "field": "DU_HTRW_N_A_2_WTK:max",
+    "field": "DELTA_T_T1_L4_WS:min",
     "register": 1698
   },
   {
-    "field": "DU_HTRW_N_I_3_WTK:last",
+    "field": "DELTA_T_T1_L4_WS:max",
     "register": 1700
   },
   {
-    "field": "DU_HTRW_N_I_3_WTK:mean",
+    "field": "DELTA_T_T1_L4_OS:mean",
     "register": 1702
   },
   {
-    "field": "DU_HTRW_N_I_3_WTK:median",
+    "field": "DELTA_T_T1_L4_OS:min",
     "register": 1704
   },
   {
-    "field": "DU_HTRW_N_I_3_WTK:min",
+    "field": "DELTA_T_T1_L4_OS:max",
     "register": 1706
   },
   {
-    "field": "DU_HTRW_N_I_3_WTK:max",
+    "field": "DELTA_T_T1_L4_ON:mean",
     "register": 1708
   },
   {
-    "field": "DU_HTRW_N_A_3_WTK:last",
+    "field": "DELTA_T_T1_L4_ON:min",
     "register": 1710
   },
   {
-    "field": "DU_HTRW_N_A_3_WTK:mean",
+    "field": "DELTA_T_T1_L4_ON:max",
     "register": 1712
   },
   {
-    "field": "DU_HTRW_N_A_3_WTK:median",
+    "field": "DELTA_T_T2_L5_WN:mean",
     "register": 1714
   },
   {
-    "field": "DU_HTRW_N_A_3_WTK:min",
+    "field": "DELTA_T_T2_L5_WN:min",
     "register": 1716
   },
   {
-    "field": "DU_HTRW_N_A_3_WTK:max",
+    "field": "DELTA_T_T2_L5_WN:max",
     "register": 1718
   },
   {
-    "field": "DZ_HTRO_S_I_1_WTK:last",
+    "field": "DELTA_T_T2_L5_WS:mean",
     "register": 1720
   },
   {
-    "field": "DZ_HTRO_S_I_1_WTK:mean",
+    "field": "DELTA_T_T2_L5_WS:min",
     "register": 1722
   },
   {
-    "field": "DZ_HTRO_S_I_1_WTK:median",
+    "field": "DELTA_T_T2_L5_WS:max",
     "register": 1724
   },
   {
-    "field": "DZ_HTRO_S_I_1_WTK:min",
+    "field": "DELTA_T_T2_L5_OS:mean",
     "register": 1726
   },
   {
-    "field": "DZ_HTRO_S_I_1_WTK:max",
+    "field": "DELTA_T_T2_L5_OS:min",
     "register": 1728
   },
   {
-    "field": "DZ_HTRO_S_A_1_WTK:last",
+    "field": "DELTA_T_T2_L5_OS:max",
     "register": 1730
   },
   {
-    "field": "DZ_HTRO_S_A_1_WTK:mean",
+    "field": "DELTA_T_T2_L5_ON:mean",
     "register": 1732
   },
   {
-    "field": "DZ_HTRO_S_A_1_WTK:median",
+    "field": "DELTA_T_T2_L5_ON:min",
     "register": 1734
   },
   {
-    "field": "DZ_HTRO_S_A_1_WTK:min",
+    "field": "DELTA_T_T2_L5_ON:max",
     "register": 1736
   },
   {
-    "field": "DZ_HTRO_S_A_1_WTK:max",
+    "field": "DELTA_T_T2_L3_WN:mean",
     "register": 1738
   },
   {
-    "field": "DZ_HTRO_S_I_2_WTK:last",
+    "field": "DELTA_T_T2_L3_WN:min",
     "register": 1740
   },
   {
-    "field": "DZ_HTRO_S_I_2_WTK:mean",
+    "field": "DELTA_T_T2_L3_WN:max",
     "register": 1742
   },
   {
-    "field": "DZ_HTRO_S_I_2_WTK:median",
+    "field": "DELTA_T_T2_L3_WS:mean",
     "register": 1744
   },
   {
-    "field": "DZ_HTRO_S_I_2_WTK:min",
+    "field": "DELTA_T_T2_L3_WS:min",
     "register": 1746
   },
   {
-    "field": "DZ_HTRO_S_I_2_WTK:max",
+    "field": "DELTA_T_T2_L3_WS:max",
     "register": 1748
   },
   {
-    "field": "DZ_HTRO_S_A_2_WTK:last",
+    "field": "DELTA_T_T2_L3_OS:mean",
     "register": 1750
   },
   {
-    "field": "DZ_HTRO_S_A_2_WTK:mean",
+    "field": "DELTA_T_T2_L3_OS:min",
     "register": 1752
   },
   {
-    "field": "DZ_HTRO_S_A_2_WTK:median",
+    "field": "DELTA_T_T2_L3_OS:max",
     "register": 1754
   },
   {
-    "field": "DZ_HTRO_S_A_2_WTK:min",
+    "field": "DELTA_T_T2_L3_ON:mean",
     "register": 1756
   },
   {
-    "field": "DZ_HTRO_S_A_2_WTK:max",
+    "field": "DELTA_T_T2_L3_ON:min",
     "register": 1758
   },
   {
-    "field": "DZ_HTRW_S_I_1_WTK:last",
+    "field": "DELTA_T_T2_L3_ON:max",
     "register": 1760
   },
   {
-    "field": "DZ_HTRW_S_I_1_WTK:mean",
+    "field": "T_T1_L2_WN_O:mean",
     "register": 1762
   },
   {
-    "field": "DZ_HTRW_S_I_1_WTK:median",
+    "field": "T_T1_L2_WN_O:min",
     "register": 1764
   },
   {
-    "field": "DZ_HTRW_S_I_1_WTK:min",
+    "field": "T_T1_L2_WN_O:max",
     "register": 1766
   },
   {
-    "field": "DZ_HTRW_S_I_1_WTK:max",
+    "field": "T_T1_L2_WN_U:mean",
     "register": 1768
   },
   {
-    "field": "DZ_HTRW_S_A_1_WTK:last",
+    "field": "T_T1_L2_WN_U:min",
     "register": 1770
   },
   {
-    "field": "DZ_HTRW_S_A_1_WTK:mean",
+    "field": "T_T1_L2_WN_U:max",
     "register": 1772
   },
   {
-    "field": "DZ_HTRW_S_A_1_WTK:median",
+    "field": "T_T1_L2_WS_O:mean",
     "register": 1774
   },
   {
-    "field": "DZ_HTRW_S_A_1_WTK:min",
+    "field": "T_T1_L2_WS_O:min",
     "register": 1776
   },
   {
-    "field": "DZ_HTRW_S_A_1_WTK:max",
+    "field": "T_T1_L2_WS_O:max",
     "register": 1778
   },
   {
-    "field": "DZ_HTRW_S_I_2_WTK:last",
+    "field": "T_T1_L2_WS_U:mean",
     "register": 1780
   },
   {
-    "field": "DZ_HTRW_S_I_2_WTK:mean",
+    "field": "T_T1_L2_WS_U:min",
     "register": 1782
   },
   {
-    "field": "DZ_HTRW_S_I_2_WTK:median",
+    "field": "T_T1_L2_WS_U:max",
     "register": 1784
   },
   {
-    "field": "DZ_HTRW_S_I_2_WTK:min",
+    "field": "T_T1_L2_OS_O:mean",
     "register": 1786
   },
   {
-    "field": "DZ_HTRW_S_I_2_WTK:max",
+    "field": "T_T1_L2_OS_O:min",
     "register": 1788
   },
   {
-    "field": "DZ_HTRW_S_A_2_WTK:last",
+    "field": "T_T1_L2_OS_O:max",
     "register": 1790
   },
   {
-    "field": "DZ_HTRW_S_A_2_WTK:mean",
+    "field": "T_T1_L2_OS_U:mean",
     "register": 1792
   },
   {
-    "field": "DZ_HTRW_S_A_2_WTK:median",
+    "field": "T_T1_L2_OS_U:min",
     "register": 1794
   },
   {
-    "field": "DZ_HTRW_S_A_2_WTK:min",
+    "field": "T_T1_L2_OS_U:max",
     "register": 1796
   },
   {
-    "field": "DZ_HTRW_S_A_2_WTK:max",
+    "field": "T_T1_L2_ON_O:mean",
     "register": 1798
   },
   {
-    "field": "DO_HTRO_S_I_2_WTK:last",
+    "field": "T_T1_L2_ON_O:min",
     "register": 1800
   },
   {
-    "field": "DO_HTRO_S_I_2_WTK:mean",
+    "field": "T_T1_L2_ON_O:max",
     "register": 1802
   },
   {
-    "field": "DO_HTRO_S_I_2_WTK:median",
+    "field": "T_T1_L2_ON_U:mean",
     "register": 1804
   },
   {
-    "field": "DO_HTRO_S_I_2_WTK:min",
+    "field": "T_T1_L2_ON_U:min",
     "register": 1806
   },
   {
-    "field": "DO_HTRO_S_I_2_WTK:max",
+    "field": "T_T1_L2_ON_U:max",
     "register": 1808
   },
   {
-    "field": "DO_HTRO_S_A_2_WTK:last",
+    "field": "T_T1_L4_WN_O:mean",
     "register": 1810
   },
   {
-    "field": "DO_HTRO_S_A_2_WTK:mean",
+    "field": "T_T1_L4_WN_O:min",
     "register": 1812
   },
   {
-    "field": "DO_HTRO_S_A_2_WTK:median",
+    "field": "T_T1_L4_WN_O:max",
     "register": 1814
   },
   {
-    "field": "DO_HTRO_S_A_2_WTK:min",
+    "field": "T_T1_L4_WN_U:mean",
     "register": 1816
   },
   {
-    "field": "DO_HTRO_S_A_2_WTK:max",
+    "field": "T_T1_L4_WN_U:min",
     "register": 1818
   },
   {
-    "field": "DO_HTRO_S_I_3_WTK:last",
+    "field": "T_T1_L4_WN_U:max",
     "register": 1820
   },
   {
-    "field": "DO_HTRO_S_I_3_WTK:mean",
+    "field": "T_T1_L4_WS_O:mean",
     "register": 1822
   },
   {
-    "field": "DO_HTRO_S_I_3_WTK:median",
+    "field": "T_T1_L4_WS_O:min",
     "register": 1824
   },
   {
-    "field": "DO_HTRO_S_I_3_WTK:min",
+    "field": "T_T1_L4_WS_O:max",
     "register": 1826
   },
   {
-    "field": "DO_HTRO_S_I_3_WTK:max",
+    "field": "T_T1_L4_WS_U:mean",
     "register": 1828
   },
   {
-    "field": "DO_HTRO_S_WV_3_WTK:last",
+    "field": "T_T1_L4_WS_U:min",
     "register": 1830
   },
   {
-    "field": "DO_HTRO_S_WV_3_WTK:mean",
+    "field": "T_T1_L4_WS_U:max",
     "register": 1832
   },
   {
-    "field": "DO_HTRO_S_WV_3_WTK:median",
+    "field": "T_T1_L4_OS_O:mean",
     "register": 1834
   },
   {
-    "field": "DO_HTRO_S_WV_3_WTK:min",
+    "field": "T_T1_L4_OS_O:min",
     "register": 1836
   },
   {
-    "field": "DO_HTRO_S_WV_3_WTK:max",
+    "field": "T_T1_L4_OS_O:max",
     "register": 1838
   },
   {
-    "field": "DU_HTRO_S_I_1_WTK:last",
+    "field": "T_T1_L4_OS_U:mean",
     "register": 1840
   },
   {
-    "field": "DU_HTRO_S_I_1_WTK:mean",
+    "field": "T_T1_L4_OS_U:min",
     "register": 1842
   },
   {
-    "field": "DU_HTRO_S_I_1_WTK:median",
+    "field": "T_T1_L4_OS_U:max",
     "register": 1844
   },
   {
-    "field": "DU_HTRO_S_I_1_WTK:min",
+    "field": "T_T1_L4_ON_O:mean",
     "register": 1846
   },
   {
-    "field": "DU_HTRO_S_I_1_WTK:max",
+    "field": "T_T1_L4_ON_O:min",
     "register": 1848
   },
   {
-    "field": "DU_HTRO_S_A_1_WTK:last",
+    "field": "T_T1_L4_ON_O:max",
     "register": 1850
   },
   {
-    "field": "DU_HTRO_S_A_1_WTK:mean",
+    "field": "T_T1_L4_ON_U:mean",
     "register": 1852
   },
   {
-    "field": "DU_HTRO_S_A_1_WTK:median",
+    "field": "T_T1_L4_ON_U:min",
     "register": 1854
   },
   {
-    "field": "DU_HTRO_S_A_1_WTK:min",
+    "field": "T_T1_L4_ON_U:max",
     "register": 1856
   },
   {
-    "field": "DU_HTRO_S_A_1_WTK:max",
+    "field": "T_T2_L5_WN_O:mean",
     "register": 1858
   },
   {
-    "field": "DU_HTRO_S_I_2_WTK:last",
+    "field": "T_T2_L5_WN_O:min",
     "register": 1860
   },
   {
-    "field": "DU_HTRO_S_I_2_WTK:mean",
+    "field": "T_T2_L5_WN_O:max",
     "register": 1862
   },
   {
-    "field": "DU_HTRO_S_I_2_WTK:median",
+    "field": "T_T2_L5_WN_U:mean",
     "register": 1864
   },
   {
-    "field": "DU_HTRO_S_I_2_WTK:min",
+    "field": "T_T2_L5_WN_U:min",
     "register": 1866
   },
   {
-    "field": "DU_HTRO_S_I_2_WTK:max",
+    "field": "T_T2_L5_WN_U:max",
     "register": 1868
   },
   {
-    "field": "DU_HTRO_S_A_2_WTK:last",
+    "field": "T_T2_L5_WS_O:mean",
     "register": 1870
   },
   {
-    "field": "DU_HTRO_S_A_2_WTK:mean",
+    "field": "T_T2_L5_WS_O:min",
     "register": 1872
   },
   {
-    "field": "DU_HTRO_S_A_2_WTK:median",
+    "field": "T_T2_L5_WS_O:max",
     "register": 1874
   },
   {
-    "field": "DU_HTRO_S_A_2_WTK:min",
+    "field": "T_T2_L5_WS_U:mean",
     "register": 1876
   },
   {
-    "field": "DU_HTRO_S_A_2_WTK:max",
+    "field": "T_T2_L5_WS_U:min",
     "register": 1878
   },
   {
-    "field": "DO_HTRW_S_I_2_WTK:last",
+    "field": "T_T2_L5_WS_U:max",
     "register": 1880
   },
   {
-    "field": "DO_HTRW_S_I_2_WTK:mean",
+    "field": "T_T2_L5_OS_O:mean",
     "register": 1882
   },
   {
-    "field": "DO_HTRW_S_I_2_WTK:median",
+    "field": "T_T2_L5_OS_O:min",
     "register": 1884
   },
   {
-    "field": "DO_HTRW_S_I_2_WTK:min",
+    "field": "T_T2_L5_OS_O:max",
     "register": 1886
   },
   {
-    "field": "DO_HTRW_S_I_2_WTK:max",
+    "field": "T_T2_L5_OS_U:mean",
     "register": 1888
   },
   {
-    "field": "DO_HTRW_S_A_2_WTK:last",
+    "field": "T_T2_L5_OS_U:min",
     "register": 1890
   },
   {
-    "field": "DO_HTRW_S_A_2_WTK:mean",
+    "field": "T_T2_L5_OS_U:max",
     "register": 1892
   },
   {
-    "field": "DO_HTRW_S_A_2_WTK:median",
+    "field": "T_T2_L5_ON_O:mean",
     "register": 1894
   },
   {
-    "field": "DO_HTRW_S_A_2_WTK:min",
+    "field": "T_T2_L5_ON_O:min",
     "register": 1896
   },
   {
-    "field": "DO_HTRW_S_A_2_WTK:max",
+    "field": "T_T2_L5_ON_O:max",
     "register": 1898
   },
   {
-    "field": "DO_HTRW_S_I_3_WTK:last",
+    "field": "T_T2_L5_ON_U:mean",
     "register": 1900
   },
   {
-    "field": "DO_HTRW_S_I_3_WTK:mean",
+    "field": "T_T2_L5_ON_U:min",
     "register": 1902
   },
   {
-    "field": "DO_HTRW_S_I_3_WTK:median",
+    "field": "T_T2_L5_ON_U:max",
     "register": 1904
   },
   {
-    "field": "DO_HTRW_S_I_3_WTK:min",
+    "field": "T_T2_L3_WN_O:mean",
     "register": 1906
   },
   {
-    "field": "DO_HTRW_S_I_3_WTK:max",
+    "field": "T_T2_L3_WN_O:min",
     "register": 1908
   },
   {
-    "field": "DO_HTRW_S_A_3_WTK:last",
+    "field": "T_T2_L3_WN_O:max",
     "register": 1910
   },
   {
-    "field": "DO_HTRW_S_A_3_WTK:mean",
+    "field": "T_T2_L3_WN_U:mean",
     "register": 1912
   },
   {
-    "field": "DO_HTRW_S_A_3_WTK:median",
+    "field": "T_T2_L3_WN_U:min",
     "register": 1914
   },
   {
-    "field": "DO_HTRW_S_A_3_WTK:min",
+    "field": "T_T2_L3_WN_U:max",
     "register": 1916
   },
   {
-    "field": "DO_HTRW_S_A_3_WTK:max",
+    "field": "T_T2_L3_WS_O:mean",
     "register": 1918
   },
   {
-    "field": "DU_HTRW_S_I_1_WTK:last",
+    "field": "T_T2_L3_WS_O:min",
     "register": 1920
   },
   {
-    "field": "DU_HTRW_S_I_1_WTK:mean",
+    "field": "T_T2_L3_WS_O:max",
     "register": 1922
   },
   {
-    "field": "DU_HTRW_S_I_1_WTK:median",
+    "field": "T_T2_L3_WS_U:mean",
     "register": 1924
   },
   {
-    "field": "DU_HTRW_S_I_1_WTK:min",
+    "field": "T_T2_L3_WS_U:min",
     "register": 1926
   },
   {
-    "field": "DU_HTRW_S_I_1_WTK:max",
+    "field": "T_T2_L3_WS_U:max",
     "register": 1928
   },
   {
-    "field": "DU_HTRW_S_A_1_WTK:last",
+    "field": "T_T2_L3_OS_O:mean",
     "register": 1930
   },
   {
-    "field": "DU_HTRW_S_A_1_WTK:mean",
+    "field": "T_T2_L3_OS_O:min",
     "register": 1932
   },
   {
-    "field": "DU_HTRW_S_A_1_WTK:median",
+    "field": "T_T2_L3_OS_O:max",
     "register": 1934
   },
   {
-    "field": "DU_HTRW_S_A_1_WTK:min",
+    "field": "T_T2_L3_OS_U:mean",
     "register": 1936
   },
   {
-    "field": "DU_HTRW_S_A_1_WTK:max",
+    "field": "T_T2_L3_OS_U:min",
     "register": 1938
   },
   {
-    "field": "DU_HTRW_S_I_2_WTK:last",
+    "field": "T_T2_L3_OS_U:max",
     "register": 1940
   },
   {
-    "field": "DU_HTRW_S_I_2_WTK:mean",
+    "field": "T_T2_L3_ON_O:mean",
     "register": 1942
   },
   {
-    "field": "DU_HTRW_S_I_2_WTK:median",
+    "field": "T_T2_L3_ON_O:min",
     "register": 1944
   },
   {
-    "field": "DU_HTRW_S_I_2_WTK:min",
+    "field": "T_T2_L3_ON_O:max",
     "register": 1946
   },
   {
-    "field": "DU_HTRW_S_I_2_WTK:max",
+    "field": "T_T2_L3_ON_U:mean",
     "register": 1948
   },
   {
-    "field": "DU_HTRW_S_A_2_WTK:last",
+    "field": "T_T2_L3_ON_U:min",
     "register": 1950
   },
   {
-    "field": "DU_HTRW_S_A_2_WTK:mean",
+    "field": "T_T2_L3_ON_U:max",
     "register": 1952
-  },
-  {
-    "field": "DU_HTRW_S_A_2_WTK:median",
-    "register": 1954
-  },
-  {
-    "field": "DU_HTRW_S_A_2_WTK:min",
-    "register": 1956
-  },
-  {
-    "field": "DU_HTRW_S_A_2_WTK:max",
-    "register": 1958
-  },
-  {
-    "field": "DO_HTRO_S_I_1_WTK:last",
-    "register": 1960
-  },
-  {
-    "field": "DO_HTRO_S_I_1_WTK:mean",
-    "register": 1962
-  },
-  {
-    "field": "DO_HTRO_S_I_1_WTK:median",
-    "register": 1964
-  },
-  {
-    "field": "DO_HTRO_S_I_1_WTK:min",
-    "register": 1966
-  },
-  {
-    "field": "DO_HTRO_S_I_1_WTK:max",
-    "register": 1968
-  },
-  {
-    "field": "DO_HTRO_S_A_1_WTK:last",
-    "register": 1970
-  },
-  {
-    "field": "DO_HTRO_S_A_1_WTK:mean",
-    "register": 1972
-  },
-  {
-    "field": "DO_HTRO_S_A_1_WTK:median",
-    "register": 1974
-  },
-  {
-    "field": "DO_HTRO_S_A_1_WTK:min",
-    "register": 1976
-  },
-  {
-    "field": "DO_HTRO_S_A_1_WTK:max",
-    "register": 1978
-  },
-  {
-    "field": "DU_HTRO_N_I_1_WTK:last",
-    "register": 1980
-  },
-  {
-    "field": "DU_HTRO_N_I_1_WTK:mean",
-    "register": 1982
-  },
-  {
-    "field": "DU_HTRO_N_I_1_WTK:median",
-    "register": 1984
-  },
-  {
-    "field": "DU_HTRO_N_I_1_WTK:min",
-    "register": 1986
-  },
-  {
-    "field": "DU_HTRO_N_I_1_WTK:max",
-    "register": 1988
-  },
-  {
-    "field": "DU_HTRO_N_A_1_WTK:last",
-    "register": 1990
-  },
-  {
-    "field": "DU_HTRO_N_A_1_WTK:mean",
-    "register": 1992
-  },
-  {
-    "field": "DU_HTRO_N_A_1_WTK:median",
-    "register": 1994
-  },
-  {
-    "field": "DU_HTRO_N_A_1_WTK:min",
-    "register": 1996
-  },
-  {
-    "field": "DU_HTRO_N_A_1_WTK:max",
-    "register": 1998
-  },
-  {
-    "field": "DO_HTRW_S_I_1_WTK:last",
-    "register": 2000
-  },
-  {
-    "field": "DO_HTRW_S_I_1_WTK:mean",
-    "register": 2002
-  },
-  {
-    "field": "DO_HTRW_S_I_1_WTK:median",
-    "register": 2004
-  },
-  {
-    "field": "DO_HTRW_S_I_1_WTK:min",
-    "register": 2006
-  },
-  {
-    "field": "DO_HTRW_S_I_1_WTK:max",
-    "register": 2008
-  },
-  {
-    "field": "DO_HTRW_S_A_1_WTK:last",
-    "register": 2010
-  },
-  {
-    "field": "DO_HTRW_S_A_1_WTK:mean",
-    "register": 2012
-  },
-  {
-    "field": "DO_HTRW_S_A_1_WTK:median",
-    "register": 2014
-  },
-  {
-    "field": "DO_HTRW_S_A_1_WTK:min",
-    "register": 2016
-  },
-  {
-    "field": "DO_HTRW_S_A_1_WTK:max",
-    "register": 2018
-  },
-  {
-    "field": "DU_HTRW_N_I_1_WTK:last",
-    "register": 2020
-  },
-  {
-    "field": "DU_HTRW_N_I_1_WTK:mean",
-    "register": 2022
-  },
-  {
-    "field": "DU_HTRW_N_I_1_WTK:median",
-    "register": 2024
-  },
-  {
-    "field": "DU_HTRW_N_I_1_WTK:min",
-    "register": 2026
-  },
-  {
-    "field": "DU_HTRW_N_I_1_WTK:max",
-    "register": 2028
-  },
-  {
-    "field": "DU_HTRW_N_A_1_WTK:last",
-    "register": 2030
-  },
-  {
-    "field": "DU_HTRW_N_A_1_WTK:mean",
-    "register": 2032
-  },
-  {
-    "field": "DU_HTRW_N_A_1_WTK:median",
-    "register": 2034
-  },
-  {
-    "field": "DU_HTRW_N_A_1_WTK:min",
-    "register": 2036
-  },
-  {
-    "field": "DU_HTRW_N_A_1_WTK:max",
-    "register": 2038
-  },
-  {
-    "field": "BT_HTRO_OG_WTK:last",
-    "register": 2040
-  },
-  {
-    "field": "BT_HTRO_OG_WTK:mean",
-    "register": 2042
-  },
-  {
-    "field": "BT_HTRO_OG_WTK:median",
-    "register": 2044
-  },
-  {
-    "field": "BT_HTRO_OG_WTK:min",
-    "register": 2046
-  },
-  {
-    "field": "BT_HTRO_OG_WTK:max",
-    "register": 2048
-  },
-  {
-    "field": "BT_HTRO_UG_WTK:last",
-    "register": 2050
-  },
-  {
-    "field": "BT_HTRO_UG_WTK:mean",
-    "register": 2052
-  },
-  {
-    "field": "BT_HTRO_UG_WTK:median",
-    "register": 2054
-  },
-  {
-    "field": "BT_HTRO_UG_WTK:min",
-    "register": 2056
-  },
-  {
-    "field": "BT_HTRO_UG_WTK:max",
-    "register": 2058
-  },
-  {
-    "field": "BT_HTRO_ZB_WTK:last",
-    "register": 2060
-  },
-  {
-    "field": "BT_HTRO_ZB_WTK:mean",
-    "register": 2062
-  },
-  {
-    "field": "BT_HTRO_ZB_WTK:median",
-    "register": 2064
-  },
-  {
-    "field": "BT_HTRO_ZB_WTK:min",
-    "register": 2066
-  },
-  {
-    "field": "BT_HTRO_ZB_WTK:max",
-    "register": 2068
-  },
-  {
-    "field": "BT_HTRW_OG_WTK:last",
-    "register": 2070
-  },
-  {
-    "field": "BT_HTRW_OG_WTK:mean",
-    "register": 2072
-  },
-  {
-    "field": "BT_HTRW_OG_WTK:median",
-    "register": 2074
-  },
-  {
-    "field": "BT_HTRW_OG_WTK:min",
-    "register": 2076
-  },
-  {
-    "field": "BT_HTRW_OG_WTK:max",
-    "register": 2078
-  },
-  {
-    "field": "BT_HTRW_UG_WTK:last",
-    "register": 2080
-  },
-  {
-    "field": "BT_HTRW_UG_WTK:mean",
-    "register": 2082
-  },
-  {
-    "field": "BT_HTRW_UG_WTK:median",
-    "register": 2084
-  },
-  {
-    "field": "BT_HTRW_UG_WTK:min",
-    "register": 2086
-  },
-  {
-    "field": "BT_HTRW_UG_WTK:max",
-    "register": 2088
-  },
-  {
-    "field": "BT_HTRW_ZB_WTK:last",
-    "register": 2090
-  },
-  {
-    "field": "BT_HTRW_ZB_WTK:mean",
-    "register": 2092
-  },
-  {
-    "field": "BT_HTRW_ZB_WTK:median",
-    "register": 2094
-  },
-  {
-    "field": "BT_HTRW_ZB_WTK:min",
-    "register": 2096
-  },
-  {
-    "field": "BT_HTRW_ZB_WTK:max",
-    "register": 2098
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_SIG:last",
-    "register": 2100
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_SIG:mean",
-    "register": 2102
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_SIG:median",
-    "register": 2104
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_SIG:min",
-    "register": 2106
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_SIG:max",
-    "register": 2108
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_SIG:last",
-    "register": 2110
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_SIG:mean",
-    "register": 2112
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_SIG:median",
-    "register": 2114
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_SIG:min",
-    "register": 2116
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_SIG:max",
-    "register": 2118
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_SIG:last",
-    "register": 2120
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_SIG:mean",
-    "register": 2122
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_SIG:median",
-    "register": 2124
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_SIG:min",
-    "register": 2126
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_SIG:max",
-    "register": 2128
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_SIG:last",
-    "register": 2130
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_SIG:mean",
-    "register": 2132
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_SIG:median",
-    "register": 2134
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_SIG:min",
-    "register": 2136
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_SIG:max",
-    "register": 2138
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_SIG:last",
-    "register": 2140
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_SIG:mean",
-    "register": 2142
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_SIG:median",
-    "register": 2144
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_SIG:min",
-    "register": 2146
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_SIG:max",
-    "register": 2148
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_SIG:last",
-    "register": 2150
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_SIG:mean",
-    "register": 2152
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_SIG:median",
-    "register": 2154
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_SIG:min",
-    "register": 2156
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_SIG:max",
-    "register": 2158
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_SIG:last",
-    "register": 2160
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_SIG:mean",
-    "register": 2162
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_SIG:median",
-    "register": 2164
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_SIG:min",
-    "register": 2166
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_SIG:max",
-    "register": 2168
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_SIG:last",
-    "register": 2170
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_SIG:mean",
-    "register": 2172
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_SIG:median",
-    "register": 2174
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_SIG:min",
-    "register": 2176
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_SIG:max",
-    "register": 2178
-  },
-  {
-    "field": "DO_HTRO_N_I_1_SIG:last",
-    "register": 2180
-  },
-  {
-    "field": "DO_HTRO_N_I_1_SIG:mean",
-    "register": 2182
-  },
-  {
-    "field": "DO_HTRO_N_I_1_SIG:median",
-    "register": 2184
-  },
-  {
-    "field": "DO_HTRO_N_I_1_SIG:min",
-    "register": 2186
-  },
-  {
-    "field": "DO_HTRO_N_I_1_SIG:max",
-    "register": 2188
-  },
-  {
-    "field": "DO_HTRO_N_A_1_SIG:last",
-    "register": 2190
-  },
-  {
-    "field": "DO_HTRO_N_A_1_SIG:mean",
-    "register": 2192
-  },
-  {
-    "field": "DO_HTRO_N_A_1_SIG:median",
-    "register": 2194
-  },
-  {
-    "field": "DO_HTRO_N_A_1_SIG:min",
-    "register": 2196
-  },
-  {
-    "field": "DO_HTRO_N_A_1_SIG:max",
-    "register": 2198
-  },
-  {
-    "field": "DO_HTRO_N_I_2_SIG:last",
-    "register": 2200
-  },
-  {
-    "field": "DO_HTRO_N_I_2_SIG:mean",
-    "register": 2202
-  },
-  {
-    "field": "DO_HTRO_N_I_2_SIG:median",
-    "register": 2204
-  },
-  {
-    "field": "DO_HTRO_N_I_2_SIG:min",
-    "register": 2206
-  },
-  {
-    "field": "DO_HTRO_N_I_2_SIG:max",
-    "register": 2208
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_SIG:last",
-    "register": 2210
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_SIG:mean",
-    "register": 2212
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_SIG:median",
-    "register": 2214
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_SIG:min",
-    "register": 2216
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_SIG:max",
-    "register": 2218
-  },
-  {
-    "field": "DU_HTRO_N_I_2_SIG:last",
-    "register": 2220
-  },
-  {
-    "field": "DU_HTRO_N_I_2_SIG:mean",
-    "register": 2222
-  },
-  {
-    "field": "DU_HTRO_N_I_2_SIG:median",
-    "register": 2224
-  },
-  {
-    "field": "DU_HTRO_N_I_2_SIG:min",
-    "register": 2226
-  },
-  {
-    "field": "DU_HTRO_N_I_2_SIG:max",
-    "register": 2228
-  },
-  {
-    "field": "DU_HTRO_N_A_2_SIG:last",
-    "register": 2230
-  },
-  {
-    "field": "DU_HTRO_N_A_2_SIG:mean",
-    "register": 2232
-  },
-  {
-    "field": "DU_HTRO_N_A_2_SIG:median",
-    "register": 2234
-  },
-  {
-    "field": "DU_HTRO_N_A_2_SIG:min",
-    "register": 2236
-  },
-  {
-    "field": "DU_HTRO_N_A_2_SIG:max",
-    "register": 2238
-  },
-  {
-    "field": "DU_HTRO_N_I_3_SIG:last",
-    "register": 2240
-  },
-  {
-    "field": "DU_HTRO_N_I_3_SIG:mean",
-    "register": 2242
-  },
-  {
-    "field": "DU_HTRO_N_I_3_SIG:median",
-    "register": 2244
-  },
-  {
-    "field": "DU_HTRO_N_I_3_SIG:min",
-    "register": 2246
-  },
-  {
-    "field": "DU_HTRO_N_I_3_SIG:max",
-    "register": 2248
-  },
-  {
-    "field": "DU_HTRO_N_A_3_SIG:last",
-    "register": 2250
-  },
-  {
-    "field": "DU_HTRO_N_A_3_SIG:mean",
-    "register": 2252
-  },
-  {
-    "field": "DU_HTRO_N_A_3_SIG:median",
-    "register": 2254
-  },
-  {
-    "field": "DU_HTRO_N_A_3_SIG:min",
-    "register": 2256
-  },
-  {
-    "field": "DU_HTRO_N_A_3_SIG:max",
-    "register": 2258
-  },
-  {
-    "field": "DO_HTRW_N_I_1_SIG:last",
-    "register": 2260
-  },
-  {
-    "field": "DO_HTRW_N_I_1_SIG:mean",
-    "register": 2262
-  },
-  {
-    "field": "DO_HTRW_N_I_1_SIG:median",
-    "register": 2264
-  },
-  {
-    "field": "DO_HTRW_N_I_1_SIG:min",
-    "register": 2266
-  },
-  {
-    "field": "DO_HTRW_N_I_1_SIG:max",
-    "register": 2268
-  },
-  {
-    "field": "DO_HTRW_N_A_1_SIG:last",
-    "register": 2270
-  },
-  {
-    "field": "DO_HTRW_N_A_1_SIG:mean",
-    "register": 2272
-  },
-  {
-    "field": "DO_HTRW_N_A_1_SIG:median",
-    "register": 2274
-  },
-  {
-    "field": "DO_HTRW_N_A_1_SIG:min",
-    "register": 2276
-  },
-  {
-    "field": "DO_HTRW_N_A_1_SIG:max",
-    "register": 2278
-  },
-  {
-    "field": "DO_HTRW_N_I_2_SIG:last",
-    "register": 2280
-  },
-  {
-    "field": "DO_HTRW_N_I_2_SIG:mean",
-    "register": 2282
-  },
-  {
-    "field": "DO_HTRW_N_I_2_SIG:median",
-    "register": 2284
-  },
-  {
-    "field": "DO_HTRW_N_I_2_SIG:min",
-    "register": 2286
-  },
-  {
-    "field": "DO_HTRW_N_I_2_SIG:max",
-    "register": 2288
-  },
-  {
-    "field": "DO_HTRW_N_A_2_SIG:last",
-    "register": 2290
-  },
-  {
-    "field": "DO_HTRW_N_A_2_SIG:mean",
-    "register": 2292
-  },
-  {
-    "field": "DO_HTRW_N_A_2_SIG:median",
-    "register": 2294
-  },
-  {
-    "field": "DO_HTRW_N_A_2_SIG:min",
-    "register": 2296
-  },
-  {
-    "field": "DO_HTRW_N_A_2_SIG:max",
-    "register": 2298
-  },
-  {
-    "field": "DU_HTRW_N_I_2_SIG:last",
-    "register": 2300
-  },
-  {
-    "field": "DU_HTRW_N_I_2_SIG:mean",
-    "register": 2302
-  },
-  {
-    "field": "DU_HTRW_N_I_2_SIG:median",
-    "register": 2304
-  },
-  {
-    "field": "DU_HTRW_N_I_2_SIG:min",
-    "register": 2306
-  },
-  {
-    "field": "DU_HTRW_N_I_2_SIG:max",
-    "register": 2308
-  },
-  {
-    "field": "DU_HTRW_N_A_2_SIG:last",
-    "register": 2310
-  },
-  {
-    "field": "DU_HTRW_N_A_2_SIG:mean",
-    "register": 2312
-  },
-  {
-    "field": "DU_HTRW_N_A_2_SIG:median",
-    "register": 2314
-  },
-  {
-    "field": "DU_HTRW_N_A_2_SIG:min",
-    "register": 2316
-  },
-  {
-    "field": "DU_HTRW_N_A_2_SIG:max",
-    "register": 2318
-  },
-  {
-    "field": "DU_HTRW_N_I_3_SIG:last",
-    "register": 2320
-  },
-  {
-    "field": "DU_HTRW_N_I_3_SIG:mean",
-    "register": 2322
-  },
-  {
-    "field": "DU_HTRW_N_I_3_SIG:median",
-    "register": 2324
-  },
-  {
-    "field": "DU_HTRW_N_I_3_SIG:min",
-    "register": 2326
-  },
-  {
-    "field": "DU_HTRW_N_I_3_SIG:max",
-    "register": 2328
-  },
-  {
-    "field": "DU_HTRW_N_A_3_SIG:last",
-    "register": 2330
-  },
-  {
-    "field": "DU_HTRW_N_A_3_SIG:mean",
-    "register": 2332
-  },
-  {
-    "field": "DU_HTRW_N_A_3_SIG:median",
-    "register": 2334
-  },
-  {
-    "field": "DU_HTRW_N_A_3_SIG:min",
-    "register": 2336
-  },
-  {
-    "field": "DU_HTRW_N_A_3_SIG:max",
-    "register": 2338
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_SIG:last",
-    "register": 2340
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_SIG:mean",
-    "register": 2342
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_SIG:median",
-    "register": 2344
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_SIG:min",
-    "register": 2346
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_SIG:max",
-    "register": 2348
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_SIG:last",
-    "register": 2350
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_SIG:mean",
-    "register": 2352
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_SIG:median",
-    "register": 2354
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_SIG:min",
-    "register": 2356
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_SIG:max",
-    "register": 2358
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_SIG:last",
-    "register": 2360
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_SIG:mean",
-    "register": 2362
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_SIG:median",
-    "register": 2364
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_SIG:min",
-    "register": 2366
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_SIG:max",
-    "register": 2368
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_SIG:last",
-    "register": 2370
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_SIG:mean",
-    "register": 2372
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_SIG:median",
-    "register": 2374
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_SIG:min",
-    "register": 2376
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_SIG:max",
-    "register": 2378
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_SIG:last",
-    "register": 2380
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_SIG:mean",
-    "register": 2382
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_SIG:median",
-    "register": 2384
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_SIG:min",
-    "register": 2386
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_SIG:max",
-    "register": 2388
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_SIG:last",
-    "register": 2390
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_SIG:mean",
-    "register": 2392
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_SIG:median",
-    "register": 2394
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_SIG:min",
-    "register": 2396
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_SIG:max",
-    "register": 2398
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_SIG:last",
-    "register": 2400
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_SIG:mean",
-    "register": 2402
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_SIG:median",
-    "register": 2404
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_SIG:min",
-    "register": 2406
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_SIG:max",
-    "register": 2408
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_SIG:last",
-    "register": 2410
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_SIG:mean",
-    "register": 2412
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_SIG:median",
-    "register": 2414
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_SIG:min",
-    "register": 2416
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_SIG:max",
-    "register": 2418
-  },
-  {
-    "field": "DO_HTRO_S_I_2_SIG:last",
-    "register": 2420
-  },
-  {
-    "field": "DO_HTRO_S_I_2_SIG:mean",
-    "register": 2422
-  },
-  {
-    "field": "DO_HTRO_S_I_2_SIG:median",
-    "register": 2424
-  },
-  {
-    "field": "DO_HTRO_S_I_2_SIG:min",
-    "register": 2426
-  },
-  {
-    "field": "DO_HTRO_S_I_2_SIG:max",
-    "register": 2428
-  },
-  {
-    "field": "DO_HTRO_S_A_2_SIG:last",
-    "register": 2430
-  },
-  {
-    "field": "DO_HTRO_S_A_2_SIG:mean",
-    "register": 2432
-  },
-  {
-    "field": "DO_HTRO_S_A_2_SIG:median",
-    "register": 2434
-  },
-  {
-    "field": "DO_HTRO_S_A_2_SIG:min",
-    "register": 2436
-  },
-  {
-    "field": "DO_HTRO_S_A_2_SIG:max",
-    "register": 2438
-  },
-  {
-    "field": "DO_HTRO_S_I_3_SIG:last",
-    "register": 2440
-  },
-  {
-    "field": "DO_HTRO_S_I_3_SIG:mean",
-    "register": 2442
-  },
-  {
-    "field": "DO_HTRO_S_I_3_SIG:median",
-    "register": 2444
-  },
-  {
-    "field": "DO_HTRO_S_I_3_SIG:min",
-    "register": 2446
-  },
-  {
-    "field": "DO_HTRO_S_I_3_SIG:max",
-    "register": 2448
-  },
-  {
-    "field": "ROTER_ALARM_ALLE:last",
-    "register": 2450
-  },
-  {
-    "field": "ROTER_ALARM_ALLE:mean",
-    "register": 2452
-  },
-  {
-    "field": "ROTER_ALARM_ALLE:median",
-    "register": 2454
-  },
-  {
-    "field": "ROTER_ALARM_ALLE:min",
-    "register": 2456
-  },
-  {
-    "field": "ROTER_ALARM_ALLE:max",
-    "register": 2458
-  },
-  {
-    "field": "DU_HTRO_S_I_1_SIG:last",
-    "register": 2460
-  },
-  {
-    "field": "DU_HTRO_S_I_1_SIG:mean",
-    "register": 2462
-  },
-  {
-    "field": "DU_HTRO_S_I_1_SIG:median",
-    "register": 2464
-  },
-  {
-    "field": "DU_HTRO_S_I_1_SIG:min",
-    "register": 2466
-  },
-  {
-    "field": "DU_HTRO_S_I_1_SIG:max",
-    "register": 2468
-  },
-  {
-    "field": "DU_HTRO_S_A_1_SIG:last",
-    "register": 2470
-  },
-  {
-    "field": "DU_HTRO_S_A_1_SIG:mean",
-    "register": 2472
-  },
-  {
-    "field": "DU_HTRO_S_A_1_SIG:median",
-    "register": 2474
-  },
-  {
-    "field": "DU_HTRO_S_A_1_SIG:min",
-    "register": 2476
-  },
-  {
-    "field": "DU_HTRO_S_A_1_SIG:max",
-    "register": 2478
-  },
-  {
-    "field": "DU_HTRO_S_I_2_SIG:last",
-    "register": 2480
-  },
-  {
-    "field": "DU_HTRO_S_I_2_SIG:mean",
-    "register": 2482
-  },
-  {
-    "field": "DU_HTRO_S_I_2_SIG:median",
-    "register": 2484
-  },
-  {
-    "field": "DU_HTRO_S_I_2_SIG:min",
-    "register": 2486
-  },
-  {
-    "field": "DU_HTRO_S_I_2_SIG:max",
-    "register": 2488
-  },
-  {
-    "field": "DU_HTRO_S_A_2_SIG:last",
-    "register": 2490
-  },
-  {
-    "field": "DU_HTRO_S_A_2_SIG:mean",
-    "register": 2492
-  },
-  {
-    "field": "DU_HTRO_S_A_2_SIG:median",
-    "register": 2494
-  },
-  {
-    "field": "DU_HTRO_S_A_2_SIG:min",
-    "register": 2496
-  },
-  {
-    "field": "DU_HTRO_S_A_2_SIG:max",
-    "register": 2498
-  },
-  {
-    "field": "DO_HTRW_S_I_2_SIG:last",
-    "register": 2500
-  },
-  {
-    "field": "DO_HTRW_S_I_2_SIG:mean",
-    "register": 2502
-  },
-  {
-    "field": "DO_HTRW_S_I_2_SIG:median",
-    "register": 2504
-  },
-  {
-    "field": "DO_HTRW_S_I_2_SIG:min",
-    "register": 2506
-  },
-  {
-    "field": "DO_HTRW_S_I_2_SIG:max",
-    "register": 2508
-  },
-  {
-    "field": "DO_HTRW_S_A_2_SIG:last",
-    "register": 2510
-  },
-  {
-    "field": "DO_HTRW_S_A_2_SIG:mean",
-    "register": 2512
-  },
-  {
-    "field": "DO_HTRW_S_A_2_SIG:median",
-    "register": 2514
-  },
-  {
-    "field": "DO_HTRW_S_A_2_SIG:min",
-    "register": 2516
-  },
-  {
-    "field": "DO_HTRW_S_A_2_SIG:max",
-    "register": 2518
-  },
-  {
-    "field": "DO_HTRW_S_I_3_SIG:last",
-    "register": 2520
-  },
-  {
-    "field": "DO_HTRW_S_I_3_SIG:mean",
-    "register": 2522
-  },
-  {
-    "field": "DO_HTRW_S_I_3_SIG:median",
-    "register": 2524
-  },
-  {
-    "field": "DO_HTRW_S_I_3_SIG:min",
-    "register": 2526
-  },
-  {
-    "field": "DO_HTRW_S_I_3_SIG:max",
-    "register": 2528
-  },
-  {
-    "field": "DO_HTRW_S_A_3_SIG:last",
-    "register": 2530
-  },
-  {
-    "field": "DO_HTRW_S_A_3_SIG:mean",
-    "register": 2532
-  },
-  {
-    "field": "DO_HTRW_S_A_3_SIG:median",
-    "register": 2534
-  },
-  {
-    "field": "DO_HTRW_S_A_3_SIG:min",
-    "register": 2536
-  },
-  {
-    "field": "DO_HTRW_S_A_3_SIG:max",
-    "register": 2538
-  },
-  {
-    "field": "DU_HTRW_S_I_1_SIG:last",
-    "register": 2540
-  },
-  {
-    "field": "DU_HTRW_S_I_1_SIG:mean",
-    "register": 2542
-  },
-  {
-    "field": "DU_HTRW_S_I_1_SIG:median",
-    "register": 2544
-  },
-  {
-    "field": "DU_HTRW_S_I_1_SIG:min",
-    "register": 2546
-  },
-  {
-    "field": "DU_HTRW_S_I_1_SIG:max",
-    "register": 2548
-  },
-  {
-    "field": "DU_HTRW_S_A_1_SIG:last",
-    "register": 2550
-  },
-  {
-    "field": "DU_HTRW_S_A_1_SIG:mean",
-    "register": 2552
-  },
-  {
-    "field": "DU_HTRW_S_A_1_SIG:median",
-    "register": 2554
-  },
-  {
-    "field": "DU_HTRW_S_A_1_SIG:min",
-    "register": 2556
-  },
-  {
-    "field": "DU_HTRW_S_A_1_SIG:max",
-    "register": 2558
-  },
-  {
-    "field": "DU_HTRW_S_I_2_SIG:last",
-    "register": 2560
-  },
-  {
-    "field": "DU_HTRW_S_I_2_SIG:mean",
-    "register": 2562
-  },
-  {
-    "field": "DU_HTRW_S_I_2_SIG:median",
-    "register": 2564
-  },
-  {
-    "field": "DU_HTRW_S_I_2_SIG:min",
-    "register": 2566
-  },
-  {
-    "field": "DU_HTRW_S_I_2_SIG:max",
-    "register": 2568
-  },
-  {
-    "field": "DU_HTRW_S_A_2_SIG:last",
-    "register": 2570
-  },
-  {
-    "field": "DU_HTRW_S_A_2_SIG:mean",
-    "register": 2572
-  },
-  {
-    "field": "DU_HTRW_S_A_2_SIG:median",
-    "register": 2574
-  },
-  {
-    "field": "DU_HTRW_S_A_2_SIG:min",
-    "register": 2576
-  },
-  {
-    "field": "DU_HTRW_S_A_2_SIG:max",
-    "register": 2578
-  },
-  {
-    "field": "DO_HTRO_S_I_1_SIG:last",
-    "register": 2580
-  },
-  {
-    "field": "DO_HTRO_S_I_1_SIG:mean",
-    "register": 2582
-  },
-  {
-    "field": "DO_HTRO_S_I_1_SIG:median",
-    "register": 2584
-  },
-  {
-    "field": "DO_HTRO_S_I_1_SIG:min",
-    "register": 2586
-  },
-  {
-    "field": "DO_HTRO_S_I_1_SIG:max",
-    "register": 2588
-  },
-  {
-    "field": "DO_HTRO_S_A_1_SIG:last",
-    "register": 2590
-  },
-  {
-    "field": "DO_HTRO_S_A_1_SIG:mean",
-    "register": 2592
-  },
-  {
-    "field": "DO_HTRO_S_A_1_SIG:median",
-    "register": 2594
-  },
-  {
-    "field": "DO_HTRO_S_A_1_SIG:min",
-    "register": 2596
-  },
-  {
-    "field": "DO_HTRO_S_A_1_SIG:max",
-    "register": 2598
-  },
-  {
-    "field": "DU_HTRO_N_I_1_SIG:last",
-    "register": 2600
-  },
-  {
-    "field": "DU_HTRO_N_I_1_SIG:mean",
-    "register": 2602
-  },
-  {
-    "field": "DU_HTRO_N_I_1_SIG:median",
-    "register": 2604
-  },
-  {
-    "field": "DU_HTRO_N_I_1_SIG:min",
-    "register": 2606
-  },
-  {
-    "field": "DU_HTRO_N_I_1_SIG:max",
-    "register": 2608
-  },
-  {
-    "field": "DU_HTRO_N_A_1_SIG:last",
-    "register": 2610
-  },
-  {
-    "field": "DU_HTRO_N_A_1_SIG:mean",
-    "register": 2612
-  },
-  {
-    "field": "DU_HTRO_N_A_1_SIG:median",
-    "register": 2614
-  },
-  {
-    "field": "DU_HTRO_N_A_1_SIG:min",
-    "register": 2616
-  },
-  {
-    "field": "DU_HTRO_N_A_1_SIG:max",
-    "register": 2618
-  },
-  {
-    "field": "DO_HTRW_S_I_1_SIG:last",
-    "register": 2620
-  },
-  {
-    "field": "DO_HTRW_S_I_1_SIG:mean",
-    "register": 2622
-  },
-  {
-    "field": "DO_HTRW_S_I_1_SIG:median",
-    "register": 2624
-  },
-  {
-    "field": "DO_HTRW_S_I_1_SIG:min",
-    "register": 2626
-  },
-  {
-    "field": "DO_HTRW_S_I_1_SIG:max",
-    "register": 2628
-  },
-  {
-    "field": "DO_HTRW_S_A_1_SIG:last",
-    "register": 2630
-  },
-  {
-    "field": "DO_HTRW_S_A_1_SIG:mean",
-    "register": 2632
-  },
-  {
-    "field": "DO_HTRW_S_A_1_SIG:median",
-    "register": 2634
-  },
-  {
-    "field": "DO_HTRW_S_A_1_SIG:min",
-    "register": 2636
-  },
-  {
-    "field": "DO_HTRW_S_A_1_SIG:max",
-    "register": 2638
-  },
-  {
-    "field": "DU_HTRW_N_I_1_SIG:last",
-    "register": 2640
-  },
-  {
-    "field": "DU_HTRW_N_I_1_SIG:mean",
-    "register": 2642
-  },
-  {
-    "field": "DU_HTRW_N_I_1_SIG:median",
-    "register": 2644
-  },
-  {
-    "field": "DU_HTRW_N_I_1_SIG:min",
-    "register": 2646
-  },
-  {
-    "field": "DU_HTRW_N_I_1_SIG:max",
-    "register": 2648
-  },
-  {
-    "field": "DU_HTRW_N_A_1_SIG:last",
-    "register": 2650
-  },
-  {
-    "field": "DU_HTRW_N_A_1_SIG:mean",
-    "register": 2652
-  },
-  {
-    "field": "DU_HTRW_N_A_1_SIG:median",
-    "register": 2654
-  },
-  {
-    "field": "DU_HTRW_N_A_1_SIG:min",
-    "register": 2656
-  },
-  {
-    "field": "DU_HTRW_N_A_1_SIG:max",
-    "register": 2658
-  },
-  {
-    "field": "BT_HTRO_OG_SIG:last",
-    "register": 2660
-  },
-  {
-    "field": "BT_HTRO_OG_SIG:mean",
-    "register": 2662
-  },
-  {
-    "field": "BT_HTRO_OG_SIG:median",
-    "register": 2664
-  },
-  {
-    "field": "BT_HTRO_OG_SIG:min",
-    "register": 2666
-  },
-  {
-    "field": "BT_HTRO_OG_SIG:max",
-    "register": 2668
-  },
-  {
-    "field": "BT_HTRO_UG_SIG:last",
-    "register": 2670
-  },
-  {
-    "field": "BT_HTRO_UG_SIG:mean",
-    "register": 2672
-  },
-  {
-    "field": "BT_HTRO_UG_SIG:median",
-    "register": 2674
-  },
-  {
-    "field": "BT_HTRO_UG_SIG:min",
-    "register": 2676
-  },
-  {
-    "field": "BT_HTRO_UG_SIG:max",
-    "register": 2678
-  },
-  {
-    "field": "BT_HTRO_ZB_SIG:last",
-    "register": 2680
-  },
-  {
-    "field": "BT_HTRO_ZB_SIG:mean",
-    "register": 2682
-  },
-  {
-    "field": "BT_HTRO_ZB_SIG:median",
-    "register": 2684
-  },
-  {
-    "field": "BT_HTRO_ZB_SIG:min",
-    "register": 2686
-  },
-  {
-    "field": "BT_HTRO_ZB_SIG:max",
-    "register": 2688
-  },
-  {
-    "field": "BT_HTRW_OG_SIG:last",
-    "register": 2690
-  },
-  {
-    "field": "BT_HTRW_OG_SIG:mean",
-    "register": 2692
-  },
-  {
-    "field": "BT_HTRW_OG_SIG:median",
-    "register": 2694
-  },
-  {
-    "field": "BT_HTRW_OG_SIG:min",
-    "register": 2696
-  },
-  {
-    "field": "BT_HTRW_OG_SIG:max",
-    "register": 2698
-  },
-  {
-    "field": "BT_HTRW_UG_SIG:last",
-    "register": 2700
-  },
-  {
-    "field": "BT_HTRW_UG_SIG:mean",
-    "register": 2702
-  },
-  {
-    "field": "BT_HTRW_UG_SIG:median",
-    "register": 2704
-  },
-  {
-    "field": "BT_HTRW_UG_SIG:min",
-    "register": 2706
-  },
-  {
-    "field": "BT_HTRW_UG_SIG:max",
-    "register": 2708
-  },
-  {
-    "field": "BT_HTRW_ZB_SIG:last",
-    "register": 2710
-  },
-  {
-    "field": "BT_HTRW_ZB_SIG:mean",
-    "register": 2712
-  },
-  {
-    "field": "BT_HTRW_ZB_SIG:median",
-    "register": 2714
-  },
-  {
-    "field": "BT_HTRW_ZB_SIG:min",
-    "register": 2716
-  },
-  {
-    "field": "BT_HTRW_ZB_SIG:max",
-    "register": 2718
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_GAL:last",
-    "register": 2720
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_GAL:mean",
-    "register": 2722
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_GAL:median",
-    "register": 2724
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_GAL:min",
-    "register": 2726
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_GAL:max",
-    "register": 2728
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_GAL:last",
-    "register": 2730
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_GAL:mean",
-    "register": 2732
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_GAL:median",
-    "register": 2734
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_GAL:min",
-    "register": 2736
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_GAL:max",
-    "register": 2738
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_GAL:last",
-    "register": 2740
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_GAL:mean",
-    "register": 2742
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_GAL:median",
-    "register": 2744
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_GAL:min",
-    "register": 2746
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_GAL:max",
-    "register": 2748
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_GAL:last",
-    "register": 2750
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_GAL:mean",
-    "register": 2752
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_GAL:median",
-    "register": 2754
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_GAL:min",
-    "register": 2756
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_GAL:max",
-    "register": 2758
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_GAL:last",
-    "register": 2760
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_GAL:mean",
-    "register": 2762
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_GAL:median",
-    "register": 2764
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_GAL:min",
-    "register": 2766
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_GAL:max",
-    "register": 2768
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_GAL:last",
-    "register": 2770
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_GAL:mean",
-    "register": 2772
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_GAL:median",
-    "register": 2774
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_GAL:min",
-    "register": 2776
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_GAL:max",
-    "register": 2778
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_GAL:last",
-    "register": 2780
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_GAL:mean",
-    "register": 2782
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_GAL:median",
-    "register": 2784
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_GAL:min",
-    "register": 2786
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_GAL:max",
-    "register": 2788
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_GAL:last",
-    "register": 2790
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_GAL:mean",
-    "register": 2792
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_GAL:median",
-    "register": 2794
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_GAL:min",
-    "register": 2796
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_GAL:max",
-    "register": 2798
-  },
-  {
-    "field": "DO_HTRO_N_I_1_GAL:last",
-    "register": 2800
-  },
-  {
-    "field": "DO_HTRO_N_I_1_GAL:mean",
-    "register": 2802
-  },
-  {
-    "field": "DO_HTRO_N_I_1_GAL:median",
-    "register": 2804
-  },
-  {
-    "field": "DO_HTRO_N_I_1_GAL:min",
-    "register": 2806
-  },
-  {
-    "field": "DO_HTRO_N_I_1_GAL:max",
-    "register": 2808
-  },
-  {
-    "field": "DO_HTRO_N_A_1_GAL:last",
-    "register": 2810
-  },
-  {
-    "field": "DO_HTRO_N_A_1_GAL:mean",
-    "register": 2812
-  },
-  {
-    "field": "DO_HTRO_N_A_1_GAL:median",
-    "register": 2814
-  },
-  {
-    "field": "DO_HTRO_N_A_1_GAL:min",
-    "register": 2816
-  },
-  {
-    "field": "DO_HTRO_N_A_1_GAL:max",
-    "register": 2818
-  },
-  {
-    "field": "DO_HTRO_N_I_2_GAL:last",
-    "register": 2820
-  },
-  {
-    "field": "DO_HTRO_N_I_2_GAL:mean",
-    "register": 2822
-  },
-  {
-    "field": "DO_HTRO_N_I_2_GAL:median",
-    "register": 2824
-  },
-  {
-    "field": "DO_HTRO_N_I_2_GAL:min",
-    "register": 2826
-  },
-  {
-    "field": "DO_HTRO_N_I_2_GAL:max",
-    "register": 2828
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_GAL:last",
-    "register": 2830
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_GAL:mean",
-    "register": 2832
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_GAL:median",
-    "register": 2834
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_GAL:min",
-    "register": 2836
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_GAL:max",
-    "register": 2838
-  },
-  {
-    "field": "DU_HTRO_N_I_2_GAL:last",
-    "register": 2840
-  },
-  {
-    "field": "DU_HTRO_N_I_2_GAL:mean",
-    "register": 2842
-  },
-  {
-    "field": "DU_HTRO_N_I_2_GAL:median",
-    "register": 2844
-  },
-  {
-    "field": "DU_HTRO_N_I_2_GAL:min",
-    "register": 2846
-  },
-  {
-    "field": "DU_HTRO_N_I_2_GAL:max",
-    "register": 2848
-  },
-  {
-    "field": "DU_HTRO_N_A_2_GAL:last",
-    "register": 2850
-  },
-  {
-    "field": "DU_HTRO_N_A_2_GAL:mean",
-    "register": 2852
-  },
-  {
-    "field": "DU_HTRO_N_A_2_GAL:median",
-    "register": 2854
-  },
-  {
-    "field": "DU_HTRO_N_A_2_GAL:min",
-    "register": 2856
-  },
-  {
-    "field": "DU_HTRO_N_A_2_GAL:max",
-    "register": 2858
-  },
-  {
-    "field": "DU_HTRO_N_I_3_GAL:last",
-    "register": 2860
-  },
-  {
-    "field": "DU_HTRO_N_I_3_GAL:mean",
-    "register": 2862
-  },
-  {
-    "field": "DU_HTRO_N_I_3_GAL:median",
-    "register": 2864
-  },
-  {
-    "field": "DU_HTRO_N_I_3_GAL:min",
-    "register": 2866
-  },
-  {
-    "field": "DU_HTRO_N_I_3_GAL:max",
-    "register": 2868
-  },
-  {
-    "field": "DU_HTRO_N_A_3_GAL:last",
-    "register": 2870
-  },
-  {
-    "field": "DU_HTRO_N_A_3_GAL:mean",
-    "register": 2872
-  },
-  {
-    "field": "DU_HTRO_N_A_3_GAL:median",
-    "register": 2874
-  },
-  {
-    "field": "DU_HTRO_N_A_3_GAL:min",
-    "register": 2876
-  },
-  {
-    "field": "DU_HTRO_N_A_3_GAL:max",
-    "register": 2878
-  },
-  {
-    "field": "DO_HTRW_N_I_1_GAL:last",
-    "register": 2880
-  },
-  {
-    "field": "DO_HTRW_N_I_1_GAL:mean",
-    "register": 2882
-  },
-  {
-    "field": "DO_HTRW_N_I_1_GAL:median",
-    "register": 2884
-  },
-  {
-    "field": "DO_HTRW_N_I_1_GAL:min",
-    "register": 2886
-  },
-  {
-    "field": "DO_HTRW_N_I_1_GAL:max",
-    "register": 2888
-  },
-  {
-    "field": "DO_HTRW_N_A_1_GAL:last",
-    "register": 2890
-  },
-  {
-    "field": "DO_HTRW_N_A_1_GAL:mean",
-    "register": 2892
-  },
-  {
-    "field": "DO_HTRW_N_A_1_GAL:median",
-    "register": 2894
-  },
-  {
-    "field": "DO_HTRW_N_A_1_GAL:min",
-    "register": 2896
-  },
-  {
-    "field": "DO_HTRW_N_A_1_GAL:max",
-    "register": 2898
-  },
-  {
-    "field": "DO_HTRW_N_I_2_GAL:last",
-    "register": 2900
-  },
-  {
-    "field": "DO_HTRW_N_I_2_GAL:mean",
-    "register": 2902
-  },
-  {
-    "field": "DO_HTRW_N_I_2_GAL:median",
-    "register": 2904
-  },
-  {
-    "field": "DO_HTRW_N_I_2_GAL:min",
-    "register": 2906
-  },
-  {
-    "field": "DO_HTRW_N_I_2_GAL:max",
-    "register": 2908
-  },
-  {
-    "field": "DO_HTRW_N_A_2_GAL:last",
-    "register": 2910
-  },
-  {
-    "field": "DO_HTRW_N_A_2_GAL:mean",
-    "register": 2912
-  },
-  {
-    "field": "DO_HTRW_N_A_2_GAL:median",
-    "register": 2914
-  },
-  {
-    "field": "DO_HTRW_N_A_2_GAL:min",
-    "register": 2916
-  },
-  {
-    "field": "DO_HTRW_N_A_2_GAL:max",
-    "register": 2918
-  },
-  {
-    "field": "DU_HTRW_N_I_2_GAL:last",
-    "register": 2920
-  },
-  {
-    "field": "DU_HTRW_N_I_2_GAL:mean",
-    "register": 2922
-  },
-  {
-    "field": "DU_HTRW_N_I_2_GAL:median",
-    "register": 2924
-  },
-  {
-    "field": "DU_HTRW_N_I_2_GAL:min",
-    "register": 2926
-  },
-  {
-    "field": "DU_HTRW_N_I_2_GAL:max",
-    "register": 2928
-  },
-  {
-    "field": "DU_HTRW_N_A_2_GAL:last",
-    "register": 2930
-  },
-  {
-    "field": "DU_HTRW_N_A_2_GAL:mean",
-    "register": 2932
-  },
-  {
-    "field": "DU_HTRW_N_A_2_GAL:median",
-    "register": 2934
-  },
-  {
-    "field": "DU_HTRW_N_A_2_GAL:min",
-    "register": 2936
-  },
-  {
-    "field": "DU_HTRW_N_A_2_GAL:max",
-    "register": 2938
-  },
-  {
-    "field": "DU_HTRW_N_I_3_GAL:last",
-    "register": 2940
-  },
-  {
-    "field": "DU_HTRW_N_I_3_GAL:mean",
-    "register": 2942
-  },
-  {
-    "field": "DU_HTRW_N_I_3_GAL:median",
-    "register": 2944
-  },
-  {
-    "field": "DU_HTRW_N_I_3_GAL:min",
-    "register": 2946
-  },
-  {
-    "field": "DU_HTRW_N_I_3_GAL:max",
-    "register": 2948
-  },
-  {
-    "field": "DU_HTRW_N_A_3_GAL:last",
-    "register": 2950
-  },
-  {
-    "field": "DU_HTRW_N_A_3_GAL:mean",
-    "register": 2952
-  },
-  {
-    "field": "DU_HTRW_N_A_3_GAL:median",
-    "register": 2954
-  },
-  {
-    "field": "DU_HTRW_N_A_3_GAL:min",
-    "register": 2956
-  },
-  {
-    "field": "DU_HTRW_N_A_3_GAL:max",
-    "register": 2958
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_GAL:last",
-    "register": 2960
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_GAL:mean",
-    "register": 2962
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_GAL:median",
-    "register": 2964
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_GAL:min",
-    "register": 2966
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_GAL:max",
-    "register": 2968
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_GAL:last",
-    "register": 2970
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_GAL:mean",
-    "register": 2972
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_GAL:median",
-    "register": 2974
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_GAL:min",
-    "register": 2976
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_GAL:max",
-    "register": 2978
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_GAL:last",
-    "register": 2980
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_GAL:mean",
-    "register": 2982
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_GAL:median",
-    "register": 2984
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_GAL:min",
-    "register": 2986
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_GAL:max",
-    "register": 2988
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_GAL:last",
-    "register": 2990
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_GAL:mean",
-    "register": 2992
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_GAL:median",
-    "register": 2994
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_GAL:min",
-    "register": 2996
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_GAL:max",
-    "register": 2998
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_GAL:last",
-    "register": 3000
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_GAL:mean",
-    "register": 3002
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_GAL:median",
-    "register": 3004
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_GAL:min",
-    "register": 3006
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_GAL:max",
-    "register": 3008
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_GAL:last",
-    "register": 3010
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_GAL:mean",
-    "register": 3012
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_GAL:median",
-    "register": 3014
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_GAL:min",
-    "register": 3016
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_GAL:max",
-    "register": 3018
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_GAL:last",
-    "register": 3020
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_GAL:mean",
-    "register": 3022
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_GAL:median",
-    "register": 3024
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_GAL:min",
-    "register": 3026
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_GAL:max",
-    "register": 3028
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_GAL:last",
-    "register": 3030
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_GAL:mean",
-    "register": 3032
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_GAL:median",
-    "register": 3034
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_GAL:min",
-    "register": 3036
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_GAL:max",
-    "register": 3038
-  },
-  {
-    "field": "DO_HTRO_S_I_2_GAL:last",
-    "register": 3040
-  },
-  {
-    "field": "DO_HTRO_S_I_2_GAL:mean",
-    "register": 3042
-  },
-  {
-    "field": "DO_HTRO_S_I_2_GAL:median",
-    "register": 3044
-  },
-  {
-    "field": "DO_HTRO_S_I_2_GAL:min",
-    "register": 3046
-  },
-  {
-    "field": "DO_HTRO_S_I_2_GAL:max",
-    "register": 3048
-  },
-  {
-    "field": "DO_HTRO_S_A_2_GAL:last",
-    "register": 3050
-  },
-  {
-    "field": "DO_HTRO_S_A_2_GAL:mean",
-    "register": 3052
-  },
-  {
-    "field": "DO_HTRO_S_A_2_GAL:median",
-    "register": 3054
-  },
-  {
-    "field": "DO_HTRO_S_A_2_GAL:min",
-    "register": 3056
-  },
-  {
-    "field": "DO_HTRO_S_A_2_GAL:max",
-    "register": 3058
-  },
-  {
-    "field": "DO_HTRO_S_I_3_GAL:last",
-    "register": 3060
-  },
-  {
-    "field": "DO_HTRO_S_I_3_GAL:mean",
-    "register": 3062
-  },
-  {
-    "field": "DO_HTRO_S_I_3_GAL:median",
-    "register": 3064
-  },
-  {
-    "field": "DO_HTRO_S_I_3_GAL:min",
-    "register": 3066
-  },
-  {
-    "field": "DO_HTRO_S_I_3_GAL:max",
-    "register": 3068
-  },
-  {
-    "field": "DU_HTRO_S_I_1_GAL:last",
-    "register": 3080
-  },
-  {
-    "field": "DU_HTRO_S_I_1_GAL:mean",
-    "register": 3082
-  },
-  {
-    "field": "DU_HTRO_S_I_1_GAL:median",
-    "register": 3084
-  },
-  {
-    "field": "DU_HTRO_S_I_1_GAL:min",
-    "register": 3086
-  },
-  {
-    "field": "DU_HTRO_S_I_1_GAL:max",
-    "register": 3088
-  },
-  {
-    "field": "DU_HTRO_S_A_1_GAL:last",
-    "register": 3090
-  },
-  {
-    "field": "DU_HTRO_S_A_1_GAL:mean",
-    "register": 3092
-  },
-  {
-    "field": "DU_HTRO_S_A_1_GAL:median",
-    "register": 3094
-  },
-  {
-    "field": "DU_HTRO_S_A_1_GAL:min",
-    "register": 3096
-  },
-  {
-    "field": "DU_HTRO_S_A_1_GAL:max",
-    "register": 3098
-  },
-  {
-    "field": "DU_HTRO_S_I_2_GAL:last",
-    "register": 3100
-  },
-  {
-    "field": "DU_HTRO_S_I_2_GAL:mean",
-    "register": 3102
-  },
-  {
-    "field": "DU_HTRO_S_I_2_GAL:median",
-    "register": 3104
-  },
-  {
-    "field": "DU_HTRO_S_I_2_GAL:min",
-    "register": 3106
-  },
-  {
-    "field": "DU_HTRO_S_I_2_GAL:max",
-    "register": 3108
-  },
-  {
-    "field": "DU_HTRO_S_A_2_GAL:last",
-    "register": 3110
-  },
-  {
-    "field": "DU_HTRO_S_A_2_GAL:mean",
-    "register": 3112
-  },
-  {
-    "field": "DU_HTRO_S_A_2_GAL:median",
-    "register": 3114
-  },
-  {
-    "field": "DU_HTRO_S_A_2_GAL:min",
-    "register": 3116
-  },
-  {
-    "field": "DU_HTRO_S_A_2_GAL:max",
-    "register": 3118
-  },
-  {
-    "field": "DO_HTRW_S_I_2_GAL:last",
-    "register": 3120
-  },
-  {
-    "field": "DO_HTRW_S_I_2_GAL:mean",
-    "register": 3122
-  },
-  {
-    "field": "DO_HTRW_S_I_2_GAL:median",
-    "register": 3124
-  },
-  {
-    "field": "DO_HTRW_S_I_2_GAL:min",
-    "register": 3126
-  },
-  {
-    "field": "DO_HTRW_S_I_2_GAL:max",
-    "register": 3128
-  },
-  {
-    "field": "DO_HTRW_S_A_2_GAL:last",
-    "register": 3130
-  },
-  {
-    "field": "DO_HTRW_S_A_2_GAL:mean",
-    "register": 3132
-  },
-  {
-    "field": "DO_HTRW_S_A_2_GAL:median",
-    "register": 3134
-  },
-  {
-    "field": "DO_HTRW_S_A_2_GAL:min",
-    "register": 3136
-  },
-  {
-    "field": "DO_HTRW_S_A_2_GAL:max",
-    "register": 3138
-  },
-  {
-    "field": "DO_HTRW_S_I_3_GAL:last",
-    "register": 3140
-  },
-  {
-    "field": "DO_HTRW_S_I_3_GAL:mean",
-    "register": 3142
-  },
-  {
-    "field": "DO_HTRW_S_I_3_GAL:median",
-    "register": 3144
-  },
-  {
-    "field": "DO_HTRW_S_I_3_GAL:min",
-    "register": 3146
-  },
-  {
-    "field": "DO_HTRW_S_I_3_GAL:max",
-    "register": 3148
-  },
-  {
-    "field": "DO_HTRW_S_A_3_GAL:last",
-    "register": 3150
-  },
-  {
-    "field": "DO_HTRW_S_A_3_GAL:mean",
-    "register": 3152
-  },
-  {
-    "field": "DO_HTRW_S_A_3_GAL:median",
-    "register": 3154
-  },
-  {
-    "field": "DO_HTRW_S_A_3_GAL:min",
-    "register": 3156
-  },
-  {
-    "field": "DO_HTRW_S_A_3_GAL:max",
-    "register": 3158
-  },
-  {
-    "field": "DU_HTRW_S_I_1_GAL:last",
-    "register": 3160
-  },
-  {
-    "field": "DU_HTRW_S_I_1_GAL:mean",
-    "register": 3162
-  },
-  {
-    "field": "DU_HTRW_S_I_1_GAL:median",
-    "register": 3164
-  },
-  {
-    "field": "DU_HTRW_S_I_1_GAL:min",
-    "register": 3166
-  },
-  {
-    "field": "DU_HTRW_S_I_1_GAL:max",
-    "register": 3168
-  },
-  {
-    "field": "DU_HTRW_S_A_1_GAL:last",
-    "register": 3170
-  },
-  {
-    "field": "DU_HTRW_S_A_1_GAL:mean",
-    "register": 3172
-  },
-  {
-    "field": "DU_HTRW_S_A_1_GAL:median",
-    "register": 3174
-  },
-  {
-    "field": "DU_HTRW_S_A_1_GAL:min",
-    "register": 3176
-  },
-  {
-    "field": "DU_HTRW_S_A_1_GAL:max",
-    "register": 3178
-  },
-  {
-    "field": "DU_HTRW_S_I_2_GAL:last",
-    "register": 3180
-  },
-  {
-    "field": "DU_HTRW_S_I_2_GAL:mean",
-    "register": 3182
-  },
-  {
-    "field": "DU_HTRW_S_I_2_GAL:median",
-    "register": 3184
-  },
-  {
-    "field": "DU_HTRW_S_I_2_GAL:min",
-    "register": 3186
-  },
-  {
-    "field": "DU_HTRW_S_I_2_GAL:max",
-    "register": 3188
-  },
-  {
-    "field": "DU_HTRW_S_A_2_GAL:last",
-    "register": 3190
-  },
-  {
-    "field": "DU_HTRW_S_A_2_GAL:mean",
-    "register": 3192
-  },
-  {
-    "field": "DU_HTRW_S_A_2_GAL:median",
-    "register": 3194
-  },
-  {
-    "field": "DU_HTRW_S_A_2_GAL:min",
-    "register": 3196
-  },
-  {
-    "field": "DU_HTRW_S_A_2_GAL:max",
-    "register": 3198
-  },
-  {
-    "field": "DO_HTRO_S_I_1_GAL:last",
-    "register": 3200
-  },
-  {
-    "field": "DO_HTRO_S_I_1_GAL:mean",
-    "register": 3202
-  },
-  {
-    "field": "DO_HTRO_S_I_1_GAL:median",
-    "register": 3204
-  },
-  {
-    "field": "DO_HTRO_S_I_1_GAL:min",
-    "register": 3206
-  },
-  {
-    "field": "DO_HTRO_S_I_1_GAL:max",
-    "register": 3208
-  },
-  {
-    "field": "DO_HTRO_S_A_1_GAL:last",
-    "register": 3210
-  },
-  {
-    "field": "DO_HTRO_S_A_1_GAL:mean",
-    "register": 3212
-  },
-  {
-    "field": "DO_HTRO_S_A_1_GAL:median",
-    "register": 3214
-  },
-  {
-    "field": "DO_HTRO_S_A_1_GAL:min",
-    "register": 3216
-  },
-  {
-    "field": "DO_HTRO_S_A_1_GAL:max",
-    "register": 3218
-  },
-  {
-    "field": "DU_HTRO_N_I_1_GAL:last",
-    "register": 3220
-  },
-  {
-    "field": "DU_HTRO_N_I_1_GAL:mean",
-    "register": 3222
-  },
-  {
-    "field": "DU_HTRO_N_I_1_GAL:median",
-    "register": 3224
-  },
-  {
-    "field": "DU_HTRO_N_I_1_GAL:min",
-    "register": 3226
-  },
-  {
-    "field": "DU_HTRO_N_I_1_GAL:max",
-    "register": 3228
-  },
-  {
-    "field": "DU_HTRO_N_A_1_GAL:last",
-    "register": 3230
-  },
-  {
-    "field": "DU_HTRO_N_A_1_GAL:mean",
-    "register": 3232
-  },
-  {
-    "field": "DU_HTRO_N_A_1_GAL:median",
-    "register": 3234
-  },
-  {
-    "field": "DU_HTRO_N_A_1_GAL:min",
-    "register": 3236
-  },
-  {
-    "field": "DU_HTRO_N_A_1_GAL:max",
-    "register": 3238
-  },
-  {
-    "field": "DO_HTRW_S_I_1_GAL:last",
-    "register": 3240
-  },
-  {
-    "field": "DO_HTRW_S_I_1_GAL:mean",
-    "register": 3242
-  },
-  {
-    "field": "DO_HTRW_S_I_1_GAL:median",
-    "register": 3244
-  },
-  {
-    "field": "DO_HTRW_S_I_1_GAL:min",
-    "register": 3246
-  },
-  {
-    "field": "DO_HTRW_S_I_1_GAL:max",
-    "register": 3248
-  },
-  {
-    "field": "DO_HTRW_S_A_1_GAL:last",
-    "register": 3250
-  },
-  {
-    "field": "DO_HTRW_S_A_1_GAL:mean",
-    "register": 3252
-  },
-  {
-    "field": "DO_HTRW_S_A_1_GAL:median",
-    "register": 3254
-  },
-  {
-    "field": "DO_HTRW_S_A_1_GAL:min",
-    "register": 3256
-  },
-  {
-    "field": "DO_HTRW_S_A_1_GAL:max",
-    "register": 3258
-  },
-  {
-    "field": "DU_HTRW_N_I_1_GAL:last",
-    "register": 3260
-  },
-  {
-    "field": "DU_HTRW_N_I_1_GAL:mean",
-    "register": 3262
-  },
-  {
-    "field": "DU_HTRW_N_I_1_GAL:median",
-    "register": 3264
-  },
-  {
-    "field": "DU_HTRW_N_I_1_GAL:min",
-    "register": 3266
-  },
-  {
-    "field": "DU_HTRW_N_I_1_GAL:max",
-    "register": 3268
-  },
-  {
-    "field": "DU_HTRW_N_A_1_GAL:last",
-    "register": 3270
-  },
-  {
-    "field": "DU_HTRW_N_A_1_GAL:mean",
-    "register": 3272
-  },
-  {
-    "field": "DU_HTRW_N_A_1_GAL:median",
-    "register": 3274
-  },
-  {
-    "field": "DU_HTRW_N_A_1_GAL:min",
-    "register": 3276
-  },
-  {
-    "field": "DU_HTRW_N_A_1_GAL:max",
-    "register": 3278
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_RAL:last",
-    "register": 3280
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_RAL:mean",
-    "register": 3282
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_RAL:median",
-    "register": 3284
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_RAL:min",
-    "register": 3286
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_RAL:max",
-    "register": 3288
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_RAL:last",
-    "register": 3290
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_RAL:mean",
-    "register": 3292
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_RAL:median",
-    "register": 3294
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_RAL:min",
-    "register": 3296
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_RAL:max",
-    "register": 3298
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_RAL:last",
-    "register": 3300
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_RAL:mean",
-    "register": 3302
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_RAL:median",
-    "register": 3304
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_RAL:min",
-    "register": 3306
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_RAL:max",
-    "register": 3308
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_RAL:last",
-    "register": 3310
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_RAL:mean",
-    "register": 3312
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_RAL:median",
-    "register": 3314
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_RAL:min",
-    "register": 3316
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_RAL:max",
-    "register": 3318
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_RAL:last",
-    "register": 3320
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_RAL:mean",
-    "register": 3322
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_RAL:median",
-    "register": 3324
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_RAL:min",
-    "register": 3326
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_RAL:max",
-    "register": 3328
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_RAL:last",
-    "register": 3330
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_RAL:mean",
-    "register": 3332
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_RAL:median",
-    "register": 3334
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_RAL:min",
-    "register": 3336
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_RAL:max",
-    "register": 3338
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_RAL:last",
-    "register": 3340
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_RAL:mean",
-    "register": 3342
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_RAL:median",
-    "register": 3344
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_RAL:min",
-    "register": 3346
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_RAL:max",
-    "register": 3348
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_RAL:last",
-    "register": 3350
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_RAL:mean",
-    "register": 3352
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_RAL:median",
-    "register": 3354
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_RAL:min",
-    "register": 3356
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_RAL:max",
-    "register": 3358
-  },
-  {
-    "field": "DO_HTRO_N_I_1_RAL:last",
-    "register": 3360
-  },
-  {
-    "field": "DO_HTRO_N_I_1_RAL:mean",
-    "register": 3362
-  },
-  {
-    "field": "DO_HTRO_N_I_1_RAL:median",
-    "register": 3364
-  },
-  {
-    "field": "DO_HTRO_N_I_1_RAL:min",
-    "register": 3366
-  },
-  {
-    "field": "DO_HTRO_N_I_1_RAL:max",
-    "register": 3368
-  },
-  {
-    "field": "DO_HTRO_N_A_1_RAL:last",
-    "register": 3370
-  },
-  {
-    "field": "DO_HTRO_N_A_1_RAL:mean",
-    "register": 3372
-  },
-  {
-    "field": "DO_HTRO_N_A_1_RAL:median",
-    "register": 3374
-  },
-  {
-    "field": "DO_HTRO_N_A_1_RAL:min",
-    "register": 3376
-  },
-  {
-    "field": "DO_HTRO_N_A_1_RAL:max",
-    "register": 3378
-  },
-  {
-    "field": "DO_HTRO_N_I_2_RAL:last",
-    "register": 3380
-  },
-  {
-    "field": "DO_HTRO_N_I_2_RAL:mean",
-    "register": 3382
-  },
-  {
-    "field": "DO_HTRO_N_I_2_RAL:median",
-    "register": 3384
-  },
-  {
-    "field": "DO_HTRO_N_I_2_RAL:min",
-    "register": 3386
-  },
-  {
-    "field": "DO_HTRO_N_I_2_RAL:max",
-    "register": 3388
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_RAL:last",
-    "register": 3390
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_RAL:mean",
-    "register": 3392
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_RAL:median",
-    "register": 3394
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_RAL:min",
-    "register": 3396
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_RAL:max",
-    "register": 3398
-  },
-  {
-    "field": "DU_HTRO_N_I_2_RAL:last",
-    "register": 3400
-  },
-  {
-    "field": "DU_HTRO_N_I_2_RAL:mean",
-    "register": 3402
-  },
-  {
-    "field": "DU_HTRO_N_I_2_RAL:median",
-    "register": 3404
-  },
-  {
-    "field": "DU_HTRO_N_I_2_RAL:min",
-    "register": 3406
-  },
-  {
-    "field": "DU_HTRO_N_I_2_RAL:max",
-    "register": 3408
-  },
-  {
-    "field": "DU_HTRO_N_A_2_RAL:last",
-    "register": 3410
-  },
-  {
-    "field": "DU_HTRO_N_A_2_RAL:mean",
-    "register": 3412
-  },
-  {
-    "field": "DU_HTRO_N_A_2_RAL:median",
-    "register": 3414
-  },
-  {
-    "field": "DU_HTRO_N_A_2_RAL:min",
-    "register": 3416
-  },
-  {
-    "field": "DU_HTRO_N_A_2_RAL:max",
-    "register": 3418
-  },
-  {
-    "field": "DU_HTRO_N_I_3_RAL:last",
-    "register": 3420
-  },
-  {
-    "field": "DU_HTRO_N_I_3_RAL:mean",
-    "register": 3422
-  },
-  {
-    "field": "DU_HTRO_N_I_3_RAL:median",
-    "register": 3424
-  },
-  {
-    "field": "DU_HTRO_N_I_3_RAL:min",
-    "register": 3426
-  },
-  {
-    "field": "DU_HTRO_N_I_3_RAL:max",
-    "register": 3428
-  },
-  {
-    "field": "DU_HTRO_N_A_3_RAL:last",
-    "register": 3430
-  },
-  {
-    "field": "DU_HTRO_N_A_3_RAL:mean",
-    "register": 3432
-  },
-  {
-    "field": "DU_HTRO_N_A_3_RAL:median",
-    "register": 3434
-  },
-  {
-    "field": "DU_HTRO_N_A_3_RAL:min",
-    "register": 3436
-  },
-  {
-    "field": "DU_HTRO_N_A_3_RAL:max",
-    "register": 3438
-  },
-  {
-    "field": "DO_HTRW_N_I_1_RAL:last",
-    "register": 3440
-  },
-  {
-    "field": "DO_HTRW_N_I_1_RAL:mean",
-    "register": 3442
-  },
-  {
-    "field": "DO_HTRW_N_I_1_RAL:median",
-    "register": 3444
-  },
-  {
-    "field": "DO_HTRW_N_I_1_RAL:min",
-    "register": 3446
-  },
-  {
-    "field": "DO_HTRW_N_I_1_RAL:max",
-    "register": 3448
-  },
-  {
-    "field": "DO_HTRW_N_A_1_RAL:last",
-    "register": 3450
-  },
-  {
-    "field": "DO_HTRW_N_A_1_RAL:mean",
-    "register": 3452
-  },
-  {
-    "field": "DO_HTRW_N_A_1_RAL:median",
-    "register": 3454
-  },
-  {
-    "field": "DO_HTRW_N_A_1_RAL:min",
-    "register": 3456
-  },
-  {
-    "field": "DO_HTRW_N_A_1_RAL:max",
-    "register": 3458
-  },
-  {
-    "field": "DO_HTRW_N_I_2_RAL:last",
-    "register": 3460
-  },
-  {
-    "field": "DO_HTRW_N_I_2_RAL:mean",
-    "register": 3462
-  },
-  {
-    "field": "DO_HTRW_N_I_2_RAL:median",
-    "register": 3464
-  },
-  {
-    "field": "DO_HTRW_N_I_2_RAL:min",
-    "register": 3466
-  },
-  {
-    "field": "DO_HTRW_N_I_2_RAL:max",
-    "register": 3468
-  },
-  {
-    "field": "DO_HTRW_N_A_2_RAL:last",
-    "register": 3470
-  },
-  {
-    "field": "DO_HTRW_N_A_2_RAL:mean",
-    "register": 3472
-  },
-  {
-    "field": "DO_HTRW_N_A_2_RAL:median",
-    "register": 3474
-  },
-  {
-    "field": "DO_HTRW_N_A_2_RAL:min",
-    "register": 3476
-  },
-  {
-    "field": "DO_HTRW_N_A_2_RAL:max",
-    "register": 3478
-  },
-  {
-    "field": "DU_HTRW_N_I_2_RAL:last",
-    "register": 3480
-  },
-  {
-    "field": "DU_HTRW_N_I_2_RAL:mean",
-    "register": 3482
-  },
-  {
-    "field": "DU_HTRW_N_I_2_RAL:median",
-    "register": 3484
-  },
-  {
-    "field": "DU_HTRW_N_I_2_RAL:min",
-    "register": 3486
-  },
-  {
-    "field": "DU_HTRW_N_I_2_RAL:max",
-    "register": 3488
-  },
-  {
-    "field": "DU_HTRW_N_A_2_RAL:last",
-    "register": 3490
-  },
-  {
-    "field": "DU_HTRW_N_A_2_RAL:mean",
-    "register": 3492
-  },
-  {
-    "field": "DU_HTRW_N_A_2_RAL:median",
-    "register": 3494
-  },
-  {
-    "field": "DU_HTRW_N_A_2_RAL:min",
-    "register": 3496
-  },
-  {
-    "field": "DU_HTRW_N_A_2_RAL:max",
-    "register": 3498
-  },
-  {
-    "field": "DU_HTRW_N_I_3_RAL:last",
-    "register": 3500
-  },
-  {
-    "field": "DU_HTRW_N_I_3_RAL:mean",
-    "register": 3502
-  },
-  {
-    "field": "DU_HTRW_N_I_3_RAL:median",
-    "register": 3504
-  },
-  {
-    "field": "DU_HTRW_N_I_3_RAL:min",
-    "register": 3506
-  },
-  {
-    "field": "DU_HTRW_N_I_3_RAL:max",
-    "register": 3508
-  },
-  {
-    "field": "DU_HTRW_N_A_3_RAL:last",
-    "register": 3510
-  },
-  {
-    "field": "DU_HTRW_N_A_3_RAL:mean",
-    "register": 3512
-  },
-  {
-    "field": "DU_HTRW_N_A_3_RAL:median",
-    "register": 3514
-  },
-  {
-    "field": "DU_HTRW_N_A_3_RAL:min",
-    "register": 3516
-  },
-  {
-    "field": "DU_HTRW_N_A_3_RAL:max",
-    "register": 3518
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_RAL:last",
-    "register": 3520
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_RAL:mean",
-    "register": 3522
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_RAL:median",
-    "register": 3524
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_RAL:min",
-    "register": 3526
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_RAL:max",
-    "register": 3528
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_RAL:last",
-    "register": 3530
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_RAL:mean",
-    "register": 3532
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_RAL:median",
-    "register": 3534
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_RAL:min",
-    "register": 3536
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_RAL:max",
-    "register": 3538
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_RAL:last",
-    "register": 3540
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_RAL:mean",
-    "register": 3542
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_RAL:median",
-    "register": 3544
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_RAL:min",
-    "register": 3546
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_RAL:max",
-    "register": 3548
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_RAL:last",
-    "register": 3550
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_RAL:mean",
-    "register": 3552
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_RAL:median",
-    "register": 3554
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_RAL:min",
-    "register": 3556
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_RAL:max",
-    "register": 3558
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_RAL:last",
-    "register": 3560
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_RAL:mean",
-    "register": 3562
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_RAL:median",
-    "register": 3564
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_RAL:min",
-    "register": 3566
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_RAL:max",
-    "register": 3568
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_RAL:last",
-    "register": 3570
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_RAL:mean",
-    "register": 3572
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_RAL:median",
-    "register": 3574
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_RAL:min",
-    "register": 3576
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_RAL:max",
-    "register": 3578
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_RAL:last",
-    "register": 3580
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_RAL:mean",
-    "register": 3582
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_RAL:median",
-    "register": 3584
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_RAL:min",
-    "register": 3586
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_RAL:max",
-    "register": 3588
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_RAL:last",
-    "register": 3590
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_RAL:mean",
-    "register": 3592
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_RAL:median",
-    "register": 3594
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_RAL:min",
-    "register": 3596
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_RAL:max",
-    "register": 3598
-  },
-  {
-    "field": "DO_HTRO_S_I_2_RAL:last",
-    "register": 3600
-  },
-  {
-    "field": "DO_HTRO_S_I_2_RAL:mean",
-    "register": 3602
-  },
-  {
-    "field": "DO_HTRO_S_I_2_RAL:median",
-    "register": 3604
-  },
-  {
-    "field": "DO_HTRO_S_I_2_RAL:min",
-    "register": 3606
-  },
-  {
-    "field": "DO_HTRO_S_I_2_RAL:max",
-    "register": 3608
-  },
-  {
-    "field": "DO_HTRO_S_A_2_RAL:last",
-    "register": 3610
-  },
-  {
-    "field": "DO_HTRO_S_A_2_RAL:mean",
-    "register": 3612
-  },
-  {
-    "field": "DO_HTRO_S_A_2_RAL:median",
-    "register": 3614
-  },
-  {
-    "field": "DO_HTRO_S_A_2_RAL:min",
-    "register": 3616
-  },
-  {
-    "field": "DO_HTRO_S_A_2_RAL:max",
-    "register": 3618
-  },
-  {
-    "field": "DO_HTRO_S_I_3_RAL:last",
-    "register": 3620
-  },
-  {
-    "field": "DO_HTRO_S_I_3_RAL:mean",
-    "register": 3622
-  },
-  {
-    "field": "DO_HTRO_S_I_3_RAL:median",
-    "register": 3624
-  },
-  {
-    "field": "DO_HTRO_S_I_3_RAL:min",
-    "register": 3626
-  },
-  {
-    "field": "DO_HTRO_S_I_3_RAL:max",
-    "register": 3628
-  },
-  {
-    "field": "DU_HTRO_S_I_1_RAL:last",
-    "register": 3640
-  },
-  {
-    "field": "DU_HTRO_S_I_1_RAL:mean",
-    "register": 3642
-  },
-  {
-    "field": "DU_HTRO_S_I_1_RAL:median",
-    "register": 3644
-  },
-  {
-    "field": "DU_HTRO_S_I_1_RAL:min",
-    "register": 3646
-  },
-  {
-    "field": "DU_HTRO_S_I_1_RAL:max",
-    "register": 3648
-  },
-  {
-    "field": "DU_HTRO_S_A_1_RAL:last",
-    "register": 3650
-  },
-  {
-    "field": "DU_HTRO_S_A_1_RAL:mean",
-    "register": 3652
-  },
-  {
-    "field": "DU_HTRO_S_A_1_RAL:median",
-    "register": 3654
-  },
-  {
-    "field": "DU_HTRO_S_A_1_RAL:min",
-    "register": 3656
-  },
-  {
-    "field": "DU_HTRO_S_A_1_RAL:max",
-    "register": 3658
-  },
-  {
-    "field": "DU_HTRO_S_I_2_RAL:last",
-    "register": 3660
-  },
-  {
-    "field": "DU_HTRO_S_I_2_RAL:mean",
-    "register": 3662
-  },
-  {
-    "field": "DU_HTRO_S_I_2_RAL:median",
-    "register": 3664
-  },
-  {
-    "field": "DU_HTRO_S_I_2_RAL:min",
-    "register": 3666
-  },
-  {
-    "field": "DU_HTRO_S_I_2_RAL:max",
-    "register": 3668
-  },
-  {
-    "field": "DU_HTRO_S_A_2_RAL:last",
-    "register": 3670
-  },
-  {
-    "field": "DU_HTRO_S_A_2_RAL:mean",
-    "register": 3672
-  },
-  {
-    "field": "DU_HTRO_S_A_2_RAL:median",
-    "register": 3674
-  },
-  {
-    "field": "DU_HTRO_S_A_2_RAL:min",
-    "register": 3676
-  },
-  {
-    "field": "DU_HTRO_S_A_2_RAL:max",
-    "register": 3678
-  },
-  {
-    "field": "DO_HTRW_S_I_2_RAL:last",
-    "register": 3680
-  },
-  {
-    "field": "DO_HTRW_S_I_2_RAL:mean",
-    "register": 3682
-  },
-  {
-    "field": "DO_HTRW_S_I_2_RAL:median",
-    "register": 3684
-  },
-  {
-    "field": "DO_HTRW_S_I_2_RAL:min",
-    "register": 3686
-  },
-  {
-    "field": "DO_HTRW_S_I_2_RAL:max",
-    "register": 3688
-  },
-  {
-    "field": "DO_HTRW_S_A_2_RAL:last",
-    "register": 3690
-  },
-  {
-    "field": "DO_HTRW_S_A_2_RAL:mean",
-    "register": 3692
-  },
-  {
-    "field": "DO_HTRW_S_A_2_RAL:median",
-    "register": 3694
-  },
-  {
-    "field": "DO_HTRW_S_A_2_RAL:min",
-    "register": 3696
-  },
-  {
-    "field": "DO_HTRW_S_A_2_RAL:max",
-    "register": 3698
-  },
-  {
-    "field": "DO_HTRW_S_I_3_RAL:last",
-    "register": 3700
-  },
-  {
-    "field": "DO_HTRW_S_I_3_RAL:mean",
-    "register": 3702
-  },
-  {
-    "field": "DO_HTRW_S_I_3_RAL:median",
-    "register": 3704
-  },
-  {
-    "field": "DO_HTRW_S_I_3_RAL:min",
-    "register": 3706
-  },
-  {
-    "field": "DO_HTRW_S_I_3_RAL:max",
-    "register": 3708
-  },
-  {
-    "field": "DO_HTRW_S_A_3_RAL:last",
-    "register": 3710
-  },
-  {
-    "field": "DO_HTRW_S_A_3_RAL:mean",
-    "register": 3712
-  },
-  {
-    "field": "DO_HTRW_S_A_3_RAL:median",
-    "register": 3714
-  },
-  {
-    "field": "DO_HTRW_S_A_3_RAL:min",
-    "register": 3716
-  },
-  {
-    "field": "DO_HTRW_S_A_3_RAL:max",
-    "register": 3718
-  },
-  {
-    "field": "DU_HTRW_S_I_1_RAL:last",
-    "register": 3720
-  },
-  {
-    "field": "DU_HTRW_S_I_1_RAL:mean",
-    "register": 3722
-  },
-  {
-    "field": "DU_HTRW_S_I_1_RAL:median",
-    "register": 3724
-  },
-  {
-    "field": "DU_HTRW_S_I_1_RAL:min",
-    "register": 3726
-  },
-  {
-    "field": "DU_HTRW_S_I_1_RAL:max",
-    "register": 3728
-  },
-  {
-    "field": "DU_HTRW_S_A_1_RAL:last",
-    "register": 3730
-  },
-  {
-    "field": "DU_HTRW_S_A_1_RAL:mean",
-    "register": 3732
-  },
-  {
-    "field": "DU_HTRW_S_A_1_RAL:median",
-    "register": 3734
-  },
-  {
-    "field": "DU_HTRW_S_A_1_RAL:min",
-    "register": 3736
-  },
-  {
-    "field": "DU_HTRW_S_A_1_RAL:max",
-    "register": 3738
-  },
-  {
-    "field": "DU_HTRW_S_I_2_RAL:last",
-    "register": 3740
-  },
-  {
-    "field": "DU_HTRW_S_I_2_RAL:mean",
-    "register": 3742
-  },
-  {
-    "field": "DU_HTRW_S_I_2_RAL:median",
-    "register": 3744
-  },
-  {
-    "field": "DU_HTRW_S_I_2_RAL:min",
-    "register": 3746
-  },
-  {
-    "field": "DU_HTRW_S_I_2_RAL:max",
-    "register": 3748
-  },
-  {
-    "field": "DU_HTRW_S_A_2_RAL:last",
-    "register": 3750
-  },
-  {
-    "field": "DU_HTRW_S_A_2_RAL:mean",
-    "register": 3752
-  },
-  {
-    "field": "DU_HTRW_S_A_2_RAL:median",
-    "register": 3754
-  },
-  {
-    "field": "DU_HTRW_S_A_2_RAL:min",
-    "register": 3756
-  },
-  {
-    "field": "DU_HTRW_S_A_2_RAL:max",
-    "register": 3758
-  },
-  {
-    "field": "DO_HTRO_S_I_1_RAL:last",
-    "register": 3760
-  },
-  {
-    "field": "DO_HTRO_S_I_1_RAL:mean",
-    "register": 3762
-  },
-  {
-    "field": "DO_HTRO_S_I_1_RAL:median",
-    "register": 3764
-  },
-  {
-    "field": "DO_HTRO_S_I_1_RAL:min",
-    "register": 3766
-  },
-  {
-    "field": "DO_HTRO_S_I_1_RAL:max",
-    "register": 3768
-  },
-  {
-    "field": "DO_HTRO_S_A_1_RAL:last",
-    "register": 3770
-  },
-  {
-    "field": "DO_HTRO_S_A_1_RAL:mean",
-    "register": 3772
-  },
-  {
-    "field": "DO_HTRO_S_A_1_RAL:median",
-    "register": 3774
-  },
-  {
-    "field": "DO_HTRO_S_A_1_RAL:min",
-    "register": 3776
-  },
-  {
-    "field": "DO_HTRO_S_A_1_RAL:max",
-    "register": 3778
-  },
-  {
-    "field": "DU_HTRO_N_I_1_RAL:last",
-    "register": 3780
-  },
-  {
-    "field": "DU_HTRO_N_I_1_RAL:mean",
-    "register": 3782
-  },
-  {
-    "field": "DU_HTRO_N_I_1_RAL:median",
-    "register": 3784
-  },
-  {
-    "field": "DU_HTRO_N_I_1_RAL:min",
-    "register": 3786
-  },
-  {
-    "field": "DU_HTRO_N_I_1_RAL:max",
-    "register": 3788
-  },
-  {
-    "field": "DO_HTRW_S_I_1_RAL:last",
-    "register": 3790
-  },
-  {
-    "field": "DO_HTRW_S_I_1_RAL:mean",
-    "register": 3792
-  },
-  {
-    "field": "DO_HTRW_S_I_1_RAL:median",
-    "register": 3794
-  },
-  {
-    "field": "DO_HTRW_S_I_1_RAL:min",
-    "register": 3796
-  },
-  {
-    "field": "DO_HTRW_S_I_1_RAL:max",
-    "register": 3798
-  },
-  {
-    "field": "DO_HTRW_S_A_1_RAL:last",
-    "register": 3800
-  },
-  {
-    "field": "DO_HTRW_S_A_1_RAL:mean",
-    "register": 3802
-  },
-  {
-    "field": "DO_HTRW_S_A_1_RAL:median",
-    "register": 3804
-  },
-  {
-    "field": "DO_HTRW_S_A_1_RAL:min",
-    "register": 3806
-  },
-  {
-    "field": "DO_HTRW_S_A_1_RAL:max",
-    "register": 3808
-  },
-  {
-    "field": "DU_HTRW_N_I_1_RAL:last",
-    "register": 3810
-  },
-  {
-    "field": "DU_HTRW_N_I_1_RAL:mean",
-    "register": 3812
-  },
-  {
-    "field": "DU_HTRW_N_I_1_RAL:median",
-    "register": 3814
-  },
-  {
-    "field": "DU_HTRW_N_I_1_RAL:min",
-    "register": 3816
-  },
-  {
-    "field": "DU_HTRW_N_I_1_RAL:max",
-    "register": 3818
-  },
-  {
-    "field": "DU_HTRW_N_A_1_RAL:last",
-    "register": 3820
-  },
-  {
-    "field": "DU_HTRW_N_A_1_RAL:mean",
-    "register": 3822
-  },
-  {
-    "field": "DU_HTRW_N_A_1_RAL:median",
-    "register": 3824
-  },
-  {
-    "field": "DU_HTRW_N_A_1_RAL:min",
-    "register": 3826
-  },
-  {
-    "field": "DU_HTRW_N_A_1_RAL:max",
-    "register": 3828
-  },
-  {
-    "field": "LIFE_SIG_TESTCON:last",
-    "register": 3830
-  },
-  {
-    "field": "LIFE_SIG_TESTCON:mean",
-    "register": 3832
-  },
-  {
-    "field": "LIFE_SIG_TESTCON:median",
-    "register": 3834
-  },
-  {
-    "field": "LIFE_SIG_TESTCON:min",
-    "register": 3836
-  },
-  {
-    "field": "LIFE_SIG_TESTCON:max",
-    "register": 3838
-  },
-  {
-    "field": "TUERSCHALTER:last",
-    "register": 3840
-  },
-  {
-    "field": "TUERSCHALTER:mean",
-    "register": 3842
-  },
-  {
-    "field": "TUERSCHALTER:median",
-    "register": 3844
-  },
-  {
-    "field": "TUERSCHALTER:min",
-    "register": 3846
-  },
-  {
-    "field": "TUERSCHALTER:max",
-    "register": 3848
-  },
-  {
-    "field": "NETZAUSFALL:last",
-    "register": 3850
-  },
-  {
-    "field": "NETZAUSFALL:mean",
-    "register": 3852
-  },
-  {
-    "field": "NETZAUSFALL:median",
-    "register": 3854
-  },
-  {
-    "field": "NETZAUSFALL:min",
-    "register": 3856
-  },
-  {
-    "field": "NETZAUSFALL:max",
-    "register": 3858
-  },
-  {
-    "field": "USV_BETRIEB:last",
-    "register": 3860
-  },
-  {
-    "field": "USV_BETRIEB:mean",
-    "register": 3862
-  },
-  {
-    "field": "USV_BETRIEB:median",
-    "register": 3864
-  },
-  {
-    "field": "USV_BETRIEB:min",
-    "register": 3866
-  },
-  {
-    "field": "USV_BETRIEB:max",
-    "register": 3868
-  },
-  {
-    "field": "BLITZUEBERWACHUNG:last",
-    "register": 3870
-  },
-  {
-    "field": "BLITZUEBERWACHUNG:mean",
-    "register": 3872
-  },
-  {
-    "field": "BLITZUEBERWACHUNG:median",
-    "register": 3874
-  },
-  {
-    "field": "BLITZUEBERWACHUNG:min",
-    "register": 3876
-  },
-  {
-    "field": "BLITZUEBERWACHUNG:max",
-    "register": 3878
-  },
-  {
-    "field": "BATTERIE_UEBWACHUNG:last",
-    "register": 3890
-  },
-  {
-    "field": "BATTERIE_UEBWACHUNG:mean",
-    "register": 3892
-  },
-  {
-    "field": "BATTERIE_UEBWACHUNG:median",
-    "register": 3894
-  },
-  {
-    "field": "BATTERIE_UEBWACHUNG:min",
-    "register": 3896
-  },
-  {
-    "field": "BATTERIE_UEBWACHUNG:max",
-    "register": 3898
-  },
-  {
-    "field": "DO_HTRO_S_I_2_STR:last",
-    "register": 3900
-  },
-  {
-    "field": "DO_HTRO_S_I_2_STR:mean",
-    "register": 3902
-  },
-  {
-    "field": "DO_HTRO_S_I_2_STR:median",
-    "register": 3904
-  },
-  {
-    "field": "DO_HTRO_S_I_2_STR:min",
-    "register": 3906
-  },
-  {
-    "field": "DO_HTRO_S_I_2_STR:max",
-    "register": 3908
-  },
-  {
-    "field": "DO_HTRO_S_A_2_STR:last",
-    "register": 3910
-  },
-  {
-    "field": "DO_HTRO_S_A_2_STR:mean",
-    "register": 3912
-  },
-  {
-    "field": "DO_HTRO_S_A_2_STR:median",
-    "register": 3914
-  },
-  {
-    "field": "DO_HTRO_S_A_2_STR:min",
-    "register": 3916
-  },
-  {
-    "field": "DO_HTRO_S_A_2_STR:max",
-    "register": 3918
-  },
-  {
-    "field": "DO_HTRO_S_I_3_STR:last",
-    "register": 3920
-  },
-  {
-    "field": "DO_HTRO_S_I_3_STR:mean",
-    "register": 3922
-  },
-  {
-    "field": "DO_HTRO_S_I_3_STR:median",
-    "register": 3924
-  },
-  {
-    "field": "DO_HTRO_S_I_3_STR:min",
-    "register": 3926
-  },
-  {
-    "field": "DO_HTRO_S_I_3_STR:max",
-    "register": 3928
-  },
-  {
-    "field": "DU_HTRO_S_I_1_STR:last",
-    "register": 3940
-  },
-  {
-    "field": "DU_HTRO_S_I_1_STR:mean",
-    "register": 3942
-  },
-  {
-    "field": "DU_HTRO_S_I_1_STR:median",
-    "register": 3944
-  },
-  {
-    "field": "DU_HTRO_S_I_1_STR:min",
-    "register": 3946
-  },
-  {
-    "field": "DU_HTRO_S_I_1_STR:max",
-    "register": 3948
-  },
-  {
-    "field": "DU_HTRO_S_A_1_STR:last",
-    "register": 3950
-  },
-  {
-    "field": "DU_HTRO_S_A_1_STR:mean",
-    "register": 3952
-  },
-  {
-    "field": "DU_HTRO_S_A_1_STR:median",
-    "register": 3954
-  },
-  {
-    "field": "DU_HTRO_S_A_1_STR:min",
-    "register": 3956
-  },
-  {
-    "field": "DU_HTRO_S_A_1_STR:max",
-    "register": 3958
-  },
-  {
-    "field": "DU_HTRO_S_I_2_STR:last",
-    "register": 3960
-  },
-  {
-    "field": "DU_HTRO_S_I_2_STR:mean",
-    "register": 3962
-  },
-  {
-    "field": "DU_HTRO_S_I_2_STR:median",
-    "register": 3964
-  },
-  {
-    "field": "DU_HTRO_S_I_2_STR:min",
-    "register": 3966
-  },
-  {
-    "field": "DU_HTRO_S_I_2_STR:max",
-    "register": 3968
-  },
-  {
-    "field": "DU_HTRO_S_A_2_STR:last",
-    "register": 3970
-  },
-  {
-    "field": "DU_HTRO_S_A_2_STR:mean",
-    "register": 3972
-  },
-  {
-    "field": "DU_HTRO_S_A_2_STR:median",
-    "register": 3974
-  },
-  {
-    "field": "DU_HTRO_S_A_2_STR:min",
-    "register": 3976
-  },
-  {
-    "field": "DU_HTRO_S_A_2_STR:max",
-    "register": 3978
-  },
-  {
-    "field": "DU_HTRO_N_A_1_RAL:last",
-    "register": 3980
-  },
-  {
-    "field": "DU_HTRO_N_A_1_RAL:mean",
-    "register": 3982
-  },
-  {
-    "field": "DU_HTRO_N_A_1_RAL:median",
-    "register": 3984
-  },
-  {
-    "field": "DU_HTRO_N_A_1_RAL:min",
-    "register": 3986
-  },
-  {
-    "field": "DU_HTRO_N_A_1_RAL:max",
-    "register": 3988
-  },
-  {
-    "field": "N_WLN_X_INC:last",
-    "register": 5000
-  },
-  {
-    "field": "N_WLN_X_INC:mean",
-    "register": 5002
-  },
-  {
-    "field": "N_WLN_X_INC:median",
-    "register": 5004
-  },
-  {
-    "field": "N_WLN_X_INC:min",
-    "register": 5006
-  },
-  {
-    "field": "N_WLN_X_INC:max",
-    "register": 5008
-  },
-  {
-    "field": "N_WLN_Y_INC:last",
-    "register": 5010
-  },
-  {
-    "field": "N_WLN_Y_INC:mean",
-    "register": 5012
-  },
-  {
-    "field": "N_WLN_Y_INC:median",
-    "register": 5014
-  },
-  {
-    "field": "N_WLN_Y_INC:min",
-    "register": 5016
-  },
-  {
-    "field": "N_WLN_Y_INC:max",
-    "register": 5018
-  },
-  {
-    "field": "N_WLS_X_INC:last",
-    "register": 5020
-  },
-  {
-    "field": "N_WLS_X_INC:mean",
-    "register": 5022
-  },
-  {
-    "field": "N_WLS_X_INC:median",
-    "register": 5024
-  },
-  {
-    "field": "N_WLS_X_INC:min",
-    "register": 5026
-  },
-  {
-    "field": "N_WLS_X_INC:max",
-    "register": 5028
-  },
-  {
-    "field": "N_WLS_Y_INC:last",
-    "register": 5030
-  },
-  {
-    "field": "N_WLS_Y_INC:mean",
-    "register": 5032
-  },
-  {
-    "field": "N_WLS_Y_INC:median",
-    "register": 5034
-  },
-  {
-    "field": "N_WLS_Y_INC:min",
-    "register": 5036
-  },
-  {
-    "field": "N_WLS_Y_INC:max",
-    "register": 5038
-  },
-  {
-    "field": "N_WLN_X_WTK:last",
-    "register": 5040
-  },
-  {
-    "field": "N_WLN_X_WTK:mean",
-    "register": 5042
-  },
-  {
-    "field": "N_WLN_X_WTK:median",
-    "register": 5044
-  },
-  {
-    "field": "N_WLN_X_WTK:min",
-    "register": 5046
-  },
-  {
-    "field": "N_WLN_X_WTK:max",
-    "register": 5048
-  },
-  {
-    "field": "N_WLN_Y_WTK:last",
-    "register": 5050
-  },
-  {
-    "field": "N_WLN_Y_WTK:mean",
-    "register": 5052
-  },
-  {
-    "field": "N_WLN_Y_WTK:median",
-    "register": 5054
-  },
-  {
-    "field": "N_WLN_Y_WTK:min",
-    "register": 5056
-  },
-  {
-    "field": "N_WLN_Y_WTK:max",
-    "register": 5058
-  },
-  {
-    "field": "N_WLS_X_WTK:last",
-    "register": 5060
-  },
-  {
-    "field": "N_WLS_X_WTK:mean",
-    "register": 5062
-  },
-  {
-    "field": "N_WLS_X_WTK:median",
-    "register": 5064
-  },
-  {
-    "field": "N_WLS_X_WTK:min",
-    "register": 5066
-  },
-  {
-    "field": "N_WLS_X_WTK:max",
-    "register": 5068
-  },
-  {
-    "field": "N_WLS_Y_WTK:last",
-    "register": 5070
-  },
-  {
-    "field": "N_WLS_Y_WTK:mean",
-    "register": 5072
-  },
-  {
-    "field": "N_WLS_Y_WTK:median",
-    "register": 5074
-  },
-  {
-    "field": "N_WLS_Y_WTK:min",
-    "register": 5076
-  },
-  {
-    "field": "N_WLS_Y_WTK:max",
-    "register": 5078
-  },
-  {
-    "field": "N_WLN_X_SIG:last",
-    "register": 5080
-  },
-  {
-    "field": "N_WLN_X_SIG:mean",
-    "register": 5082
-  },
-  {
-    "field": "N_WLN_X_SIG:median",
-    "register": 5084
-  },
-  {
-    "field": "N_WLN_X_SIG:min",
-    "register": 5086
-  },
-  {
-    "field": "N_WLN_X_SIG:max",
-    "register": 5088
-  },
-  {
-    "field": "N_WLN_Y_SIG:last",
-    "register": 5090
-  },
-  {
-    "field": "N_WLN_Y_SIG:mean",
-    "register": 5092
-  },
-  {
-    "field": "N_WLN_Y_SIG:median",
-    "register": 5094
-  },
-  {
-    "field": "N_WLN_Y_SIG:min",
-    "register": 5096
-  },
-  {
-    "field": "N_WLN_Y_SIG:max",
-    "register": 5098
-  },
-  {
-    "field": "N_WLS_X_SIG:last",
-    "register": 5100
-  },
-  {
-    "field": "N_WLS_X_SIG:mean",
-    "register": 5102
-  },
-  {
-    "field": "N_WLS_X_SIG:median",
-    "register": 5104
-  },
-  {
-    "field": "N_WLS_X_SIG:min",
-    "register": 5106
-  },
-  {
-    "field": "N_WLS_X_SIG:max",
-    "register": 5108
-  },
-  {
-    "field": "N_WLS_Y_SIG:last",
-    "register": 5110
-  },
-  {
-    "field": "N_WLS_Y_SIG:mean",
-    "register": 5112
-  },
-  {
-    "field": "N_WLS_Y_SIG:median",
-    "register": 5114
-  },
-  {
-    "field": "N_WLS_Y_SIG:min",
-    "register": 5116
-  },
-  {
-    "field": "N_WLS_Y_SIG:max",
-    "register": 5118
-  },
-  {
-    "field": "N_WLN_X_GAL:last",
-    "register": 5120
-  },
-  {
-    "field": "N_WLN_X_GAL:mean",
-    "register": 5122
-  },
-  {
-    "field": "N_WLN_X_GAL:median",
-    "register": 5124
-  },
-  {
-    "field": "N_WLN_X_GAL:min",
-    "register": 5126
-  },
-  {
-    "field": "N_WLN_X_GAL:max",
-    "register": 5128
-  },
-  {
-    "field": "N_WLN_Y_GAL:last",
-    "register": 5130
-  },
-  {
-    "field": "N_WLN_Y_GAL:mean",
-    "register": 5132
-  },
-  {
-    "field": "N_WLN_Y_GAL:median",
-    "register": 5134
-  },
-  {
-    "field": "N_WLN_Y_GAL:min",
-    "register": 5136
-  },
-  {
-    "field": "N_WLN_Y_GAL:max",
-    "register": 5138
-  },
-  {
-    "field": "N_WLS_X_GAL:last",
-    "register": 5140
-  },
-  {
-    "field": "N_WLS_X_GAL:mean",
-    "register": 5142
-  },
-  {
-    "field": "N_WLS_X_GAL:median",
-    "register": 5144
-  },
-  {
-    "field": "N_WLS_X_GAL:min",
-    "register": 5146
-  },
-  {
-    "field": "N_WLS_X_GAL:max",
-    "register": 5148
-  },
-  {
-    "field": "N_WLS_Y_GAL:last",
-    "register": 5150
-  },
-  {
-    "field": "N_WLS_Y_GAL:mean",
-    "register": 5152
-  },
-  {
-    "field": "N_WLS_Y_GAL:median",
-    "register": 5154
-  },
-  {
-    "field": "N_WLS_Y_GAL:min",
-    "register": 5156
-  },
-  {
-    "field": "N_WLS_Y_GAL:max",
-    "register": 5158
-  },
-  {
-    "field": "N_WLN_X_RAL:last",
-    "register": 5160
-  },
-  {
-    "field": "N_WLN_X_RAL:mean",
-    "register": 5162
-  },
-  {
-    "field": "N_WLN_X_RAL:median",
-    "register": 5164
-  },
-  {
-    "field": "N_WLN_X_RAL:min",
-    "register": 5166
-  },
-  {
-    "field": "N_WLN_X_RAL:max",
-    "register": 5168
-  },
-  {
-    "field": "N_WLN_Y_RAL:last",
-    "register": 5170
-  },
-  {
-    "field": "N_WLN_Y_RAL:mean",
-    "register": 5172
-  },
-  {
-    "field": "N_WLN_Y_RAL:median",
-    "register": 5174
-  },
-  {
-    "field": "N_WLN_Y_RAL:min",
-    "register": 5176
-  },
-  {
-    "field": "N_WLN_Y_RAL:max",
-    "register": 5178
-  },
-  {
-    "field": "N_WLS_X_RAL:last",
-    "register": 5180
-  },
-  {
-    "field": "N_WLS_X_RAL:mean",
-    "register": 5182
-  },
-  {
-    "field": "N_WLS_X_RAL:median",
-    "register": 5184
-  },
-  {
-    "field": "N_WLS_X_RAL:min",
-    "register": 5186
-  },
-  {
-    "field": "N_WLS_X_RAL:max",
-    "register": 5188
-  },
-  {
-    "field": "N_WLS_Y_RAL:last",
-    "register": 5190
-  },
-  {
-    "field": "N_WLS_Y_RAL:mean",
-    "register": 5192
-  },
-  {
-    "field": "N_WLS_Y_RAL:median",
-    "register": 5194
-  },
-  {
-    "field": "N_WLS_Y_RAL:min",
-    "register": 5196
-  },
-  {
-    "field": "N_WLS_Y_RAL:max",
-    "register": 5198
-  },
-  {
-    "field": "GLOBALE_STRAHLUNG:last",
-    "register": 5240
-  },
-  {
-    "field": "GLOBALE_STRAHLUNG:mean",
-    "register": 5242
-  },
-  {
-    "field": "GLOBALE_STRAHLUNG:median",
-    "register": 5244
-  },
-  {
-    "field": "GLOBALE_STRAHLUNG:min",
-    "register": 5246
-  },
-  {
-    "field": "GLOBALE_STRAHLUNG:max",
-    "register": 5248
-  },
-  {
-    "field": "SENSORSTATUS_CLIMA:last",
-    "register": 5250
-  },
-  {
-    "field": "SENSORSTATUS_CLIMA:mean",
-    "register": 5252
-  },
-  {
-    "field": "SENSORSTATUS_CLIMA:median",
-    "register": 5254
-  },
-  {
-    "field": "SENSORSTATUS_CLIMA:min",
-    "register": 5256
-  },
-  {
-    "field": "SENSORSTATUS_CLIMA:max",
-    "register": 5258
-  },
-  {
-    "field": "WINDGESCHWINDIGKEIT:last",
-    "register": 5260
-  },
-  {
-    "field": "WINDGESCHWINDIGKEIT:mean",
-    "register": 5262
-  },
-  {
-    "field": "WINDGESCHWINDIGKEIT:median",
-    "register": 5264
-  },
-  {
-    "field": "WINDGESCHWINDIGKEIT:min",
-    "register": 5266
-  },
-  {
-    "field": "WINDGESCHWINDIGKEIT:max",
-    "register": 5268
-  },
-  {
-    "field": "WINDRICHTUNG:last",
-    "register": 5270
-  },
-  {
-    "field": "WINDRICHTUNG:mean",
-    "register": 5272
-  },
-  {
-    "field": "WINDRICHTUNG:median",
-    "register": 5274
-  },
-  {
-    "field": "WINDRICHTUNG:min",
-    "register": 5276
-  },
-  {
-    "field": "WINDRICHTUNG:max",
-    "register": 5278
-  },
-  {
-    "field": "LUFTTEMPERATUR:last",
-    "register": 5280
-  },
-  {
-    "field": "LUFTTEMPERATUR:mean",
-    "register": 5282
-  },
-  {
-    "field": "LUFTTEMPERATUR:median",
-    "register": 5284
-  },
-  {
-    "field": "LUFTTEMPERATUR:min",
-    "register": 5286
-  },
-  {
-    "field": "LUFTTEMPERATUR:max",
-    "register": 5288
-  },
-  {
-    "field": "RELATIVE_FEUCHTE:last",
-    "register": 5290
-  },
-  {
-    "field": "RELATIVE_FEUCHTE:mean",
-    "register": 5292
-  },
-  {
-    "field": "RELATIVE_FEUCHTE:median",
-    "register": 5294
-  },
-  {
-    "field": "RELATIVE_FEUCHTE:min",
-    "register": 5296
-  },
-  {
-    "field": "RELATIVE_FEUCHTE:max",
-    "register": 5298
-  },
-  {
-    "field": "LUFTFEUCHTE:last",
-    "register": 5300
-  },
-  {
-    "field": "LUFTFEUCHTE:mean",
-    "register": 5302
-  },
-  {
-    "field": "LUFTFEUCHTE:median",
-    "register": 5304
-  },
-  {
-    "field": "LUFTFEUCHTE:min",
-    "register": 5306
-  },
-  {
-    "field": "LUFTFEUCHTE:max",
-    "register": 5308
-  },
-  {
-    "field": "BT_HTRW_OG:last",
-    "register": 5310
-  },
-  {
-    "field": "BT_HTRW_OG:mean",
-    "register": 5312
-  },
-  {
-    "field": "BT_HTRW_OG:median",
-    "register": 5314
-  },
-  {
-    "field": "BT_HTRW_OG:min",
-    "register": 5316
-  },
-  {
-    "field": "BT_HTRW_OG:max",
-    "register": 5318
-  },
-  {
-    "field": "BT_HTRW_UG:last",
-    "register": 5320
-  },
-  {
-    "field": "BT_HTRW_UG:mean",
-    "register": 5322
-  },
-  {
-    "field": "BT_HTRW_UG:median",
-    "register": 5324
-  },
-  {
-    "field": "BT_HTRW_UG:min",
-    "register": 5326
-  },
-  {
-    "field": "BT_HTRW_UG:max",
-    "register": 5328
-  },
-  {
-    "field": "ALARM_AT_ALLSAT:last",
-    "register": 5330
-  },
-  {
-    "field": "ALARM_AT_ALLSAT:mean",
-    "register": 5332
-  },
-  {
-    "field": "ALARM_AT_ALLSAT:median",
-    "register": 5334
-  },
-  {
-    "field": "ALARM_AT_ALLSAT:min",
-    "register": 5336
-  },
-  {
-    "field": "ALARM_AT_ALLSAT:max",
-    "register": 5338
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_STR:last",
-    "register": 5340
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_STR:mean",
-    "register": 5342
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_STR:median",
-    "register": 5344
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_STR:min",
-    "register": 5346
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_STR:max",
-    "register": 5348
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_WTK:last",
-    "register": 5350
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_WTK:mean",
-    "register": 5352
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_WTK:median",
-    "register": 5354
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_WTK:min",
-    "register": 5356
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_WTK:max",
-    "register": 5358
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_SIG:last",
-    "register": 5360
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_SIG:mean",
-    "register": 5362
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_SIG:median",
-    "register": 5364
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_SIG:min",
-    "register": 5366
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_SIG:max",
-    "register": 5368
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_GAL:last",
-    "register": 5370
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_GAL:mean",
-    "register": 5372
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_GAL:median",
-    "register": 5374
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_GAL:min",
-    "register": 5376
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_GAL:max",
-    "register": 5378
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_RAL:last",
-    "register": 5380
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_RAL:mean",
-    "register": 5382
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_RAL:median",
-    "register": 5384
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_RAL:min",
-    "register": 5386
-  },
-  {
-    "field": "DO_HTRO_S_WV_1_RAL:max",
-    "register": 5388
-  },
-  {
-    "field": "T_HME_INNEN:last",
-    "register": 5400
-  },
-  {
-    "field": "T_HME_INNEN:mean",
-    "register": 5402
-  },
-  {
-    "field": "T_HME_INNEN:median",
-    "register": 5404
-  },
-  {
-    "field": "T_HME_INNEN:min",
-    "register": 5406
-  },
-  {
-    "field": "T_HME_INNEN:max",
-    "register": 5408
-  },
-  {
-    "field": "BT_HTRO_ZB:last",
-    "register": 5410
-  },
-  {
-    "field": "BT_HTRO_ZB:mean",
-    "register": 5412
-  },
-  {
-    "field": "BT_HTRO_ZB:median",
-    "register": 5414
-  },
-  {
-    "field": "BT_HTRO_ZB:min",
-    "register": 5416
-  },
-  {
-    "field": "BT_HTRO_ZB:max",
-    "register": 5418
-  },
-  {
-    "field": "BT_HTRW_ZB:last",
-    "register": 5420
-  },
-  {
-    "field": "BT_HTRW_ZB:mean",
-    "register": 5422
-  },
-  {
-    "field": "BT_HTRW_ZB:median",
-    "register": 5424
-  },
-  {
-    "field": "BT_HTRW_ZB:min",
-    "register": 5426
-  },
-  {
-    "field": "BT_HTRW_ZB:max",
-    "register": 5428
-  },
-  {
-    "field": "BT_HTRO_OG:last",
-    "register": 5430
-  },
-  {
-    "field": "BT_HTRO_OG:mean",
-    "register": 5432
-  },
-  {
-    "field": "BT_HTRO_OG:median",
-    "register": 5434
-  },
-  {
-    "field": "BT_HTRO_OG:min",
-    "register": 5436
-  },
-  {
-    "field": "BT_HTRO_OG:max",
-    "register": 5438
-  },
-  {
-    "field": "BT_HTRO_UG:last",
-    "register": 5440
-  },
-  {
-    "field": "BT_HTRO_UG:mean",
-    "register": 5442
-  },
-  {
-    "field": "BT_HTRO_UG:median",
-    "register": 5444
-  },
-  {
-    "field": "BT_HTRO_UG:min",
-    "register": 5446
-  },
-  {
-    "field": "BT_HTRO_UG:max",
-    "register": 5448
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_STR:stress_last",
-    "register": 5500
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_STR:stress_mean",
-    "register": 5502
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_STR:stress_median",
-    "register": 5504
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_STR:stress_min",
-    "register": 5506
-  },
-  {
-    "field": "DZ_HTRO_N_I_1_STR:stress_max",
-    "register": 5508
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_STR:stress_last",
-    "register": 5510
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_STR:stress_mean",
-    "register": 5512
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_STR:stress_median",
-    "register": 5514
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_STR:stress_min",
-    "register": 5516
-  },
-  {
-    "field": "DZ_HTRO_N_A_1_STR:stress_max",
-    "register": 5518
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_STR:stress_last",
-    "register": 5520
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_STR:stress_mean",
-    "register": 5522
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_STR:stress_median",
-    "register": 5524
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_STR:stress_min",
-    "register": 5526
-  },
-  {
-    "field": "DZ_HTRO_N_I_2_STR:stress_max",
-    "register": 5528
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_STR:stress_last",
-    "register": 5530
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_STR:stress_mean",
-    "register": 5532
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_STR:stress_median",
-    "register": 5534
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_STR:stress_min",
-    "register": 5536
-  },
-  {
-    "field": "DZ_HTRO_N_A_2_STR:stress_max",
-    "register": 5538
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_STR:stress_last",
-    "register": 5540
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_STR:stress_mean",
-    "register": 5542
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_STR:stress_median",
-    "register": 5544
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_STR:stress_min",
-    "register": 5546
-  },
-  {
-    "field": "DZ_HTRW_N_I_1_STR:stress_max",
-    "register": 5548
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_STR:stress_last",
-    "register": 5550
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_STR:stress_mean",
-    "register": 5552
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_STR:stress_median",
-    "register": 5554
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_STR:stress_min",
-    "register": 5556
-  },
-  {
-    "field": "DZ_HTRW_N_A_1_STR:stress_max",
-    "register": 5558
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_STR:stress_last",
-    "register": 5560
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_STR:stress_mean",
-    "register": 5562
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_STR:stress_median",
-    "register": 5564
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_STR:stress_min",
-    "register": 5566
-  },
-  {
-    "field": "DZ_HTRW_N_I_2_STR:stress_max",
-    "register": 5568
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_STR:stress_last",
-    "register": 5570
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_STR:stress_mean",
-    "register": 5572
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_STR:stress_median",
-    "register": 5574
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_STR:stress_min",
-    "register": 5576
-  },
-  {
-    "field": "DZ_HTRW_N_A_2_STR:stress_max",
-    "register": 5578
-  },
-  {
-    "field": "DO_HTRO_N_I_1_STR:stress_last",
-    "register": 5580
-  },
-  {
-    "field": "DO_HTRO_N_I_1_STR:stress_mean",
-    "register": 5582
-  },
-  {
-    "field": "DO_HTRO_N_I_1_STR:stress_median",
-    "register": 5584
-  },
-  {
-    "field": "DO_HTRO_N_I_1_STR:stress_min",
-    "register": 5586
-  },
-  {
-    "field": "DO_HTRO_N_I_1_STR:stress_max",
-    "register": 5588
-  },
-  {
-    "field": "DO_HTRO_N_A_1_STR:stress_last",
-    "register": 5590
-  },
-  {
-    "field": "DO_HTRO_N_A_1_STR:stress_mean",
-    "register": 5592
-  },
-  {
-    "field": "DO_HTRO_N_A_1_STR:stress_median",
-    "register": 5594
-  },
-  {
-    "field": "DO_HTRO_N_A_1_STR:stress_min",
-    "register": 5596
-  },
-  {
-    "field": "DO_HTRO_N_A_1_STR:stress_max",
-    "register": 5598
-  },
-  {
-    "field": "DO_HTRO_N_I_2_STR:stress_last",
-    "register": 5600
-  },
-  {
-    "field": "DO_HTRO_N_I_2_STR:stress_mean",
-    "register": 5602
-  },
-  {
-    "field": "DO_HTRO_N_I_2_STR:stress_median",
-    "register": 5604
-  },
-  {
-    "field": "DO_HTRO_N_I_2_STR:stress_min",
-    "register": 5606
-  },
-  {
-    "field": "DO_HTRO_N_I_2_STR:stress_max",
-    "register": 5608
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_STR:stress_last",
-    "register": 5610
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_STR:stress_mean",
-    "register": 5612
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_STR:stress_median",
-    "register": 5614
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_STR:stress_min",
-    "register": 5616
-  },
-  {
-    "field": "DO_HTRO_N_WV_1_STR:stress_max",
-    "register": 5618
-  },
-  {
-    "field": "DU_HTRO_N_I_2_STR:stress_last",
-    "register": 5620
-  },
-  {
-    "field": "DU_HTRO_N_I_2_STR:stress_mean",
-    "register": 5622
-  },
-  {
-    "field": "DU_HTRO_N_I_2_STR:stress_median",
-    "register": 5624
-  },
-  {
-    "field": "DU_HTRO_N_I_2_STR:stress_min",
-    "register": 5626
-  },
-  {
-    "field": "DU_HTRO_N_I_2_STR:stress_max",
-    "register": 5628
-  },
-  {
-    "field": "DU_HTRO_N_A_2_STR:stress_last",
-    "register": 5630
-  },
-  {
-    "field": "DU_HTRO_N_A_2_STR:stress_mean",
-    "register": 5632
-  },
-  {
-    "field": "DU_HTRO_N_A_2_STR:stress_median",
-    "register": 5634
-  },
-  {
-    "field": "DU_HTRO_N_A_2_STR:stress_min",
-    "register": 5636
-  },
-  {
-    "field": "DU_HTRO_N_A_2_STR:stress_max",
-    "register": 5638
-  },
-  {
-    "field": "DU_HTRO_N_I_3_STR:stress_last",
-    "register": 5640
-  },
-  {
-    "field": "DU_HTRO_N_I_3_STR:stress_mean",
-    "register": 5642
-  },
-  {
-    "field": "DU_HTRO_N_I_3_STR:stress_median",
-    "register": 5644
-  },
-  {
-    "field": "DU_HTRO_N_I_3_STR:stress_min",
-    "register": 5646
-  },
-  {
-    "field": "DU_HTRO_N_I_3_STR:stress_max",
-    "register": 5648
-  },
-  {
-    "field": "DU_HTRO_N_A_3_STR:stress_last",
-    "register": 5650
-  },
-  {
-    "field": "DU_HTRO_N_A_3_STR:stress_mean",
-    "register": 5652
-  },
-  {
-    "field": "DU_HTRO_N_A_3_STR:stress_median",
-    "register": 5654
-  },
-  {
-    "field": "DU_HTRO_N_A_3_STR:stress_min",
-    "register": 5656
-  },
-  {
-    "field": "DU_HTRO_N_A_3_STR:stress_max",
-    "register": 5658
-  },
-  {
-    "field": "DO_HTRW_N_I_1_STR:stress_last",
-    "register": 5660
-  },
-  {
-    "field": "DO_HTRW_N_I_1_STR:stress_mean",
-    "register": 5662
-  },
-  {
-    "field": "DO_HTRW_N_I_1_STR:stress_median",
-    "register": 5664
-  },
-  {
-    "field": "DO_HTRW_N_I_1_STR:stress_min",
-    "register": 5666
-  },
-  {
-    "field": "DO_HTRW_N_I_1_STR:stress_max",
-    "register": 5668
-  },
-  {
-    "field": "DO_HTRW_N_A_1_STR:stress_last",
-    "register": 5670
-  },
-  {
-    "field": "DO_HTRW_N_A_1_STR:stress_mean",
-    "register": 5672
-  },
-  {
-    "field": "DO_HTRW_N_A_1_STR:stress_median",
-    "register": 5674
-  },
-  {
-    "field": "DO_HTRW_N_A_1_STR:stress_min",
-    "register": 5676
-  },
-  {
-    "field": "DO_HTRW_N_A_1_STR:stress_max",
-    "register": 5678
-  },
-  {
-    "field": "DO_HTRW_N_I_2_STR:stress_last",
-    "register": 5680
-  },
-  {
-    "field": "DO_HTRW_N_I_2_STR:stress_mean",
-    "register": 5682
-  },
-  {
-    "field": "DO_HTRW_N_I_2_STR:stress_median",
-    "register": 5684
-  },
-  {
-    "field": "DO_HTRW_N_I_2_STR:stress_min",
-    "register": 5686
-  },
-  {
-    "field": "DO_HTRW_N_I_2_STR:stress_max",
-    "register": 5688
-  },
-  {
-    "field": "DO_HTRW_N_A_2_STR:stress_last",
-    "register": 5690
-  },
-  {
-    "field": "DO_HTRW_N_A_2_STR:stress_mean",
-    "register": 5692
-  },
-  {
-    "field": "DO_HTRW_N_A_2_STR:stress_median",
-    "register": 5694
-  },
-  {
-    "field": "DO_HTRW_N_A_2_STR:stress_min",
-    "register": 5696
-  },
-  {
-    "field": "DO_HTRW_N_A_2_STR:stress_max",
-    "register": 5698
-  },
-  {
-    "field": "DU_HTRW_N_I_2_STR:stress_last",
-    "register": 5700
-  },
-  {
-    "field": "DU_HTRW_N_I_2_STR:stress_mean",
-    "register": 5702
-  },
-  {
-    "field": "DU_HTRW_N_I_2_STR:stress_median",
-    "register": 5704
-  },
-  {
-    "field": "DU_HTRW_N_I_2_STR:stress_min",
-    "register": 5706
-  },
-  {
-    "field": "DU_HTRW_N_I_2_STR:stress_max",
-    "register": 5708
-  },
-  {
-    "field": "DU_HTRW_N_A_2_STR:stress_last",
-    "register": 5710
-  },
-  {
-    "field": "DU_HTRW_N_A_2_STR:stress_mean",
-    "register": 5712
-  },
-  {
-    "field": "DU_HTRW_N_A_2_STR:stress_median",
-    "register": 5714
-  },
-  {
-    "field": "DU_HTRW_N_A_2_STR:stress_min",
-    "register": 5716
-  },
-  {
-    "field": "DU_HTRW_N_A_2_STR:stress_max",
-    "register": 5718
-  },
-  {
-    "field": "DU_HTRW_N_I_3_STR:stress_last",
-    "register": 5720
-  },
-  {
-    "field": "DU_HTRW_N_I_3_STR:stress_mean",
-    "register": 5722
-  },
-  {
-    "field": "DU_HTRW_N_I_3_STR:stress_median",
-    "register": 5724
-  },
-  {
-    "field": "DU_HTRW_N_I_3_STR:stress_min",
-    "register": 5726
-  },
-  {
-    "field": "DU_HTRW_N_I_3_STR:stress_max",
-    "register": 5728
-  },
-  {
-    "field": "DU_HTRW_N_A_3_STR:stress_last",
-    "register": 5730
-  },
-  {
-    "field": "DU_HTRW_N_A_3_STR:stress_mean",
-    "register": 5732
-  },
-  {
-    "field": "DU_HTRW_N_A_3_STR:stress_median",
-    "register": 5734
-  },
-  {
-    "field": "DU_HTRW_N_A_3_STR:stress_min",
-    "register": 5736
-  },
-  {
-    "field": "DU_HTRW_N_A_3_STR:stress_max",
-    "register": 5738
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_STR:stress_last",
-    "register": 5740
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_STR:stress_mean",
-    "register": 5742
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_STR:stress_median",
-    "register": 5744
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_STR:stress_min",
-    "register": 5746
-  },
-  {
-    "field": "DZ_HTRO_S_I_1_STR:stress_max",
-    "register": 5748
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_STR:stress_last",
-    "register": 5750
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_STR:stress_mean",
-    "register": 5752
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_STR:stress_median",
-    "register": 5754
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_STR:stress_min",
-    "register": 5756
-  },
-  {
-    "field": "DZ_HTRO_S_A_1_STR:stress_max",
-    "register": 5758
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_STR:stress_last",
-    "register": 5760
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_STR:stress_mean",
-    "register": 5762
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_STR:stress_median",
-    "register": 5764
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_STR:stress_min",
-    "register": 5766
-  },
-  {
-    "field": "DZ_HTRO_S_I_2_STR:stress_max",
-    "register": 5768
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_STR:stress_last",
-    "register": 5770
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_STR:stress_mean",
-    "register": 5772
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_STR:stress_median",
-    "register": 5774
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_STR:stress_min",
-    "register": 5776
-  },
-  {
-    "field": "DZ_HTRO_S_A_2_STR:stress_max",
-    "register": 5778
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_STR:stress_last",
-    "register": 5780
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_STR:stress_mean",
-    "register": 5782
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_STR:stress_median",
-    "register": 5784
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_STR:stress_min",
-    "register": 5786
-  },
-  {
-    "field": "DZ_HTRW_S_I_1_STR:stress_max",
-    "register": 5788
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_STR:stress_last",
-    "register": 5790
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_STR:stress_mean",
-    "register": 5792
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_STR:stress_median",
-    "register": 5794
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_STR:stress_min",
-    "register": 5796
-  },
-  {
-    "field": "DZ_HTRW_S_A_1_STR:stress_max",
-    "register": 5798
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_STR:stress_last",
-    "register": 5800
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_STR:stress_mean",
-    "register": 5802
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_STR:stress_median",
-    "register": 5804
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_STR:stress_min",
-    "register": 5806
-  },
-  {
-    "field": "DZ_HTRW_S_I_2_STR:stress_max",
-    "register": 5808
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_STR:stress_last",
-    "register": 5810
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_STR:stress_mean",
-    "register": 5812
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_STR:stress_median",
-    "register": 5814
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_STR:stress_min",
-    "register": 5816
-  },
-  {
-    "field": "DZ_HTRW_S_A_2_STR:stress_max",
-    "register": 5818
-  },
-  {
-    "field": "DO_HTRW_S_I_2_STR:stress_last",
-    "register": 5820
-  },
-  {
-    "field": "DO_HTRW_S_I_2_STR:stress_mean",
-    "register": 5822
-  },
-  {
-    "field": "DO_HTRW_S_I_2_STR:stress_median",
-    "register": 5824
-  },
-  {
-    "field": "DO_HTRW_S_I_2_STR:stress_min",
-    "register": 5826
-  },
-  {
-    "field": "DO_HTRW_S_I_2_STR:stress_max",
-    "register": 5828
-  },
-  {
-    "field": "DO_HTRW_S_A_2_STR:stress_last",
-    "register": 5830
-  },
-  {
-    "field": "DO_HTRW_S_A_2_STR:stress_mean",
-    "register": 5832
-  },
-  {
-    "field": "DO_HTRW_S_A_2_STR:stress_median",
-    "register": 5834
-  },
-  {
-    "field": "DO_HTRW_S_A_2_STR:stress_min",
-    "register": 5836
-  },
-  {
-    "field": "DO_HTRW_S_A_2_STR:stress_max",
-    "register": 5838
-  },
-  {
-    "field": "DO_HTRW_S_I_3_STR:stress_last",
-    "register": 5840
-  },
-  {
-    "field": "DO_HTRW_S_I_3_STR:stress_mean",
-    "register": 5842
-  },
-  {
-    "field": "DO_HTRW_S_I_3_STR:stress_median",
-    "register": 5844
-  },
-  {
-    "field": "DO_HTRW_S_I_3_STR:stress_min",
-    "register": 5846
-  },
-  {
-    "field": "DO_HTRW_S_I_3_STR:stress_max",
-    "register": 5848
-  },
-  {
-    "field": "DO_HTRW_S_A_3_STR:stress_last",
-    "register": 5850
-  },
-  {
-    "field": "DO_HTRW_S_A_3_STR:stress_mean",
-    "register": 5852
-  },
-  {
-    "field": "DO_HTRW_S_A_3_STR:stress_median",
-    "register": 5854
-  },
-  {
-    "field": "DO_HTRW_S_A_3_STR:stress_min",
-    "register": 5856
-  },
-  {
-    "field": "DO_HTRW_S_A_3_STR:stress_max",
-    "register": 5858
-  },
-  {
-    "field": "DU_HTRW_S_I_1_STR:stress_last",
-    "register": 5860
-  },
-  {
-    "field": "DU_HTRW_S_I_1_STR:stress_mean",
-    "register": 5862
-  },
-  {
-    "field": "DU_HTRW_S_I_1_STR:stress_median",
-    "register": 5864
-  },
-  {
-    "field": "DU_HTRW_S_I_1_STR:stress_min",
-    "register": 5866
-  },
-  {
-    "field": "DU_HTRW_S_I_1_STR:stress_max",
-    "register": 5868
-  },
-  {
-    "field": "DU_HTRW_S_A_1_STR:stress_last",
-    "register": 5870
-  },
-  {
-    "field": "DU_HTRW_S_A_1_STR:stress_mean",
-    "register": 5872
-  },
-  {
-    "field": "DU_HTRW_S_A_1_STR:stress_median",
-    "register": 5874
-  },
-  {
-    "field": "DU_HTRW_S_A_1_STR:stress_min",
-    "register": 5876
-  },
-  {
-    "field": "DU_HTRW_S_A_1_STR:stress_max",
-    "register": 5878
-  },
-  {
-    "field": "DU_HTRW_S_I_2_STR:stress_last",
-    "register": 5880
-  },
-  {
-    "field": "DU_HTRW_S_I_2_STR:stress_mean",
-    "register": 5882
-  },
-  {
-    "field": "DU_HTRW_S_I_2_STR:stress_median",
-    "register": 5884
-  },
-  {
-    "field": "DU_HTRW_S_I_2_STR:stress_min",
-    "register": 5886
-  },
-  {
-    "field": "DU_HTRW_S_I_2_STR:stress_max",
-    "register": 5888
-  },
-  {
-    "field": "DU_HTRW_S_A_2_STR:stress_last",
-    "register": 5890
-  },
-  {
-    "field": "DU_HTRW_S_A_2_STR:stress_mean",
-    "register": 5892
-  },
-  {
-    "field": "DU_HTRW_S_A_2_STR:stress_median",
-    "register": 5894
-  },
-  {
-    "field": "DU_HTRW_S_A_2_STR:stress_min",
-    "register": 5896
-  },
-  {
-    "field": "DU_HTRW_S_A_2_STR:stress_max",
-    "register": 5898
-  },
-  {
-    "field": "DO_HTRO_S_I_1_STR:stress_last",
-    "register": 5900
-  },
-  {
-    "field": "DO_HTRO_S_I_1_STR:stress_mean",
-    "register": 5902
-  },
-  {
-    "field": "DO_HTRO_S_I_1_STR:stress_median",
-    "register": 5904
-  },
-  {
-    "field": "DO_HTRO_S_I_1_STR:stress_min",
-    "register": 5906
-  },
-  {
-    "field": "DO_HTRO_S_I_1_STR:stress_max",
-    "register": 5908
-  },
-  {
-    "field": "DO_HTRO_S_A_1_STR:stress_last",
-    "register": 5910
-  },
-  {
-    "field": "DO_HTRO_S_A_1_STR:stress_mean",
-    "register": 5912
-  },
-  {
-    "field": "DO_HTRO_S_A_1_STR:stress_median",
-    "register": 5914
-  },
-  {
-    "field": "DO_HTRO_S_A_1_STR:stress_min",
-    "register": 5916
-  },
-  {
-    "field": "DO_HTRO_S_A_1_STR:stress_max",
-    "register": 5918
-  },
-  {
-    "field": "DU_HTRO_N_I_1_STR:stress_last",
-    "register": 5920
-  },
-  {
-    "field": "DU_HTRO_N_I_1_STR:stress_mean",
-    "register": 5922
-  },
-  {
-    "field": "DU_HTRO_N_I_1_STR:stress_median",
-    "register": 5924
-  },
-  {
-    "field": "DU_HTRO_N_I_1_STR:stress_min",
-    "register": 5926
-  },
-  {
-    "field": "DU_HTRO_N_I_1_STR:stress_max",
-    "register": 5928
-  },
-  {
-    "field": "DU_HTRO_N_A_1_STR:stress_last",
-    "register": 5930
-  },
-  {
-    "field": "DU_HTRO_N_A_1_STR:stress_mean",
-    "register": 5932
-  },
-  {
-    "field": "DU_HTRO_N_A_1_STR:stress_median",
-    "register": 5934
-  },
-  {
-    "field": "DU_HTRO_N_A_1_STR:stress_min",
-    "register": 5936
-  },
-  {
-    "field": "DU_HTRO_N_A_1_STR:stress_max",
-    "register": 5938
-  },
-  {
-    "field": "DO_HTRW_S_I_1_STR:stress_last",
-    "register": 5940
-  },
-  {
-    "field": "DO_HTRW_S_I_1_STR:stress_mean",
-    "register": 5942
-  },
-  {
-    "field": "DO_HTRW_S_I_1_STR:stress_median",
-    "register": 5944
-  },
-  {
-    "field": "DO_HTRW_S_I_1_STR:stress_min",
-    "register": 5946
-  },
-  {
-    "field": "DO_HTRW_S_I_1_STR:stress_max",
-    "register": 5948
-  },
-  {
-    "field": "DO_HTRW_S_A_1_STR:stress_last",
-    "register": 5950
-  },
-  {
-    "field": "DO_HTRW_S_A_1_STR:stress_mean",
-    "register": 5952
-  },
-  {
-    "field": "DO_HTRW_S_A_1_STR:stress_median",
-    "register": 5954
-  },
-  {
-    "field": "DO_HTRW_S_A_1_STR:stress_min",
-    "register": 5956
-  },
-  {
-    "field": "DO_HTRW_S_A_1_STR:stress_max",
-    "register": 5958
-  },
-  {
-    "field": "DU_HTRW_N_I_1_STR:stress_last",
-    "register": 5960
-  },
-  {
-    "field": "DU_HTRW_N_I_1_STR:stress_mean",
-    "register": 5962
-  },
-  {
-    "field": "DU_HTRW_N_I_1_STR:stress_median",
-    "register": 5964
-  },
-  {
-    "field": "DU_HTRW_N_I_1_STR:stress_min",
-    "register": 5966
-  },
-  {
-    "field": "DU_HTRW_N_I_1_STR:stress_max",
-    "register": 5968
-  },
-  {
-    "field": "DU_HTRW_N_A_1_STR:stress_last",
-    "register": 5970
-  },
-  {
-    "field": "DU_HTRW_N_A_1_STR:stress_mean",
-    "register": 5972
-  },
-  {
-    "field": "DU_HTRW_N_A_1_STR:stress_median",
-    "register": 5974
-  },
-  {
-    "field": "DU_HTRW_N_A_1_STR:stress_min",
-    "register": 5976
-  },
-  {
-    "field": "DU_HTRW_N_A_1_STR:stress_max",
-    "register": 5978
   }
 ]

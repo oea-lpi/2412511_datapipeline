@@ -248,14 +248,12 @@ class DataConverterUDBF:
                 trimmed = values[skip:] if skip > 0 else values
 
                 mean = round(np.mean(trimmed), self.round_factor)
-                median = round(np.median(trimmed), self.round_factor)
                 vmin = round(np.min(trimmed), self.round_factor)
                 vmax = round(np.max(trimmed), self.round_factor)
 
                 stats_rows.append({
                     'Sensor':     name,
                     'Mean':       mean,
-                    'Median':     median,
                     'Minimum':    vmin,
                     'Maximum':    vmax
                 })

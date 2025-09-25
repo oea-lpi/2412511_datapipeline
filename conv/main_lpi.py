@@ -38,6 +38,16 @@ def main():
             timestamp_re= LPI_RE,
             datetime_fmt= "%Y-%m-%d %H-%M-%S",
             redis_db    = redis_db
+        ),
+        Pipeline(
+            name        = "lpi_1hz",
+            input_dir   = os.getenv("INPUT_DIR_1HZ",  "/app/files/input_1hz"),
+            failed_dir  = os.getenv("FAILED_DIR_1HZ", "/app/files/failed_1hz"),
+            stats_dir   = os.getenv("STATS_DIR_1HZ",  "/app/files/stats_1hz"),
+            finished_dir= os.getenv("FINISHED_DIR_1HZ", "/app/files/finished_1hz"),
+            timestamp_re= LPI_RE,
+            datetime_fmt= "%Y-%m-%d %H-%M-%S",
+            redis_db    = redis_db
         )
     ]
 
