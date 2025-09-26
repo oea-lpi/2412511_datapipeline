@@ -94,11 +94,10 @@ class DataConverterUDBF:
                 self.channel_num = int(raw_num)
             except (ValueError, TypeError):
                 raise ValueError(f"Invalid channel count from GInsConnection: {raw_num!r}")
-            channel_names = [conn.read_index_name(i) for i in range(self.channel_num)]
-            self.channel_names = channel_names        
+            channel_names = [conn.read_index_name(i).replace('-', '_') for i in range(self.channel_num)]
+            self.channel_names = channel_names    
             self.sample_rate = conn.read_sample_rate()
             self.channel_unit = conn.read_channels_unit()
-
             # Import file info into numpy matrix, dat_file[row,column].
             try:
                 dat_file=Qstation.read_gins_dat(conn)

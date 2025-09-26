@@ -92,40 +92,41 @@ def main():
     last_key = None
 
     # writer loop
-    logger.debug(f"Starting Redis to Modbus loop...")
+    logger.debug("Starting Redis→Modbus one-shot writer loop...")
+
+    processed = set() 
+
     try:
         while True:
-            keys = redis_db.keys("stats:*")
-            if not keys:
-                # no data yet
+            did_any = False
+
+            for stats_key in redis_db.scan_iter("stats:*"):
+                if stats_key in processed:
+                    continue  # already consumed
+                
+                logger.debug(f"Using redis key: {stats_key}")
+                for entry in MAPPINGS:
+                    field    = entry["field"]
+                    register = entry["register"]
+
+                    val = redis_db.hget(stats_key, field)
+                    if val is None:
+                        continue
+
+                    try:
+                        float_val = float(val.replace(",", "."))
+                    except ValueError:
+                        logger.warning(f"Cannot parse {val!r} for field '{field}' from {stats_key}.")
+                        continue
+
+                    server.set_holding_register(register, float_val, "f")
+                    # logger.debug(f"Wrote {float_val} from {stats_key}.{field} → HR {register}")
+
+                processed.add(stats_key)
+                did_any = True
+
+            if not did_any:
                 time.sleep(0.3)
-                continue
-
-            stats_key = sorted(keys)[-1]
-            if stats_key == last_key:
-                time.sleep(0.3)
-                continue
-            logger.debug(f"Using Redis key: {stats_key}")
-            last_key = stats_key
-
-            for entry in MAPPINGS:
-                field    = entry["field"]
-                register = entry["register"]
-                val       = redis_db.hget(stats_key, field)
-
-                if val is None:
-                    continue
-
-                try:
-                    float_val = float(val.replace(",", "."))
-                except ValueError:
-                    logger.warning(f"Cannot parse {val!r} for field '{field}'.")
-                    continue
-
-                server.set_holding_register(register, float_val, "f")
-                #logger.debug(f"Wrote {float_val} for field {field} to register {register} and {register +1}")
-
-            time.sleep(0.3)
 
     except Exception:
         logger.exception("Error in modbus writer loop.")

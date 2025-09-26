@@ -37,11 +37,15 @@ services:
     volumes:
       - ./helper:/app/helper
       - ./logger:/app/logger
-      - "C:/Users/oelawad/Desktop/Software/2412511_data/lpi/data:/app/files/input_100hz"
-      - "C:/Users/oelawad/Desktop/Software/2412511_data/lpi/data_completed:/app/files/finished_100hz"
-      - "C:/Users/oelawad/Desktop/Software/2412511_data/lpi/stats:/app/files/stats_100hz"
-      - "C:/Users/oelawad/Desktop/Software/2412511_data/lpi/failed:/app/files/failed_100hz"
-      - "C:/Users/oelawad/Desktop/Software/2412511_data/logs:/app/logs"
+      - "/mnt/M2412511_LPI_Qstation/Logger1_100Hz_30sec/data:/app/files/input_100hz"
+      - "/mnt/M2412511_LPI_Qstation/Logger1_100Hz_30sec/finished:/app/files/finished_100hz"
+      - "/mnt/M2412511_LPI_Qstation/Logger1_100Hz_30sec/stats:/app/files/stats_100hz"
+      - "/mnt/M2412511_LPI_Qstation/Logger1_100Hz_30sec/failed:/app/files/failed_100hz"
+      - "/mnt/M2412511_LPI_Qstation/Logger2_1Hz_30sec/data:/app/files/input_1hz"
+      - "/mnt/M2412511_LPI_Qstation/Logger2_1Hz_30sec/finished:/app/files/finished_1hz"
+      - "/mnt/M2412511_LPI_Qstation/Logger2_1Hz_30sec/stats:/app/files/stats_1hz"
+      - "/mnt/M2412511_LPI_Qstation/Logger2_1Hz_30sec/failed:/app/files/failed_1hz"
+      - "/mnt/M2412511_LPI_Qstation/Logs:/app/logs"
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL",
@@ -143,7 +147,7 @@ services:
     volumes:
       - ./logger:/app/logger
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - "C:/Users/oelawad/Desktop/Software/2412511_data/logs:/app/logs"
+      - "/mnt/M2412511_LPI_Qstation/Logs:/app/logs"
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "nc -z localhost 502"]
