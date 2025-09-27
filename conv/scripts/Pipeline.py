@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from datetime import datetime
 import logging
 import os
@@ -23,9 +24,10 @@ logger = logging.getLogger(__name__)
 BASIC_REDIS_TTL = int(os.getenv("BASIC_REDIS_TTL", "60"))
 CONV_CONTEXT = os.getenv("CONV_CONTEXT")
 STABLE_CHECKS = int(os.getenv("STABLE_CHECKS", "2")) # consecutive identical stat() results   
-MIN_FILE_AGE_SEC = float(os.getenv("MIN_FILE_AGE_SEC", "5.0")) # min seconds since last mtime
+MIN_FILE_AGE_SEC = float(os.getenv("MIN_FILE_AGE_SEC", "40.0")) # min seconds since last mtime
 TICKER_INTERVAL_SEC = float(os.getenv("TICKER_INTERVAL_SEC", "2.0"))  # periodic rescan
 
+@dataclass
 class _StatInfo:
     size: int
     mtime: float
@@ -89,7 +91,7 @@ class Pipeline:
             self._seen.pop(p, None)
             return None
         except Exception:
-            logger.exception(f"stat() failed for %s: {self.name}, {p}")
+            logger.exception(f"{self.name} stat() failed for {p}")
             return None
 
     def _is_stable(self, p: Path) -> bool:
