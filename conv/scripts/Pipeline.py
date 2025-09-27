@@ -6,6 +6,7 @@ from queue import Queue
 import re
 import shutil
 import threading
+import time
 
 import redis
 from watchdog.observers.polling import PollingObserver
@@ -21,10 +22,20 @@ logger = logging.getLogger(__name__)
 
 BASIC_REDIS_TTL = int(os.getenv("BASIC_REDIS_TTL", "60"))
 CONV_CONTEXT = os.getenv("CONV_CONTEXT")
+STABLE_CHECKS = int(os.getenv("STABLE_CHECKS", "2")) # consecutive identical stat() results   
+MIN_FILE_AGE_SEC = float(os.getenv("MIN_FILE_AGE_SEC", "5.0")) # min seconds since last mtime
+TICKER_INTERVAL_SEC = float(os.getenv("TICKER_INTERVAL_SEC", "2.0"))  # periodic rescan
+
+class _StatInfo:
+    size: int
+    mtime: float
+    stable_count: int
 
 class Pipeline:
     """
     Monitors a specified folder and starts the processing pipeline.
+    Files are enqueued only when they are considered 'stable' (size & mtime
+    unchanged for STABLE_CHECKS polls and older than MIN_FILE_AGE_SEC).
     """
     def __init__(self, 
         name: str, 
@@ -45,9 +56,10 @@ class Pipeline:
         self.datetime_fmt = datetime_fmt
         self.redis_db = redis_db
 
-        self.queue = Queue()
-        self.lock  = threading.Lock()
-        self.processed = set()
+        self.queue: Queue[Path] = Queue()
+        self.lock = threading.Lock()
+        self.processed: set[Path] = set() 
+        self._seen: dict[Path, _StatInfo] = {}  
 
         t = threading.Thread(target=self.worker, daemon=True, name=f"worker:{self.name}")
         t.start()
@@ -56,11 +68,55 @@ class Pipeline:
         handler = Watcher(self.enqueue, self.schedule_next, str(self.input))
         observer.schedule(handler, self.input, recursive=False)
         observer.start()
+        self.observer = observer
+        self.handler = handler  
 
-        # Enqueue all-but-newest files at startup
-        all_dat = [p for p in self.input.iterdir()]
-        for p in sorted(all_dat, key=self._ts)[:-1]: 
-            self.enqueue(p)
+        threading.Thread(target=self._ticker, daemon=True, name=f"ticker:{self.name}").start()
+        self.schedule_next(None)
+
+    def _ticker(self) -> None:
+        while True:
+            time.sleep(TICKER_INTERVAL_SEC)
+            try:
+                self.schedule_next(None)
+            except Exception:
+                logger.exception(f"Ticker scan failed: {self.name}")
+
+    def _stat(self, p: Path) -> os.stat_result | None:
+        try:
+            return p.stat()
+        except FileNotFoundError:
+            self._seen.pop(p, None)
+            return None
+        except Exception:
+            logger.exception(f"stat() failed for %s: {self.name}, {p}")
+            return None
+
+    def _is_stable(self, p: Path) -> bool:
+        st = self._stat(p)
+        if not st:
+            return False
+
+        now = time.time()
+        # must be older than MIN_FILE_AGE_SEC
+        if (now - st.st_mtime) < MIN_FILE_AGE_SEC:
+            # reset the seen info (we only want consecutive identical stats)
+            prev = self._seen.get(p)
+            if prev is None or prev.size != st.st_size or prev.mtime != st.st_mtime:
+                self._seen[p] = _StatInfo(size=st.st_size, mtime=st.st_mtime, stable_count=1)
+            else:
+                # it's unchanged but still too young; count toward stability anyway
+                prev.stable_count += 1
+            return False
+
+        prev = self._seen.get(p)
+        if prev and prev.size == st.st_size and prev.mtime == st.st_mtime:
+            prev.stable_count += 1
+        else:
+            self._seen[p] = _StatInfo(size=st.st_size, mtime=st.st_mtime, stable_count=1)
+
+        info = self._seen[p]
+        return info.stable_count >= STABLE_CHECKS
 
     def _ts(self, path: Path) -> datetime | None:
         try:
@@ -77,22 +133,36 @@ class Pipeline:
                 self.queue.put(p)
 
     def schedule_next(self, _) -> None:
-        dats = [p for p in self.input.iterdir() if p.is_file()]
+        """
+        Scan the input dir, find the oldest *stable* file not processed and enqueue it. 
+        Runs on FS events and a periodic ticker.
+        """
+        try:
+            dats = [p for p in self.input.iterdir() if p.is_file()]
+        except FileNotFoundError:
+            return
+        
         candidates: list[tuple[datetime, Path]] = []
         for p in dats:
             if p in self.processed:
                 continue
-            ts = self._ts(p)       
-            if ts is not None:
-                candidates.append((ts, p)) 
-        if len(candidates) > 1:
-            _, oldest = min(candidates) 
-            self.enqueue(oldest)
+
+            ts = self._ts(p)
+            if ts is None:
+                continue
+
+            if self._is_stable(p):
+                candidates.append((ts, p))
+        if not candidates:
+            return
+
+        _, oldest = min(candidates)  # oldest timestamp first
+        self.enqueue(oldest)
 
     def worker(self) -> None:
         while True:
             file_path: Path = self.queue.get()
-            remove_from_processed = False # Flag so that faulty files that could not be moved do not get infinitely requeued.
+            remove_from_processed = False  # don't requeue infinitely if move fails
             try:
                 logger.info(f"[{self.name}] processing {file_path}")
                 if CONV_CONTEXT == "LPI":
@@ -114,6 +184,9 @@ class Pipeline:
                         finished_dir = self.finished,
                         redis_db = self.redis_db
                     )
+                else:
+                    logger.error("Unknown CONV_CONTEXT=%r for %s", self.name, CONV_CONTEXT, file_path)
+
                 remove_from_processed = True
                 self.redis_db.set(f"health:{self.name}_file_processing", 0, ex=BASIC_REDIS_TTL) 
             except Exception:
@@ -123,6 +196,7 @@ class Pipeline:
                     shutil.move(str(file_path), str(dest))
                     logger.info(f"Moved bad file to {dest}.")
                     self.redis_db.set(f"health:{self.name}_file_processing", 1, ex=BASIC_REDIS_TTL) 
+                    remove_from_processed = True
                 except Exception:
                     logger.exception(f"Could not move {file_path} to failed dir.")
             finally:
@@ -131,7 +205,10 @@ class Pipeline:
                         self.processed.discard(file_path)
 
                 self.queue.task_done()
-                self.schedule_next(None)
+                try:
+                    self.schedule_next(None)
+                except Exception:
+                    logger.exception(f"schedule_next failed at worker tail: {self.name}")
     
     def archiver():
         #TODO Placeholder for function to move files from finished into finished_archive, maybe relevant if file number in folder gets to big 
