@@ -1,8 +1,6 @@
-from datetime import datetime
-from io import StringIO
 import logging
 from pathlib import Path
-import re
+from typing import Dict, Tuple, Optional
 
 import pandas as pd
 import redis
@@ -11,107 +9,102 @@ from helper.processing import move_to_finished
 
 logger = logging.getLogger(__name__)
 
-def check_readability(file_path: Path) -> None:
+
+def check_readability(file_path: Path) -> bool:
     """
-    Simple check for file existence and filetype being .csv.
+    Inital check to validate that path is a file and a .parquet/.csv file.
 
     Args:
         file_path: Path object to the currently to be processed file. 
+
+    Returns:
+        bool: True if ok, False if not ok.
     """
     if not file_path.is_file():
         logger.error(f"File not found: {file_path}.")
-        return
-    
-    if file_path.suffix.lower() != ".csv":
-        logger.error(f"Called on non-.csv file: {file_path}.")
-        return
+        return False
+    if file_path.suffix.lower() not in {".parquet", ".csv"}:
+        logger.error(f"Unsupported filetype (need .parquet or .csv): {file_path}")
+        return False
+    return True
 
-def file_analysis(file_path: Path, finished_dir: Path) -> None:
-    """
-    Main processing flow for recognized CSV's from Sensical
-    Current: Read files, write data to redis, move the file to finished dir. Failed files are moved on Pipeline level.
 
-    Args:
-        file_path: Path object to the currently to be processed file. 
-    """
+def read_table(file_path: Path) -> pd.DataFrame:
+    ext = file_path.suffix.lower()
+    if ext == ".parquet":
+        return pd.read_parquet(file_path)
+    if ext == ".csv":
+        return pd.read_csv(file_path)
+    raise ValueError(f"Unsupported extension: {ext}")
 
-    lines = file_path.read_text(encoding="utf-8").splitlines()
-    
-    # --- Helper ---
-    def find_idx(pattern):
-        rx = re.compile(pattern, re.IGNORECASE)
-        for i, ln in enumerate(lines):
-            if rx.search(ln):
-                return i
-        return None
-    
-    meta = {}
 
-    # Title (e.g., "Bauwerk R6-07 - Sensor Nord")
-    meta["title"] = lines[0].strip()
+def _row_to_redis_mapping(filename: str, row: pd.Series, timestamp: Optional[pd.Timestamp]) -> Dict[str, str]:
+    mapping: Dict[str, str] = {}
+    # include timestamp as its own field if we have it (not a column in Parquet)
+    if timestamp is not None:
+        mapping[f"{filename}_timestamp"] = timestamp.isoformat()
 
-    i_time = find_idx(r"^\s*Zeit\s")
-    if i_time is not None:
-        ts_raw = lines[i_time].split("Zeit", 1)[1].strip()
-        # Example format: 22-Apr-2025 12:26:43  (day-month_abbr-year)
-        meta["timestamp"] = pd.to_datetime(ts_raw, format="%d-%b-%Y %H:%M:%S", dayfirst=True)
-    
-    # Quantiles ('q50 q90 max wCr')
-    i_qhdr = find_idx(r"^\s*q50\s+q90\s+max\s+wCr\s*$")
-    if i_qhdr is not None and i_qhdr + 1 < len(lines):
-        qvals = re.split(r"\s+", lines[i_qhdr + 1].strip())
-        qvals = [v.replace(",", ".") for v in qvals if v]
-        q50, q90, wcr_max = map(float, qvals[:3])
-        meta["q50_m^^^m"] = q50
-        meta["q90_mm"] = q90
-        meta["wCr_max_mm"] = wcr_max
+    for col, val in row.items():
+        if pd.isna(val):
+            sval = ""
+        elif isinstance(val, pd.Timestamp):
+            sval = val.isoformat()
+        else:
+            sval = str(val)
+        mapping[f"{filename}_{col}"] = sval
+    return mapping
 
-    # Number of cracks
-    i_count = find_idx(r"Anzahl\s+erkannter\s+Risse")
-    if i_count is not None:
-        m = re.search(r"(\d+)", lines[i_count])
-        if m:
-            meta["crack_count"] = int(m.group(1))
-    
-    # Data block
-    i_block = find_idx(r"Rissposition\s*\(.*\)\s*vs\.")
-    if i_block is None:
-        raise ValueError("Could not find data block header.")
-    
-    # Expect header on next line
-    hdr_line = lines[i_block + 1].strip()
-    headers = re.split(r"\s+", hdr_line)
-    # Standardize expected names: X, Y, Z, wCr
-    expected = ["X", "Y", "Z", "wCr"]
-    if len(headers) >= 4:
-        headers = expected
-    else:
-        headers = expected
-    
-    # Collect data lines until "End"
-    data_lines = []
-    for ln in lines[i_block + 2:]:
-        if ln.strip().lower().startswith("end"):
-            break
-        if not ln.strip():
-            continue
-        # Keep only lines that look like 4 numbers
-        nums = re.findall(r"[-+]?\d+(?:[.,]\d+)?", ln)
-        if len(nums) >= 4:
-            nums = [n.replace(",", ".") for n in nums[:4]]
-            data_lines.append(" ".join(nums))
-    
-    if not data_lines:
-        raise ValueError("No data rows found in report.")
-    
-    df = pd.read_csv(StringIO("\n".join(data_lines)),
-                     sep=r"\s+", header=None, names=headers, engine="python")
-    
-    for col in ["X", "Y", "Z", "wCr"]:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
-    
-    df.attrs["units"] = {"X": "m", "Y": "m", "Z": "m", "wCr": "mm"}
-    return meta, df
 
-def main():
-    pass
+def file_analysis(file_path: Path) -> Tuple[str, Dict[str, str]]:
+    df = read_table(file_path)
+    if df.empty:
+        raise ValueError(f"File has no rows: {file_path}")
+
+    filename = file_path.stem
+    redis_key = f"stats:{filename}"
+
+    if isinstance(df.index, pd.DatetimeIndex):
+        # ensure chronological order, then pick last (newest) row
+        sdf = df.sort_index(ascending=True, kind="mergesort")
+        latest_ts: pd.Timestamp = sdf.index[-1]
+        row = sdf.iloc[-1]
+        mapping = _row_to_redis_mapping(filename, row, latest_ts)
+        return redis_key, mapping
+
+    # fallbacks if it's NOT a DatetimeIndex (e.g., some CSVs):
+    # 1) Try to parse the first column as timestamps and select max.
+    try:
+        ts = pd.to_datetime(df.iloc[:, 0], errors="coerce", utc=True)
+        if not ts.isna().all():
+            newest_idx = ts.idxmax()
+            row = df.loc[newest_idx]
+            latest_ts = ts[newest_idx]
+            mapping = _row_to_redis_mapping(filename, row, latest_ts)
+            return redis_key, mapping
+    except Exception:
+        pass
+
+    # 2) Final fallback: just take the last row as is (no timestamp available).
+    row = df.iloc[-1]
+    mapping = _row_to_redis_mapping(filename, row, timestamp=None)
+    return redis_key, mapping
+
+
+def redis_push(redis_db: redis.Redis, redis_key: str, mapping: Dict[str, str], TTL: int = 60) -> None:
+    if not mapping:
+        raise ValueError("Empty mapping, nothing to push.")
+    
+    pipe = redis_db.pipeline(transaction=True)
+    pipe.hset(redis_key, mapping=mapping)
+    pipe.expire(redis_key, TTL)
+    pipe.execute()
+    logger.info(f"Pushed {len(mapping)} fields to Redis key '{redis_key}'.")
+
+
+def main(file_path: Path, finished_dir: Path, redis_db: redis.Redis):
+    if not check_readability(file_path):
+        raise RuntimeError(f"Readability check failed for {file_path}")
+
+    redis_key, mapping = file_analysis(file_path)
+    redis_push(redis_db, redis_key, mapping)
+    move_to_finished(file_path, finished_dir)

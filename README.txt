@@ -9,6 +9,7 @@ Aktuelle health vars:
 - health:container_conv_lpi
 - health:lpi_100hz_file_processing
 - health:lpi_100hz_file_ingestion
+- health:container_conv_sens
 
 Future improvements:
 - The LPI converter pipeline currently runs in a separate container 

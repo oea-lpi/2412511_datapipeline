@@ -12,7 +12,7 @@ from scripts.Pipeline import Pipeline
 
 logger = logging.getLogger("conv_sens")
 
-pattern = os.getenv("SENS_PATTERN", "(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2}-\d{2})")
+pattern = os.getenv("SENS_PATTERN", r"(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2}-\d{2})")
 SENS_RE = re.compile(pattern)
 HEALTH_CONTAINER_CONV_SENS = os.getenv("HEALTH_CONTAINER_CONV_SENS", "health:container_conv_sens")
 
@@ -33,7 +33,6 @@ def main():
             name        = "sens",
             input_dir   = os.getenv("INPUT_DIR",  "/app/files/input"),
             failed_dir  = os.getenv("FAILED_DIR", "/app/files/failed"),
-            stats_dir   = os.getenv("STATS_DIR",  "/app/files/stats"),
             finished_dir= os.getenv("FINISHED_DIR", "/app/files/finished"),
             timestamp_re= SENS_RE,
             datetime_fmt= "%Y-%m-%d %H-%M-%S",

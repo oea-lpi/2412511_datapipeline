@@ -7,15 +7,13 @@ from queue import Queue
 import re
 import shutil
 import threading
+from typing import Optional
 import time
 
 import redis
 from watchdog.observers.polling import PollingObserver
 
 from helper.utility import extract_ts
-from .udbf_file_analysis import udbf_file_analysis
-from .mist_file_analysis import main as mist_file_analysis
-from .sens_file_analysis import main as sens_file_analysis
 from .watcher import Watcher
 
 
@@ -43,16 +41,17 @@ class Pipeline:
         name: str, 
         input_dir: str, 
         failed_dir: str, 
-        stats_dir: str, 
         finished_dir: str, 
         timestamp_re: re.Pattern[str], 
         datetime_fmt: str, 
-        redis_db: redis.Redis
+        redis_db: redis.Redis,
+        stats_dir: Optional[str] = None, 
     ):
         self.name = name
         self.input = Path(input_dir)
         self.failed = Path(failed_dir)
-        self.stats = Path(stats_dir)
+        if stats_dir:
+            self.stats = Path(stats_dir)
         self.finished = Path(finished_dir)
         self.timestamp_re = timestamp_re
         self.datetime_fmt = datetime_fmt
@@ -102,12 +101,11 @@ class Pipeline:
         now = time.time()
         # must be older than MIN_FILE_AGE_SEC
         if (now - st.st_mtime) < MIN_FILE_AGE_SEC:
-            # reset the seen info (we only want consecutive identical stats)
+            # reset the seen info (only consecutive identical stats)
             prev = self._seen.get(p)
             if prev is None or prev.size != st.st_size or prev.mtime != st.st_mtime:
                 self._seen[p] = _StatInfo(size=st.st_size, mtime=st.st_mtime, stable_count=1)
             else:
-                # it's unchanged but still too young; count toward stability anyway
                 prev.stable_count += 1
             return False
 
@@ -168,6 +166,7 @@ class Pipeline:
             try:
                 logger.info(f"[{self.name}] processing {file_path}")
                 if CONV_CONTEXT == "LPI":
+                    from .udbf_file_analysis import udbf_file_analysis
                     udbf_file_analysis(
                         file_path = file_path,
                         stats_dir = self.stats,
@@ -175,12 +174,14 @@ class Pipeline:
                         redis_db = self.redis_db
                     )
                 elif CONV_CONTEXT == "SENS":
+                    from .sens_file_analysis import main as sens_file_analysis
                     sens_file_analysis(
                         file_path = file_path,
                         finished_dir = self.finished,
                         redis_db = self.redis_db
                     )
                 elif CONV_CONTEXT == "MIST":
+                    from .mist_file_analysis import main as mist_file_analysis
                     mist_file_analysis(
                         file_path = file_path,
                         finished_dir = self.finished,

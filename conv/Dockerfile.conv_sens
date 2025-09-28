@@ -16,13 +16,11 @@ COPY . /app
 
 RUN mkdir -p files/input \
          files/failed \
-         files/stats\
          files/finished \
          logs
 
 VOLUME ["/app/files/input", \
         "/app/files/failed", \
-        "/app/files/stats", \
         "/app/files/finished", \
         "/app/logs"]
 

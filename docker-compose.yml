@@ -66,12 +66,18 @@ services:
     volumes:
       - ./helper:/app/helper
       - ./logger:/app/logger
-      - "C:/Users/oelawad/Desktop/Software/2412511_data/sensical/data:/app/files/input"
-      - "C:/Users/oelawad/Desktop/Software/2412511_data/sensical/data_completed:/app/files/finished"
-      - "C:/Users/oelawad/Desktop/Software/2412511_data/sensical/stats:/app/files/stats"
-      - "C:/Users/oelawad/Desktop/Software/2412511_data/sensical/failed:/app/files/failed"
-      - "C:/Users/oelawad/Desktop/Software/2412511_data/logs:/app/logs"
+      - "/mnt/M2412511_Sensical/data:/app/files/input"
+      - "/mnt/M2412511_Sensical/finished:/app/files/finished"
+      - "/mnt/M2412511_Sensical/failed:/app/files/failed"
+      - "/mnt/M2412511_LPI_Qstation/Logs:/app/logs"
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL",
+        "redis-cli -h ${REDIS_HOST:-redis} -p ${REDIS_PORT:-6379} \
+        GET ${HEALTH_CONTAINER_CONV_SENS:-health:container_conv_sens} | grep -q '^1$'"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
     
   conv_mist:
     build:
@@ -112,9 +118,8 @@ services:
     env_file:
       - ./.env
     volumes:
-      - "C:/Users/oelawad/Desktop/Software/2412511_data/api:/data"
+      - "/mnt/M2412511_LPI_Qstation/Restapi:/data"
     ports:
-      # <hostPort>:<containerPort>
       - "8000:8000"
     healthcheck:
       test: ["CMD", "curl", "-fsS", "http://localhost:8000/health"]
@@ -128,7 +133,6 @@ services:
     image: ngrok/ngrok:latest
     depends_on:
       - restapi
-    # Region "eu" ist für Deutschland/NL sinnvoll; Ziel ist dein Service:Port
     command: http restapi:8000
     environment:
       NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}

@@ -1,4 +1,3 @@
-# app_fs.py
 import json, os, re, hashlib, tempfile
 from datetime import datetime, timezone
 from glob import glob
@@ -19,14 +18,14 @@ URL_RE = re.compile(r"^https?://", re.IGNORECASE)
 
 @app.errorhandler(Exception)
 def json_errors(e):
-    # Known HTTP errors (abort(...), 404, etc.)
+    # known HTTP errors (abort(...), 404, ...).
     if isinstance(e, HTTPException):
         return jsonify(
             error=e.name,
             status=e.code,
             message=e.description
         ), e.code
-    # Unexpected exceptions → 500 with message (and log the stack)
+    # unexpected exceptions: 500 with message (and log the stack)
     app.logger.error("Unhandled exception:\n%s", traceback.format_exc())
     return jsonify(
         error="Internal Server Error",
@@ -49,7 +48,7 @@ def make_event_id(metadata_url: str, meta: dict) -> str:
         "version": meta.get("version"),
     }
     h = hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()
-    return h[:16]  # kurze, stabile ID
+    return h[:16]  
 
 def event_path(event_id: str) -> str:
     return os.path.join(STORAGE_DIR, f"event_{event_id}.json")
@@ -61,7 +60,7 @@ def atomic_write_json(path: str, obj: dict):
     try:
         with os.fdopen(fd, "w", encoding="utf-8") as f:
             json.dump(obj, f, ensure_ascii=False)
-        os.replace(tmp, path)  # atomic on same filesystem
+        os.replace(tmp, path)  
     finally:
         try:
             if os.path.exists(tmp):
@@ -71,28 +70,28 @@ def atomic_write_json(path: str, obj: dict):
 
 def fetch_metadata(metadata_url: str) -> dict:
     if not URL_RE.match(metadata_url):
-        abort(400, description="metadata_url muss mit http(s):// beginnen.")
+        abort(400, description="metadata_url must start with http(s):// .")
     try:
         resp = requests.get(metadata_url, timeout=30)
     except requests.Timeout:
-        abort(504, description="Timeout beim Abruf der Metadaten-URL.")
+        abort(504, description="Timeout calling metadata_URL.")
     except requests.ConnectionError as e:
-        abort(502, description=f"Metadaten-URL nicht erreichbar: {e}")
+        abort(502, description=f"Can not reach metadata_URL: {e}")
     except requests.RequestException as e:
-        abort(502, description=f"HTTP-Fehler beim Abruf der Metadaten: {e}")
+        abort(502, description=f"HTTP-Error calling metadata: {e}")
 
     if resp.status_code != 200:
-        abort(502, description=f"Metadaten HTTP {resp.status_code} von {metadata_url}.")
+        abort(502, description=f"Metadata HTTP {resp.status_code} on {metadata_url}.")
 
     try:
         meta = resp.json()
     except ValueError:
-        abort(502, description="Metadaten-Response ist kein gültiges JSON.")
+        abort(502, description="Metadata response is not valid JSON.")
 
     if "data_url" not in meta:
-        abort(400, description="Pflichtfeld 'data_url' fehlt in Metadaten.")
+        abort(400, description="Required field 'data_url' is missing in metadata.")
     if not any(k in meta for k in ("created_at", "creation_timestamp")):
-        abort(400, description="Zeitstempel fehlt (created_at / creation_timestamp).")
+        abort(400, description="Missing timestamp (created_at / creation_timestamp).")
     return meta
 
 @app.get("/health")
@@ -102,11 +101,11 @@ def health():
 @app.post("/event")
 def receive_event():
     if not request.is_json:
-        abort(400, description="Erwarte application/json")
+        abort(400, description="Expecting application/json.")
     body = request.get_json(silent=True) or {}
     metadata_url = body.get("url") or body.get("metadata_url")
     if not metadata_url:
-        abort(400, description='Feld "url" (oder "metadata_url") fehlt')
+        abort(400, description='Field "url" (or "metadata_url") missing.')
 
     ensure_store()
     meta = fetch_metadata(metadata_url)
@@ -121,10 +120,8 @@ def receive_event():
         "schema": "lpi-event-v1",
     }
 
-    # Idempotenz: nur schreiben, wenn Datei noch nicht existiert
     if not os.path.exists(path):
         atomic_write_json(path, record)
-        # optional: "latest" Pointer aktualisieren
         atomic_write_json(os.path.join(STORAGE_DIR, "latest.json"), record)
 
     return jsonify(timestamp=iso_now(), status="accepted", event_id=event_id), 200
@@ -136,24 +133,24 @@ def get_last_event():
     if os.path.exists(latest):
         with open(latest, "r", encoding="utf-8") as f:
             return jsonify(json.load(f))
-    # Fallback: neuestes Event über mtime suchen
+    # fallback: search for newest event through mtime
     files = sorted(glob(os.path.join(STORAGE_DIR, "event_*.json")), key=os.path.getmtime, reverse=True)
     if not files:
-        abort(404, description="Kein Event gespeichert")
+        abort(404, description="No event was saved.")
     with open(files[0], "r", encoding="utf-8") as f:
         return jsonify(json.load(f))
 
 @app.post("/notify")
 def notify_sensical():
     """
-    Body JSON (either pass both or set env vars, see below):
+    Body JSON (either pass both or set env vars):
       {
         "event_url": "http://<sensical-host-or-ip>:18989/event",   # where to POST
-        "metadata_url": "https://<your-public-base>/mock-metadata" # what URL they should GET
+        "metadata_url": "https://<public-base>/mock-metadata" # what URL they should GET
       }
 
-    If 'metadata_url' is omitted, we try to build it from PUBLIC_BASE_URL + '/mock-metadata'.
-    If 'event_url' is omitted, we read SENSICAL_EVENT_URL from env.
+    If 'metadata_url' is omitted, build it from PUBLIC_BASE_URL + '/mock-metadata'.
+    If 'event_url' is omitted, read SENSICAL_EVENT_URL from env.
     """
     if not request.is_json:
         abort(400, description="Erwarte application/json")
@@ -163,22 +160,22 @@ def notify_sensical():
     event_url = body.get("event_url") or os.getenv("SENSICAL_EVENT_URL")
     metadata_url = body.get("metadata_url")
     if not metadata_url:
-        base = os.getenv("PUBLIC_BASE_URL")  # e.g. https://<your-ngrok>.ngrok-free.dev
+        base = os.getenv("PUBLIC_BASE_URL")  # e.g. https://<example-ngrok>.ngrok-free.dev
         if not base:
-            abort(400, description="metadata_url fehlt und PUBLIC_BASE_URL ist nicht gesetzt.")
+            abort(400, description="metadata_url is missing and PUBLIC_BASE_URL is not set.")
         metadata_url = base.rstrip("/") + "/mock-metadata"
 
     if not event_url:
-        abort(400, description="event_url fehlt (oder SENSICAL_EVENT_URL ist nicht gesetzt).")
+        abort(400, description="event_url missing (or SENSICAL_EVENT_URL is not set).")
 
     try:
         resp = requests.post(event_url, json={"url": metadata_url}, timeout=30)
         status = resp.status_code
         text = resp.text[:1000]
     except requests.Timeout:
-        abort(504, description=f"Timeout beim POST an {event_url}")
+        abort(504, description=f"Timeout at POST to {event_url}")
     except requests.RequestException as e:
-        abort(502, description=f"POST an {event_url} fehlgeschlagen: {e}")
+        abort(502, description=f"POST to {event_url} failed: {e}")
 
     return jsonify(
         sent_to=event_url,
@@ -191,10 +188,12 @@ def notify_sensical():
 def get_event(event_id: str):
     path = event_path(event_id)
     if not os.path.exists(path):
-        abort(404, description="Unbekannte Event-ID")
+        abort(404, description="Unknown Event-ID")
     with open(path, "r", encoding="utf-8") as f:
         return jsonify(json.load(f))
-    
+
+# endpoints for testing purposes 
+
 @app.get("/mock-metadata")
 def mock_metadata():
     return jsonify({
