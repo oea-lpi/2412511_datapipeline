@@ -62,10 +62,9 @@ class DataConverterUDBF:
             if not file_not_cut:
                 return 0
         
-        name_l = self.raw_file.lower()
-        if "100hz" in name_l:
+        if self.sample_rate == 100:
             ref_kb = REF_FILE_SIZE_100HZ_KB
-        elif "1hz" in name_l:
+        elif self.sample_rate == 1:
             ref_kb = REF_FILE_SIZE_1HZ_KB
         else:
             return 0 # do not alarm if we cant tell from the file name

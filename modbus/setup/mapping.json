@@ -17,11 +17,11 @@
   },
   {
     "field": "health:lpi_100hz_file_size",
-    "register": 122
+    "register": 124
   },
   {
     "field": "health:lpi_1hz_file_size",
-    "register": 124
+    "register": 126
   },
   {
     "field": "Tuerschalter:mean",
