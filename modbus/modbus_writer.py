@@ -8,10 +8,9 @@ import docker
 import modbus_server
 import redis
 
+
 from logger.setup_logging import setup_logging
 
-
-# Configuration
 MODBUS_HOST = os.getenv("MODBUS_HOST", "0.0.0.0")
 MODBUS_PORT = int(os.getenv("MODBUS_PORT", 502))
 
@@ -56,7 +55,6 @@ def main():
             "unhealthy": 0
         }
     
-    # Load mapping.json
     mapping_path = os.getenv("MAPPING_PATH", "setup/mapping.json")
     logger.debug(f"Loading mapping from {mapping_path}.")
     with open(mapping_path) as f:
@@ -89,7 +87,6 @@ def main():
 
     flip_heartbeat()
 
-    last_key = None
 
     # writer loop
     logger.debug("Starting Redis→Modbus one-shot writer loop...")

@@ -48,7 +48,8 @@ class DataConverterUDBF:
         import re
         from helper.utility import extract_ts
 
-        REF_FILE_SIZE_100HZ = int(os.getenv("REF_FILE_SIZE_100HZ", "35"))
+        REF_FILE_SIZE_100HZ_KB = float(os.getenv("REF_FILE_SIZE_100HZ", "447.2"))
+        REF_FILE_SIZE_1HZ_KB = float(os.getenv("REF_FILE_SIZE_1HZ", "27.2"))
         pattern = os.getenv("LPI_PATTERN", r"(\d{4}-\d{2}-\d{2})_(\d{2}-\d{2}-\d{2})")
         LPI_RE = re.compile(pattern)
 
@@ -60,11 +61,18 @@ class DataConverterUDBF:
             file_not_cut = (timestamp.minute % 10 == 0 and timestamp.second == 0)
             if not file_not_cut:
                 return 0
-            
-        reference_100hz = REF_FILE_SIZE_100HZ * 1024**2
+        
+        name_l = self.raw_file.lower()
+        if "100hz" in name_l:
+            ref_kb = REF_FILE_SIZE_100HZ_KB
+        elif "1hz" in name_l:
+            ref_kb = REF_FILE_SIZE_1HZ_KB
+        else:
+            return 0 # do not alarm if we cant tell from the file name
 
-        threshold_lower = reference_100hz * 0.9
-        threshold_upper = reference_100hz * 1.1
+        ref_bytes = ref_kb * 1000
+        threshold_lower = ref_bytes * 0.9
+        threshold_upper = ref_bytes * 1.1
 
         try:
             size = file_path.stat().st_size
