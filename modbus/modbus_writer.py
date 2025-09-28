@@ -14,15 +14,9 @@ from logger.setup_logging import setup_logging
 MODBUS_HOST = os.getenv("MODBUS_HOST", "0.0.0.0")
 MODBUS_PORT = int(os.getenv("MODBUS_PORT", 502))
 
-MY_CONVERTER = os.getenv("MODBUS_SERVICE_CONVERTER", "converter")
+MY_CONV_LPI = os.getenv("MODBUS_SERVICE_CONV_LPI", "conv_lpi")
 MY_REDIS = os.getenv("MODBUS_SERVICE_REDIS", "redis")
-MY_WRITER = os.getenv("MODBUS_SERVICE_WRITER", "modbus")
 HEALTH_MODBUS_TOGGLE = os.getenv("HEALTH_MODBUS_TOGGLE", "health:modbus_toggle")
-MY_UPLOADER = os.getenv("MODBUS_SERVICE_UPLOADER", "uploader")
-MY_COMBINER = os.getenv("MODBUS_SERVICE_COMBINER", "combiner")
-MY_FETCHER = os.getenv("MODBUS_SERVICE_FETCHER", "fetcher")
-HEALTH_KEY_ALLSAT = os.getenv("HEALTH_KEY_ALLSAT", "health:allsat_fetch")
-HEALTH_UDBF_FILE_SIZE = os.getenv("HEALTH_UDBF_FILE_SIZE", "health:udbf_file_size")
 
 logger = logging.getLogger("modbus")
 
@@ -31,7 +25,15 @@ docker_client = docker.DockerClient(
     base_url='unix:///var/run/docker.sock',
     timeout=3
 )
-prev = {}
+
+FLOAT_EPS = 1e-9
+last_written = {} 
+
+def write_if_changed(server, reg: int, value: float):
+    prev = last_written.get(reg)
+    if prev is None or abs(prev - value) > FLOAT_EPS:
+        server.set_holding_register(reg, float(value), "f")
+        last_written[reg] = float(value)
 
 def main():
     setup_logging(process_name="modbus")
@@ -45,14 +47,9 @@ def main():
 
     # Mapping for the healthchecks
     default_map = {
-            "starting": -1,
-            "healthy":   0,
-            "unhealthy": 1
-        }
-    modbus_map = {
-            "starting": -1,
-            "healthy":   1,
-            "unhealthy": 0
+            "starting": -1.0,
+            "healthy":   0.0,
+            "unhealthy": 1.0
         }
     
     mapping_path = os.getenv("MAPPING_PATH", "setup/mapping.json")
@@ -67,6 +64,7 @@ def main():
         highest_register = max(entry["register"] for entry in MAPPINGS) + 1  # +1 to cover float (2 registers)
         for addr in range(0, highest_register + 1, 2):  
             server.set_holding_register(addr, 0.0, "f")
+            last_written[addr] = 0.0
         logger.debug(f"Prefilled holding registers 0 to {highest_register}.")
     except Exception:
         logger.exception(f"Failed to start Modbus server.")
@@ -89,21 +87,19 @@ def main():
 
 
     # writer loop
-    logger.debug("Starting Redis→Modbus one-shot writer loop...")
-
-    processed = set() 
+    logger.debug("Starting Redis→Modbus  writer loop...")
+    HEALTH_POLL_SEC = 3.0
+    next_health_poll = 0.0
 
     try:
         while True:
-            did_any = False
-
+            # stat values
             for stats_key in redis_db.scan_iter("stats:*"):
-                if stats_key in processed:
-                    continue  # already consumed
-                
                 logger.debug(f"Using redis key: {stats_key}")
                 for entry in MAPPINGS:
-                    field    = entry["field"]
+                    field = entry.get("field")
+                    if not field:
+                        continue
                     register = entry["register"]
 
                     val = redis_db.hget(stats_key, field)
@@ -111,19 +107,61 @@ def main():
                         continue
 
                     try:
-                        float_val = float(val.replace(",", "."))
+                        float_val = float(str(val).strip().replace(",", "."))
                     except ValueError:
                         logger.warning(f"Cannot parse {val!r} for field '{field}' from {stats_key}.")
                         continue
 
-                    server.set_holding_register(register, float_val, "f")
+                    write_if_changed(server, register, float_val)
+                    # logger.debug(f"Wrote {float_val} from {stats_key}.{field} → HR {register}")
+            
+            # health values
+            for stats_key in redis_db.scan_iter("health:*"):
+                logger.debug(f"Using redis key: {stats_key}")
+                for entry in MAPPINGS:
+                    field = entry.get("field")
+                    if not field:
+                        continue
+                    register = entry["register"]
+
+                    val = redis_db.hget(stats_key, field)
+                    if val is None:
+                        continue
+
+                    try:
+                        float_val = float(str(val).strip().replace(",", "."))
+                    except ValueError:
+                        logger.warning(f"Cannot parse {val!r} for field '{field}' from {stats_key}.")
+                        continue
+
+                    write_if_changed(server, register, float_val)
                     # logger.debug(f"Wrote {float_val} from {stats_key}.{field} → HR {register}")
 
-                processed.add(stats_key)
-                did_any = True
+            # Container Health
+            now = time.monotonic()
+            
+            if now >= next_health_poll:
+                for svc_name, reg in [
+                    (MY_CONV_LPI, 100),
+                    (MY_REDIS, 101),
+                ]:
+                    try:
+                        lst = docker_client.containers.list(all=True, filters={"label": f"com.docker.compose.service={svc_name}"})
+                        ctr = lst[0] if lst else docker_client.containers.get(svc_name)
+                        attrs = ctr.attrs or {}
+                        state = attrs.get("State") or {}
+                        health = (state.get("Health") or {}).get("Status")
+                        if health is None:
+                            health = "healthy" if state.get("Running") else "unhealthy"
+                    except Exception:
+                        health = "unhealthy"
 
-            if not did_any:
-                time.sleep(0.3)
+                    code = default_map.get(health, default_map["unhealthy"])
+                    write_if_changed(server, reg, code)
+            
+                next_health_poll = now + HEALTH_POLL_SEC
+
+            time.sleep(0.2)
 
     except Exception:
         logger.exception("Error in modbus writer loop.")

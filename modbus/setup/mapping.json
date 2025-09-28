@@ -1,5 +1,29 @@
 [
   {
+    "field": "health:conv_lpi",
+    "register": 100
+  },
+  {
+    "field": "health:redis",
+    "register": 102
+  },
+  {
+    "field": "health:lpi_100hz_file_processing",
+    "register": 120
+  },
+  {
+    "field": "health:lpi_1hz_file_processing",
+    "register": 122
+  },
+  {
+    "field": "health:lpi_100hz_file_size",
+    "register": 122
+  },
+  {
+    "field": "health:lpi_1hz_file_size",
+    "register": 124
+  },
+  {
     "field": "Tuerschalter:mean",
     "register": 1000
   },
