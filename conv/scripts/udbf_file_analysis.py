@@ -19,6 +19,7 @@ BASIC_REDIS_TTL = int(os.getenv("BASIC_REDIS_TTL", "60"))
 BASIC_ROUNDING = int(os.getenv("BASIC_ROUNDING", "3"))
 
 HEALTH_LPI_100HZ_FILE_SIZE = os.getenv("HEALTH_LPI_100HZ_FILE_SIZE", "health:lpi_100hz_file_size")
+HEALTH_LPI_1HZ_FILE_SIZE = os.getenv("HEALTH_LPI_1HZ_FILE_SIZE", "health:lpi_1hz_file_size")
 
 def udbf_file_analysis(file_path: Path, stats_dir: Path, finished_dir: Path, redis_db: redis.Redis) -> None:
     """
@@ -53,7 +54,12 @@ def udbf_file_analysis(file_path: Path, stats_dir: Path, finished_dir: Path, red
     )
 
     health_file_size = conv.check_filesize()
-    redis_db.set(HEALTH_LPI_100HZ_FILE_SIZE, health_file_size, ex=BASIC_REDIS_TTL)
+    if "100hz" in raw_file.lower():
+        redis_db.set(HEALTH_LPI_100HZ_FILE_SIZE, health_file_size, ex=BASIC_REDIS_TTL)
+    elif "1hz" in raw_file.lower():
+        redis_db.set(HEALTH_LPI_1HZ_FILE_SIZE, health_file_size, ex=BASIC_REDIS_TTL)
+    else:
+        pass
 
     conv.read_udbf_file()
     conv.date_converter()
