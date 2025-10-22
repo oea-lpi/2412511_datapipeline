@@ -34,6 +34,8 @@ services:
       - CONV_CONTEXT=LPI
     env_file:
       - ./.env
+    depends_on:
+      - redis
     volumes:
       - ./helper:/app/helper
       - ./logger:/app/logger
@@ -157,7 +159,18 @@ services:
       test: ["CMD-SHELL", "nc -z localhost 502"]
       interval: 30s
       timeout: 5s
-      
+
+  uploader:
+    build:
+      context: ./uploader
+      dockerfile: Dockerfile.uploader
+    env_file:
+      - ./.env
+    volumes:
+      - ./logger:/app/logger
+      - "/mnt/M2412511_LPI_Qstation/Logs:/app/logs"
+      - "/mnt/M2412511_LPI_Qstation/Logger2_1Hz_30sec/finished:/app/files/finished_1hz"
+      - "/mnt/M2412511_LPI_Qstation/Logger1_100Hz_30sec/finished:/app/files/finished_100hz"      
 
 volumes:
   redis_data:
